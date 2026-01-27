@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrillo Dynamics | AI Automation for Chicago Service Leaders</title>
+    <title>Carrillo Dynamics | Engineering-First Operations</title>
     <style>
         :root {
             --bg-dark: #111111;
             --bg-card: #1a1a1a;
-            --accent-blue: #007aff; /* Electric Blue */
+            --accent-blue: #007aff;
             --text-main: #ffffff;
             --text-dim: #a0a0a0;
             --border: #333333;
@@ -18,209 +18,156 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
         }
 
         body {
             background-color: var(--bg-dark);
             color: var(--text-main);
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
-        /* Utility */
         .container {
             max-width: 1100px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
-        .btn {
-            background: var(--accent-blue);
-            color: white;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 4px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0, 122, 255, 0.4);
-        }
-
-        /* Hero Section */
+        /* Hero */
         header {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
+            padding: 160px 0 100px;
+            text-align: left;
             border-bottom: 1px solid var(--border);
         }
 
         .hero h1 {
             font-size: clamp(2.5rem, 6vw, 4rem);
             font-weight: 900;
-            margin-bottom: 1rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
             letter-spacing: -1px;
         }
 
         .hero p {
             color: var(--text-dim);
             font-size: 1.25rem;
+            max-width: 700px;
             margin-bottom: 2rem;
         }
 
-        /* Grid Section */
-        .grid-section {
-            padding: 8rem 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
+        /* Solutions Grid */
+        .grid-section { padding: 100px 0; }
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            gap: 1.5rem;
         }
 
         .card {
             background: var(--bg-card);
             padding: 2.5rem;
             border: 1px solid var(--border);
-            border-radius: 8px;
-            transition: border-color 0.3s ease;
-        }
-
-        .card:hover {
-            border-color: var(--accent-blue);
+            border-radius: 2px;
         }
 
         .card h3 {
-            margin-bottom: 1rem;
-            color: var(--accent-blue);
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 2px;
+            color: var(--accent-blue);
+            margin-bottom: 1rem;
         }
 
-        .card p {
-            color: var(--text-dim);
-        }
+        .card h4 { font-size: 1.4rem; margin-bottom: 1rem; font-weight: 700; }
+        .card p { color: var(--text-dim); font-size: 0.95rem; }
 
-        /* About Section */
-        .about {
-            padding: 8rem 0;
-            background: #0a0a0a;
-            border-top: 1px solid var(--border);
-        }
-
-        /* Footer */
+        /* Footer & Compliance */
         footer {
-            padding: 4rem 0;
+            padding: 80px 0 40px;
             border-top: 1px solid var(--border);
-            font-size: 0.85rem;
             color: var(--text-dim);
+            font-size: 0.85rem;
         }
 
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .compliance-text {
-            max-width: 800px;
-            line-height: 1.4;
-            opacity: 0.7;
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
         }
 
         .address {
             font-style: normal;
             color: var(--text-main);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .compliance-text {
+            line-height: 1.5;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+            background: #000;
         }
 
         @media (max-width: 768px) {
-            header { height: auto; padding: 6rem 0; }
+            .footer-grid { grid-template-columns: 1fr; }
+            header { padding: 100px 0 60px; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="container hero">
-            <h1>We Automate the Boring Work <br><span style="color: var(--accent-blue);">So You Can Build.</span></h1>
-            <p>AI & Operations Consulting for Chicago's Service Industry.</p>
-            <a href="#audit" class="btn">Book an Audit</a>
+        <div class="container">
+            <h2 style="color: var(--accent-blue); font-size: 1rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 1rem;">Carrillo Dynamics</h2>
+            <h1>We Automate the Boring Work <br>So You Can Build.</h1>
+            <p>AI & Operations Consulting for Chicago’s Service Industry. We deploy precision systems that capture leads and automate compliance.</p>
         </div>
     </header>
 
     <section class="grid-section">
         <div class="container">
-            <div class="section-title">
-                <h2>Precision Systems for Construction & Cleaning</h2>
-            </div>
             <div class="grid">
                 <div class="card">
-                    <h3>The Problem</h3>
-                    <p>Missed calls from new leads, messy paperwork, and chaotic scheduling are costing you thousands in "admin tax."</p>
+                    <h3>Capability 01</h3>
+                    <h4>SMS Lead Capture</h4>
+                    <p>Instant 24/7 auto-reply for missed calls and web inquiries. Stop losing business to the fastest responder.</p>
                 </div>
                 <div class="card">
-                    <h3>The Solution</h3>
-                    <p>24/7 SMS Auto-Reply, Unified Inboxes, and Automated Compliance (W9/COI) systems that work while you're on-site.</p>
+                    <h3>Capability 02</h3>
+                    <h4>Ops Automation</h4>
+                    <p>Centralized communication and automated document collection (W9/COI) for sub-contractors and staff.</p>
                 </div>
                 <div class="card">
-                    <h3>The Result</h3>
-                    <p>Zero missed opportunities and a professional operation that scales without adding more office staff.</p>
+                    <h3>Capability 03</h3>
+                    <h4>Local Infrastructure</h4>
+                    <p>Built for Chicago construction and cleaning companies. Engineering-first logic, not generic software.</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section class="about">
-        <div class="container">
-            <h2>Engineering-First Operations</h2>
-            <p style="margin-top: 1rem; max-width: 700px; color: var(--text-dim);">
-                We don't just sell software; we build infrastructure. Based in Chicago, Carrillo Dynamics applies engineering principles to automate the manual bottlenecks of local service businesses. We speak the language of blueprints and bid sheets.
-            </p>
         </div>
     </section>
 
     <footer>
-        <div class="container footer-content">
-            <div>
-                <strong>Carrillo Dynamics</strong><br>
-                <address class="address">10905 S Avenue E, Chicago, IL 60617</address>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <address class="address">
+                        <strong>Carrillo Dynamics</strong><br>
+                        10905 S Avenue E<br>
+                        Chicago, IL 60617
+                    </address>
+                    <p>&copy; 2026 Carrillo Dynamics</p>
+                </div>
+                
+                <div class="compliance-text">
+                    <strong>Privacy Policy & SMS Terms:</strong><br><br>
+                    No mobile information will be shared with third parties/affiliates for marketing/promotional purposes. All the above categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties. 
+                    <br><br>
+                    By providing your phone number, you consent to receive SMS communications from Carrillo Dynamics regarding project updates and service inquiries. Message frequency varies. Message and data rates may apply. Text STOP to opt-out at any time.
+                </div>
             </div>
-            
-            <p class="compliance-text">
-                Privacy Policy: No mobile information will be shared with third parties/affiliates for marketing/promotional purposes. All the above categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.
-            </p>
-
-            <p>&copy; 2026 Carrillo Dynamics. All rights reserved.</p>
         </div>
     </footer>
 
-    <script>
-        // Smooth scrolling for the CTA button
-        document.querySelector('.btn').addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            if(href.startsWith('#')) {
-                e.preventDefault();
-                // If you have a contact form, target its ID. Otherwise, scroll to footer.
-                document.querySelector('footer').scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-    </script>
 </body>
 </html>
