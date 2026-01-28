@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Studies | Carrillo Dynamics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --accent: #007aff;
+            --border: #222;
+            --text-high: #ffffff;
+            --text-mid: #a0a0a0;
+            --mono: 'JetBrains Mono', monospace;
+        }
+        body {
+            background-color: var(--bg);
+            color: var(--text-high);
+            font-family: 'Inter', sans-serif;
+            padding: 4rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .mono { font-family: var(--mono); text-transform: uppercase; font-size: 0.8rem; color: var(--accent); text-decoration: none; }
+        h1 { font-size: 3rem; margin: 1rem 0 3rem; }
+        
+        /* The Case Report Style */
+        .case-report {
+            border-top: 1px solid var(--border);
+            padding: 3rem 0;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+        }
+        .metrics { font-family: var(--mono); color: var(--accent); font-size: 1.2rem; }
+        h3 { font-size: 1.8rem; margin-bottom: 1rem; }
+        
+        @media (max-width: 600px) {
+            .case-report { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="mono"><- RETURN TO HQ</a>
+    
+    <h1>Technical Case Studies</h1>
+
+    <div class="case-report">
+        <div class="metrics">
+            [ OUTCOME ]<br>
+            +420 HRS / YR<br>
+            RECLAIMED
+        </div>
+        <div>
+            <p class="mono" style="color: var(--text-mid);">Project: Logistics Automation</p>
+            <h3>Automated BOL Parsing Pipeline</h3>
+            <p style="color: var(--text-mid);">A regional freight carrier was losing 8 hours a day to manual data entry from crumpled Bills of Lading. We engineered a custom Python OCR tool that extracts data from smartphone photos and syncs it directly to their dispatch software.</p>
+        </div>
+    </div>
+
+    <div class="case-report">
+        <div class="metrics">
+            [ OUTCOME ]<br>
+            $14,000 / MO<br>
+            LEAK PLUGGED
+        </div>
+        <div>
+            <p class="mono" style="color: var(--text-mid);">Project: Compliance Defense</p>
+            <h3>Sub-Contractor Insurance Monitor</h3>
+            <p style="color: var(--text-mid);">A mid-sized construction firm faced $50k in fines due to expired sub-contractor insurance. We deployed an automated tracker that locks project access for any sub whose COI (Certificate of Insurance) is within 7 days of expiration.</p>
+        </div>
+    </div>
+
+    <div class="case-report">
+        <div class="metrics">
+            [ OUTCOME ]<br>
+            -85% DELAY<br>
+            IN BILLING
+        </div>
+        <div>
+            <p class="mono" style="color: var(--text-mid);">Project: Billing Velocity</p>
+            <h3>Field-to-Invoice Bridge</h3>
+            <p style="color: var(--text-mid);">Reduced the gap between 'Delivery' and 'Invoice' from 14 days to 24 hours by automating the reconciliation of field logs against purchase orders in real-time.</p>
+        </div>
+    </div>
+
+</body>
+</html>
