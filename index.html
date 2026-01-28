@@ -92,7 +92,17 @@
 <body>
 
     <section class="container hero">
-        <p class="mono">// Systems Deployment</p>
+        <p class="mono" id="live-timestamp">// [STATUS: ACTIVE] // LOADING DATA...</p>
+
+<script>
+    // Simple script to show the current date/time in an industrial format
+    const updateTimestamp = () => {
+        const now = new Date();
+        const timestamp = now.toISOString().replace('T', ' ').substring(0, 19);
+        document.getElementById('live-timestamp').innerText = `// [STATUS: ACTIVE] // ${timestamp} CST`;
+    }
+    updateTimestamp();
+</script>
         <h1>Stop the Silent Leaks in Your Operation.</h1>
         <p>We engineer automated workflows for Logistics, Freight, and Construction. We fix the broken processes that bleed cash.</p>
         <div class="btn-group">
@@ -123,27 +133,48 @@
         </div>
     </section>
 
-    <section class="container">
-        <p class="mono">// Solutions Architecture</p>
-        <h2 style="font-size: 2.5rem; margin-top: 1rem;">Industrial-Grade Automation.</h2>
-        <div class="solutions-grid">
-            <div class="solution-card">
-                <p class="mono">01</p>
-                <h3>Document Parsing</h3>
-                <p>We turn messy PDFs, crumpled BOLs, and handwritten logs into structured data instantly.</p>
-            </div>
-            <div class="solution-card">
-                <p class="mono">02</p>
-                <h3>Compliance Defense</h3>
-                <p>Auto-check insurance dates, safety tickets, and certifications before they expire.</p>
-            </div>
-            <div class="solution-card">
-                <p class="mono">03</p>
-                <h3>Billing Velocity</h3>
-                <p>Reduce the gap between 'Delivery' and 'Invoice' from days to seconds.</p>
-            </div>
+<section class="container">
+    <p class="mono">// Solutions Architecture_v2.0</p>
+    <h2 style="font-size: 2.5rem; margin-top: 1rem;">Industrial-Grade Automation.</h2>
+    
+    <div class="solutions-grid">
+        <div class="solution-card">
+            <p class="mono">01</p>
+            <h3>Document Parsing</h3>
+            <p>We turn messy PDFs, crumpled BOLs, and handwritten logs into structured data instantly using custom OCR pipelines.</p>
         </div>
-    </section>
+
+        <div class="solution-card">
+            <p class="mono">02</p>
+            <h3>Compliance Defense</h3>
+            <p>Automated monitoring of insurance certificates and safety tickets. Systems lock workflows before certifications expire.</p>
+        </div>
+
+        <div class="solution-card">
+            <p class="mono">03</p>
+            <h3>Billing Velocity</h3>
+            <p>Bridge the gap between "Job Complete" and "Invoice Sent." Trigger billing the moment a digital signature hits the field app.</p>
+        </div>
+
+        <div class="solution-card">
+            <p class="mono">04</p>
+            <h3>Inventory/Material Sync</h3>
+            <p>Real-time reconciliation between warehouse stock and job-site consumption. Stop "missing" hardware from eating your margin.</p>
+        </div>
+
+        <div class="solution-card">
+            <p class="mono">05</p>
+            <h3>Predictive Fleet Logic</h3>
+            <p>Automated maintenance triggers based on engine hours and mileage logs. Prevent $10k repairs with $200 preventive alerts.</p>
+        </div>
+
+        <div class="solution-card">
+            <p class="mono">06</p>
+            <h3>Field-to-Office Bridge</h3>
+            <p>Eliminate the "Friday Afternoon Admin" rush. Field photos, safety logs, and hours are synced to your ERP in real-time.</p>
+        </div>
+    </div>
+</section>
 
     <section class="container">
         <p class="mono">// Deployment Roadmap</p>
