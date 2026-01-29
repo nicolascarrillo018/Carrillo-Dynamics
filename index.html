@@ -58,357 +58,159 @@
         .btn-secondary { border: 1px solid var(--text-low); color: var(--text-high); }
         .btn:hover { filter: brightness(1.2); }
         /* Pain Section ($53k Hook) */
-
         .pain-box { background: var(--surface); border-left: 4px solid #ff3b30; padding: 3rem; margin-top: 2rem; }
-
         .math-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 2rem; }
-
         .math-item h4 { color: #ff3b30; font-family: var(--mono); font-size: 1.5rem; }
-
-
-
         /* Solutions */
-
         .solutions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1px; background: var(--border); margin-top: 3rem; border: 1px solid var(--border); }
-
         .solution-card { background: var(--bg); padding: 3rem; }
-
         .solution-card h3 { margin: 1rem 0; font-size: 1.5rem; }
-
         .solution-card p { color: var(--text-mid); }
-
-
-
         /* Process */
-
         .process-row { display: grid; grid-template-columns: 100px 1fr; gap: 2rem; margin-bottom: 4rem; }
-
         .step-num { font-family: var(--mono); font-size: 2rem; color: var(--text-low); }
-
-
-
         /* Footer */
-
         footer { padding: 4rem 0; background: #050505; color: var(--text-low); font-size: 0.9rem; }
-
         .footer-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; }
-
         .compliance { font-size: 0.75rem; line-height: 1.6; }
-
-
-
         @media (max-width: 768px) {
-
             .footer-grid { grid-template-columns: 1fr; }
-
         }
-
     </style>
-
 </head>
-
 <body>
-
-
-
     <section class="container hero">
-
         <p class="mono" id="live-timestamp">// [STATUS: ACTIVE] // LOADING DATA...</p>
-
-
-
 <script>
-
     const updateTimestamp = () => {
-
         const options = {
-
             timeZone: 'America/Chicago',
-
             hour12: false,
-
             year: 'numeric',
-
             month: '2-digit',
-
             day: '2-digit',
-
             hour: '2-digit',
-
             minute: '2-digit',
-
             second: '2-digit'
-
         };
-
-
-
         const now = new Intl.DateTimeFormat('en-US', options).format(new Date());
-
         // This formats it to YYYY-MM-DD HH:MM:SS style
-
         const formatted = now.replace(/(\d+)\/(\d+)\/(\d+),?\s(.*)/, '$3-$1-$2 $4');
-
-        
-
         document.getElementById('live-timestamp').innerText = `// [STATUS: ACTIVE] // ${formatted} CST`;
-
     }
-
-    
-
     // Update it immediately
-
     updateTimestamp();
-
     // Update it every second to make it look like a live feed
-
     setInterval(updateTimestamp, 1000);
-
 </script>
-
         <h1>Stop the Silent Leaks in Your Operation.</h1>
-
         <p>We engineer automated workflows for Logistics, Freight, and Construction. We fix the broken processes that bleed cash.</p>
-
         <div class="btn-group">
-
             <a href="/audit/" class="btn btn-primary">Request an Operations Audit</a>
-
 <a href="/cases/" class="btn btn-secondary">View Case Studies</a>
-
         </div>
-
     </section>
-
-
-
     <section class="container">
-
         <p class="mono">// The Cost of Inaction</p>
-
         <div class="pain-box">
-
             <h2>The math is simple, but the cost is hidden.</h2>
-
             <div class="math-grid">
-
                 <div class="math-item">
-
                     <h4>$150</h4>
-
                     <p>Per Diem fine for one missing J1 ticket.</p>
-
                 </div>
-
                 <div class="math-item">
-
                     <h4>$5,000+</h4>
-
                     <p>Average lost change order in construction.</p>
-
                 </div>
-
                 <div class="math-item">
-
                     <h4>$50,000+</h4>
-
                     <p>Annual cost of a single operational leak.</p>
-
                 </div>
-
             </div>
-
             <p style="margin-top: 2rem; color: var(--text-mid);">A single operational leak can cost $50k+ a year. <strong>We plug the hole.</strong></p>
-
         </div>
-
     </section>
-
-
-
 <section class="container">
-
     <p class="mono">// Solutions Architecture_v2.0</p>
-
     <h2 style="font-size: 2.5rem; margin-top: 1rem;">Industrial-Grade Automation.</h2>
-
-    
-
     <div class="solutions-grid">
-
         <div class="solution-card">
-
             <p class="mono">01</p>
-
             <h3>Document Parsing</h3>
-
             <p>We turn messy PDFs, crumpled BOLs, and handwritten logs into structured data instantly using custom OCR pipelines.</p>
-
         </div>
-
-
-
         <div class="solution-card">
-
             <p class="mono">02</p>
-
             <h3>Compliance Defense</h3>
-
             <p>Automated monitoring of insurance certificates and safety tickets. Systems lock workflows before certifications expire.</p>
-
         </div>
-
-
-
         <div class="solution-card">
-
             <p class="mono">03</p>
-
             <h3>Billing Velocity</h3>
-
             <p>Bridge the gap between "Job Complete" and "Invoice Sent." Trigger billing the moment a digital signature hits the field app.</p>
-
         </div>
-
-
-
         <div class="solution-card">
-
             <p class="mono">04</p>
-
             <h3>Inventory/Material Sync</h3>
-
             <p>Real-time reconciliation between warehouse stock and job-site consumption. Stop "missing" hardware from eating your margin.</p>
-
         </div>
-
-
-
         <div class="solution-card">
-
             <p class="mono">05</p>
-
             <h3>Predictive Fleet Logic</h3>
-
             <p>Automated maintenance triggers based on engine hours and mileage logs. Prevent $10k repairs with $200 preventive alerts.</p>
-
         </div>
-
-
-
         <div class="solution-card">
-
             <p class="mono">06</p>
-
             <h3>Field-to-Office Bridge</h3>
-
             <p>Eliminate the "Friday Afternoon Admin" rush. Field photos, safety logs, and hours are synced to your ERP in real-time.</p>
-
         </div>
-
     </div>
-
 </section>
-
-
-
     <section class="container">
-
         <p class="mono">// Deployment Roadmap</p>
-
         <div style="margin-top: 3rem;">
-
             <div class="process-row">
-
                 <div class="step-num">01</div>
-
                 <div>
-
                     <h3>Diagnose</h3>
-
                     <p>We walk your floor and find the bottleneck. No sales pitch, just a technical assessment of your current infrastructure.</p>
-
                 </div>
-
             </div>
-
             <div class="process-row">
-
                 <div class="step-num">02</div>
-
                 <div>
-
                     <h3>Engineer</h3>
-
                     <p>We build a custom automation using existing tools (Python, AI, APIs). We sell outcomes, not hours.</p>
-
                 </div>
-
             </div>
-
             <div class="process-row">
-
                 <div class="step-num">03</div>
-
                 <div>
-
                     <h3>Deploy</h3>
-
                     <p>We install the system and train your team. Software doesn't need to be pretty, it needs to work.</p>
-
                 </div>
-
             </div>
-
         </div>
-
     </section>
-
-
-
     <section class="container">
-
         <p class="mono">// About the Agency</p>
-
         <div style="max-width: 800px; margin-top: 2rem;">
-
             <p style="font-size: 1.5rem;">Founded by an ex-Project Engineer and South Side native. We understand that in logistics and construction, efficiency isn't a luxury, it's the difference between profit and loss.</p>
-
         </div>
-
     </section>
-
-
-
     <footer>
-
         <div class="container footer-grid">
-
             <div>
-
                 <p style="color: white; font-weight: 700;">Carrillo Dynamics - Industrial Automation</p>
-
                 <p>Chicago, IL</p>
-
                 <p>Email: engineering@carrillodynamics.com</p>
-
                 <p style="margin-top: 1rem;">&copy; 2025. Custom Solutions Only.</p>
-
             </div>
-
             <div class="compliance">
-
                 <p><strong>Privacy & SMS:</strong> By providing your phone number, you agree to receive text messages from Carrillo Dynamics for audit scheduling and technical updates. Message and data rates may apply. Message frequency varies. <strong>Reply STOP to opt-out.</strong> We value your operational security; your data is never sold to third-party marketing lists.</p>
-
             </div>
-
         </div>
-
     </footer>
-
-
-
 </body>
-
 </html>
