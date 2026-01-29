@@ -45,9 +45,15 @@
             opacity: 0.3;
         }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
-        /* Utility */
-        .mono { font-family: var(--mono); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.1em; color: var(--accent); }
-        section { padding: 10rem 0; border-bottom: 1px solid var(--border); }
+       /* Utility */
+.mono { 
+    font-family: var(--mono); 
+    text-transform: uppercase; 
+    font-size: 0.7rem; /* Reduced from 0.8rem */
+    letter-spacing: 0.05em; /* Reduced from 0.1em to save horizontal space */
+    color: var(--accent); 
+    white-space: nowrap; /* This prevents it from ever breaking into two lines */
+}
         /* Hero */
         .hero { padding: 10rem 0 6rem; }
         .hero h1 { font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 800; line-height: 0.9; letter-spacing: -0.04em; margin-bottom: 2rem; }
