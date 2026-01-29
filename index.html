@@ -95,13 +95,29 @@
         <p class="mono" id="live-timestamp">// [STATUS: ACTIVE] // LOADING DATA...</p>
 
 <script>
-    // Simple script to show the current date/time in an industrial format
     const updateTimestamp = () => {
-        const now = new Date();
-        const timestamp = now.toISOString().replace('T', ' ').substring(0, 19);
-        document.getElementById('live-timestamp').innerText = `// [STATUS: ACTIVE] // ${timestamp} CST`;
+        const options = {
+            timeZone: 'America/Chicago',
+            hour12: false,
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+        };
+
+        const now = new Intl.DateTimeFormat('en-US', options).format(new Date());
+        // This formats it to YYYY-MM-DD HH:MM:SS style
+        const formatted = now.replace(/(\d+)\/(\d+)\/(\d+),?\s(.*)/, '$3-$1-$2 $4');
+        
+        document.getElementById('live-timestamp').innerText = `// [STATUS: ACTIVE] // ${formatted} CST`;
     }
+    
+    // Update it immediately
     updateTimestamp();
+    // Update it every second to make it look like a live feed
+    setInterval(updateTimestamp, 1000);
 </script>
         <h1>Stop the Silent Leaks in Your Operation.</h1>
         <p>We engineer automated workflows for Logistics, Freight, and Construction. We fix the broken processes that bleed cash.</p>
