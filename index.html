@@ -53,14 +53,15 @@
     letter-spacing: 0.05em; 
     color: var(--accent); 
 }
-
-/* This new rule targets ONLY the labels, making them bigger */
+/* This rule targets the labels, making them bigger and adding breathing room */
 .section-label {
     display: block;
-    font-size: 1.1rem; /* Adjust this number to go even bigger */
-    margin-bottom: 1.5rem;
+    font-size: 1.1rem; 
+    margin-top: 5rem;    /* This adds the space ABOVE the label */
+    margin-bottom: 1.5rem; /* This keeps the space BELOW the label */
+    font-weight: 500;
     letter-spacing: 0.15em;
-    white-space: normal; /* Labels can wrap if they need to */
+    white-space: normal; 
 }
         /* Hero */
         .hero { padding: 10rem 0 6rem; }
