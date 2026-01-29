@@ -49,10 +49,18 @@
 .mono { 
     font-family: var(--mono); 
     text-transform: uppercase; 
-    font-size: 0.7rem; /* Reduced from 0.8rem */
-    letter-spacing: 0.05em; /* Reduced from 0.1em to save horizontal space */
+    font-size: 0.7rem; 
+    letter-spacing: 0.05em; 
     color: var(--accent); 
-    white-space: nowrap; /* This prevents it from ever breaking into two lines */
+}
+
+/* This new rule targets ONLY the labels, making them bigger */
+.section-label {
+    display: block;
+    font-size: 1.1rem; /* Adjust this number to go even bigger */
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.15em;
+    white-space: normal; /* Labels can wrap if they need to */
 }
         /* Hero */
         .hero { padding: 10rem 0 6rem; }
