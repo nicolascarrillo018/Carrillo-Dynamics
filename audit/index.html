@@ -1,49 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="icon" type="image/x-icon" href="/favicon.ico?v=1">
-<link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png?v=1">
-<link rel="apple-touch-icon" href="/android-chrome-512x512.png?v=1">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=1">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Operations Audit | Carrillo Dynamics</title>
+    <title>Freight Operations Audit | Carrillo Dynamics</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --bg: #0a0a0a;
+            --surface: #111111;
             --accent: #007aff;
+            --border: #222222;
             --text-high: #ffffff;
             --text-mid: #a0a0a0;
             --mono: 'JetBrains Mono', monospace;
         }
+
         body {
             background-color: var(--bg);
             color: var(--text-high);
             font-family: 'Inter', sans-serif;
-            padding: 4rem 2rem;
-            max-width: 800px;
-            margin: 0 auto;
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
         }
-        .mono { font-family: var(--mono); text-transform: uppercase; font-size: 0.8rem; color: var(--accent); text-decoration: none; }
-        h1 { font-size: 2.5rem; margin: 1rem 0; }
-        .form-container { margin-top: 2rem; border: 1px solid #222; background: #111; }
+
+        /* Industrial Grid Overlay */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(var(--border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .container { max-width: 800px; margin: 0 auto; padding: 0 1.5rem; }
+        .mono { font-family: var(--mono); color: var(--accent); letter-spacing: 0.05em; font-size: 0.8rem; text-transform: uppercase; }
+
+        /* Navigation */
+        nav { padding: 2rem 0; display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { font-weight: 800; text-decoration: none; color: white; font-size: 1.2rem; }
+        .nav-link { color: var(--text-mid); text-decoration: none; font-size: 0.9rem; transition: 0.2s; }
+        .nav-link:hover { color: white; }
+
+        /* Audit Header */
+        .audit-header { padding: 6rem 0 3rem; text-align: center; }
+        .audit-header h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; margin-top: 1rem; }
+        .audit-header p { color: var(--text-mid); margin-top: 1.5rem; font-size: 1.1rem; line-height: 1.6; }
+
+        /* Checklist Box */
+        .checklist-box { background: var(--surface); border: 1px solid var(--border); padding: 2rem; margin-bottom: 3rem; border-left: 4px solid var(--accent); }
+        .checklist-item { display: flex; gap: 1rem; margin-bottom: 1rem; align-items: flex-start; }
+        .check-icon { color: var(--accent); font-family: var(--mono); }
+
+        /* Form Container */
+        .form-container { background: #fff; padding: 2rem; border-radius: 4px; color: #000; min-height: 400px; display: flex; align-items: center; justify-content: center; }
+        
+        /* Footer */
+        footer { padding: 4rem 0; margin-top: 4rem; background: #050505; color: var(--text-mid); font-size: 0.8rem; text-align: center; border-top: 1px solid var(--border); }
     </style>
 </head>
 <body>
 
-    <a href="/" class="mono"><- RETURN TO HQ</a>
-    
-    <h1>Operations Audit</h1>
-    <p style="color: var(--text-mid);">Complete the form below to begin the diagnostic process. We will review your submission and contact you via the email provided.</p>
+    <div class="container">
+        <nav>
+            <a href="/" class="nav-logo">CARRILLO DYNAMICS</a>
+            <a href="/" class="nav-link">← Back to HQ</a>
+        </nav>
 
-    <div class="form-container">
-        <iframe src="https://forms.gle/ig7xbQampxRYYJ4z8" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        <div class="audit-header">
+            <p class="mono">// 15-MINUTE DIAGNOSTIC</p>
+            <h1>Freight Operations Audit.</h1>
+            <p>
+                We look for the silent killers in your trucking or brokerage business. 
+                Fill out the form below to request a technical review of your workflow.
+            </p>
+        </div>
+
+        <div class="checklist-box">
+            <p class="mono" style="margin-bottom: 1.5rem; color: #fff;">// WHAT WE ANALYZE:</p>
+            <div class="checklist-item">
+                <span class="check-icon">[+]</span>
+                <p style="margin: 0; color: #ccc;"><strong>TMS Friction:</strong> Are you manually entering data into McLeod, TMW, or Ascend?</p>
+            </div>
+            <div class="checklist-item">
+                <span class="check-icon">[+]</span>
+                <p style="margin: 0; color: #ccc;"><strong>ELD Gaps:</strong> Is your Motive/Samsara data actually syncing to payroll?</p>
+            </div>
+            <div class="checklist-item">
+                <span class="check-icon">[+]</span>
+                <p style="margin: 0; color: #ccc;"><strong>Cash Flow Drag:</strong> How long does it take to get a POD from the driver to the factor?</p>
+            </div>
+        </div>
+
+        <div class="form-container">
+            <p style="text-align: center; color: #666;">
+                <strong>[PASTE GOOGLE FORM EMBED CODE HERE]</strong><br>
+                <br>
+                <em>Go to Google Forms > Send > Embed HTML</em>
+            </p>
+        </div>
+
     </div>
 
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Carrillo Dynamics. Logistics Automation Only.</p>
+            <p style="font-size: 0.7rem; margin-top: 1rem;">
+                Privacy & SMS: By providing your phone number, you agree to receive text messages from Carrillo Dynamics regarding your audit request. Message and data rates may apply. Reply STOP to opt-out.
+            </p>
+        </div>
+    </footer>
+
 </body>
-    <footer style="padding: 40px 20px; background: #000; color: #666; text-align: center; font-family: 'Inter', sans-serif; border-top: 1px solid #1a1a1a;">
-    <p style="margin-bottom: 10px;">&copy; 2026 Carrillo Dynamics. All rights reserved.</p>
-    <p style="font-size: 12px; max-width: 600px; margin: 0 auto; line-height: 1.6;">
-        Legal: By providing your phone number, you agree to receive text messages from Carrillo Dynamics regarding your audit request. Message and data rates may apply. Message frequency varies. Reply STOP to opt-out.
-    </p>
-</footer>
 </html>
