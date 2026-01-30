@@ -1,127 +1,263 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="icon" type="image/x-icon" href="/favicon.ico?v=1">
-<link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png?v=1">
-<link rel="apple-touch-icon" href="/android-chrome-512x512.png?v=1">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=1">
+    <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png?v=1">
+    <link rel="apple-touch-icon" href="/android-chrome-512x512.png?v=1">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Case Studies | Carrillo Dynamics</title>
+    <title>Carrillo Dynamics | Freight & Logistics Automation</title>
+    <meta name="description" content="Automating the Supply Chain for Chicago's Freight Corridors. We fix the back-office bottlenecks that slow down your fleet.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --bg: #0a0a0a;
+            --surface: #111111;
             --accent: #007aff;
-            --border: #222;
+            --accent-dim: rgba(0, 122, 255, 0.1);
+            --border: #222222;
             --text-high: #ffffff;
             --text-mid: #a0a0a0;
+            --text-low: #666666;
             --mono: 'JetBrains Mono', monospace;
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
             background-color: var(--bg);
             color: var(--text-high);
             font-family: 'Inter', sans-serif;
-            padding: 4rem 2rem;
-            max-width: 900px;
-            margin: 0 auto;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
         }
-        .mono { font-family: var(--mono); text-transform: uppercase; font-size: 0.8rem; color: var(--accent); text-decoration: none; }
-        h1 { font-size: 3rem; margin: 1rem 0 3rem; }
-        
-        /* The Case Report Style */
-        .case-report {
-            border-top: 1px solid var(--border);
-            padding: 3rem 0;
-            display: grid;
-            grid-template-columns: 1fr 2fr;
+
+        /* Industrial Grid Background Overlay */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(var(--border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* Utility */
+        .mono { 
+            font-family: var(--mono); 
+            text-transform: uppercase; 
+            font-size: 0.7rem; 
+            letter-spacing: 0.05em; 
+            color: var(--accent); 
+        }
+
+        /* Section Labels */
+        .section-label {
+            display: block;
+            font-size: 1.1rem; 
+            margin-top: 5rem;    
+            margin-bottom: 1.5rem; 
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            white-space: normal; 
+        }
+
+        section { padding: 8rem 0; border-bottom: 1px solid var(--border); }
+
+        /* Hero */
+        .hero { padding: 10rem 0 4rem; }
+        .hero h1 { font-size: clamp(2.5rem, 7vw, 4.5rem); font-weight: 800; line-height: 0.95; letter-spacing: -0.04em; margin-bottom: 2rem; }
+        .hero p { font-size: 1.25rem; color: var(--text-mid); max-width: 700px; margin-bottom: 3rem; line-height: 1.6; }
+
+        .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .btn { padding: 1rem 2rem; font-weight: 700; text-decoration: none; border-radius: 0; transition: 0.2s; border: 1px solid transparent; }
+        .btn-primary { background: var(--accent); color: white; }
+        .btn-secondary { border: 1px solid var(--text-low); color: var(--text-high); }
+        .btn:hover { filter: brightness(1.2); }
+
+        /* Tech Stack Bar */
+        .tech-stack {
+            display: flex;
             gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+            opacity: 0.6;
+            font-family: var(--mono);
+            font-size: 0.8rem;
+            color: var(--text-low);
+            align-items: center;
         }
-        .metrics { font-family: var(--mono); color: var(--accent); font-size: 1.2rem; }
-        h3 { font-size: 1.8rem; margin-bottom: 1rem; }
-        
-        @media (max-width: 600px) {
-            .case-report { grid-template-columns: 1fr; }
+
+        /* Pain Section */
+        .pain-box { background: var(--surface); border-left: 4px solid #ff3b30; padding: 3rem; margin-top: 1rem; }
+        .math-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-top: 2rem; }
+        .math-item h4 { color: #ff3b30; font-family: var(--mono); font-size: 1.5rem; margin-bottom: 0.5rem; }
+
+        /* Solutions */
+        .solutions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1px; background: var(--border); margin-top: 2rem; border: 1px solid var(--border); }
+        .solution-card { background: var(--bg); padding: 3rem; height: 100%; display: flex; flex-direction: column; }
+        .solution-card h3 { margin: 1rem 0; font-size: 1.5rem; }
+        .solution-card p { color: var(--text-mid); flex-grow: 1; }
+
+        /* Process */
+        .process-row { display: grid; grid-template-columns: 80px 1fr; gap: 2rem; margin-bottom: 3rem; }
+        .step-num { font-family: var(--mono); font-size: 2rem; color: var(--text-low); }
+
+        /* Footer */
+        footer { padding: 4rem 0; background: #050505; color: var(--text-low); font-size: 0.9rem; }
+        .footer-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; }
+        .compliance { font-size: 0.75rem; line-height: 1.6; }
+
+        @media (max-width: 768px) {
+            .footer-grid { grid-template-columns: 1fr; }
+            .tech-stack { justify-content: flex-start; }
         }
     </style>
 </head>
 <body>
 
-    <a href="/" class="mono"><- RETURN TO HQ</a>
-    
-    <h1>Technical Case Studies</h1>
+    <section class="container hero">
+        <p class="mono" id="live-timestamp">// [SYSTEM: ONLINE] // LOADING LOGISTICS DATA...</p>
 
-    <div class="case-report">
-        <div class="metrics">
-            [ OUTCOME ]<br>
-            +420 HRS / YR<br>
-            RECLAIMED
-        </div>
-        <div>
-            <p class="mono" style="color: var(--text-mid);">Project: Logistics Automation</p>
-            <h3>Automated BOL Parsing Pipeline</h3>
-            <p style="color: var(--text-mid);">A regional freight carrier was losing 8 hours a day to manual data entry from crumpled Bills of Lading. We engineered a custom Python OCR tool that extracts data from smartphone photos and syncs it directly to their dispatch software.</p>
-        </div>
-    </div>
+        <script>
+            const updateTimestamp = () => {
+                const options = {
+                    timeZone: 'America/Chicago',
+                    hour12: false,
+                    year: 'numeric', month: '2-digit', day: '2-digit',
+                    hour: '2-digit', minute: '2-digit', second: '2-digit'
+                };
+                const now = new Intl.DateTimeFormat('en-US', options).format(new Date());
+                const formatted = now.replace(/(\d+)\/(\d+)\/(\d+),?\s(.*)/, '$3-$1-$2 $4');
+                document.getElementById('live-timestamp').innerText = `// [SYSTEM: ONLINE] // ${formatted} CST`;
+            }
+            updateTimestamp();
+            setInterval(updateTimestamp, 1000);
+        </script>
 
-    <div class="case-report">
-        <div class="metrics">
-            [ OUTCOME ]<br>
-            $14,000 / MO<br>
-            LEAK PLUGGED
-        </div>
-        <div>
-            <p class="mono" style="color: var(--text-mid);">Project: Compliance Defense</p>
-            <h3>Sub-Contractor Insurance Monitor</h3>
-            <p style="color: var(--text-mid);">A mid-sized construction firm faced $50k in fines due to expired sub-contractor insurance. We deployed an automated tracker that locks project access for any sub whose COI (Certificate of Insurance) is within 7 days of expiration.</p>
-        </div>
-    </div>
-
-    <div class="case-report">
-        <div class="metrics">
-            [ OUTCOME ]<br>
-            -85% DELAY<br>
-            IN BILLING
-        </div>
-        <div>
-            <p class="mono" style="color: var(--text-mid);">Project: Billing Velocity</p>
-            <h3>Field-to-Invoice Bridge</h3>
-            <p style="color: var(--text-mid);">Reduced the gap between 'Delivery' and 'Invoice' from 14 days to 24 hours by automating the reconciliation of field logs against purchase orders in real-time.</p>
-        </div>
-    </div>
-<section style="padding: 80px 20px; text-align: center; background: #0a0a0a; border-top: 1px solid #222;">
-    <div style="max-width: 800px; margin: 0 auto;">
-        <h2 style="color: #fff; font-size: 2rem; margin-bottom: 15px; font-family: 'Inter', sans-serif; letter-spacing: -0.5px;">
-            Stop the leaks.
-        </h2>
-        <p style="color: #888; font-size: 1.1rem; margin-bottom: 40px; line-height: 1.6;">
-            Your operations are generating data every second. <br>
-            Let's make sure it's generating profit, too.
-        </p>
+        <h1>Automating the Supply Chain, One Document at a Time.</h1>
+        <p>Your trucks are moving 65mph. Your back office is moving at the speed of paper. That gap is costing you 20% in lost efficiency. We bridge it.</p>
         
-        <a href="/audit/" style="
-            display: inline-block;
-            background: #fff;
-            color: #000;
-            padding: 20px 50px;
-            font-size: 1rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            text-decoration: none;
-            letter-spacing: 2px;
-            border-radius: 0px; 
-            transition: all 0.3s ease;
-            border: 1px solid #fff;
-            box-shadow: 0 10px 20px rgba(255,255,255,0.05);
-        " onmouseover="this.style.background='transparent'; this.style.color='#fff';" 
-           onmouseout="this.style.background='#fff'; this.style.color='#000';">
-            Start Your Audit →
-        </a>
-    </div>
-</section>
-<footer style="padding: 40px 20px; background: #000; color: #666; text-align: center; font-family: 'Inter', sans-serif; border-top: 1px solid #1a1a1a;">
-    <p style="margin-bottom: 10px;">&copy; 2026 Carrillo Dynamics. All rights reserved.</p>
-    <p style="font-size: 12px; max-width: 600px; margin: 0 auto; line-height: 1.6;">
-        Legal: By providing your phone number, you agree to receive text messages from Carrillo Dynamics regarding your audit request. Message and data rates may apply. Message frequency varies. Reply STOP to opt-out.
-    </p>
-</footer>
+        <div class="btn-group">
+            <a href="/audit/" class="btn btn-primary">Request Fleet Audit</a>
+            <a href="/cases/" class="btn btn-secondary">View Freight Cases</a>
+        </div>
+
+        <div class="tech-stack">
+            <span>// INTEGRATIONS:</span>
+            <span>SAMSARA</span>
+            <span>MOTIVE</span>
+            <span>McLEOD</span>
+            <span>TMW</span>
+            <span>DAT</span>
+            <span>TRUCKSTOP</span>
+        </div>
+    </section>
+
+    <section class="container">
+        <p class="mono section-label">// The Cost of Paper</p>
+        <div class="pain-box">
+            <h2>The Vocabulary of Pain.</h2>
+            <div class="math-grid">
+                <div class="math-item">
+                    <h4>DETENTION</h4>
+                    <p>Drivers stuck at the dock for 4+ hours because the broker didn't get the updated ETA.</p>
+                </div>
+                <div class="math-item">
+                    <h4>FACTORING DELAG</h4>
+                    <p>Cash flow frozen for 24-48 hours because a single POD was scanned sideways.</p>
+                </div>
+                <div class="math-item">
+                    <h4>RATE CON ENTRY</h4>
+                    <p>Dispatchers wasting 15 mins per load manually typing data from PDF to TMS.</p>
+                </div>
+            </div>
+            <p style="margin-top: 2rem; color: var(--text-mid);">Logistics never sleeps. Neither do our bots. <strong>We plug the leaks.</strong></p>
+        </div>
+    </section>
+
+    <section class="container">
+        <p class="mono section-label">// The Big 3 Products</p>
+        <h2 style="font-size: 2.5rem; margin-top: 1rem; margin-bottom: 2rem;">Freight Automation Suite.</h2>
+        
+        <div class="solutions-grid">
+            <div class="solution-card">
+                <p class="mono">01</p>
+                <h3>The POD Chaser</h3>
+                <p>Instant capture of Proof of Delivery (POD) and BOLs. We rename, classify, and upload them before the driver even leaves the dock.</p>
+            </div>
+
+            <div class="solution-card">
+                <p class="mono">02</p>
+                <h3>The Rate Con Parser</h3>
+                <p>Stop typing. We extract load details (Origin, Dest, Rate, Weight) from broker emails and push them directly into your TMS automatically.</p>
+            </div>
+
+            <div class="solution-card">
+                <p class="mono">03</p>
+                <h3>The Compliance Guard</h3>
+                <p>Auto-track Driver CDLs, Insurance Certs, and IFTA fuel tax logs. The system alerts dispatch <strong>before</strong> a driver gets grounded.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <p class="mono section-label">// Deployment Roadmap</p>
+        <div style="margin-top: 2rem;">
+            <div class="process-row">
+                <div class="step-num">01</div>
+                <div>
+                    <h3>Diagnose</h3>
+                    <p>We audit your dispatch workflow. Where does the paper stop moving? Where are you losing billable miles?</p>
+                </div>
+            </div>
+            <div class="process-row">
+                <div class="step-num">02</div>
+                <div>
+                    <h3>Integrate</h3>
+                    <p>We connect to your existing stack (Samsara, McLeod, etc). No new login portals for your drivers to learn.</p>
+                </div>
+            </div>
+            <div class="process-row">
+                <div class="step-num">03</div>
+                <div>
+                    <h3>Deploy</h3>
+                    <p>We launch the automation. Your team stops doing data entry and starts moving freight.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <p class="mono section-label">// About the Agency</p>
+        <div style="max-width: 800px;">
+            <p style="font-size: 1.5rem;">Founded by logistics natives in the Chicago/Midwest corridor. We serve asset-based fleets, freight brokers, and 3PLs who are tired of manual friction slowing down their growth.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-grid">
+            <div>
+                <p style="color: white; font-weight: 700;">Carrillo Dynamics - Freight Automation</p>
+                <p>Chicago, IL</p>
+                <p>Email: engineering@carrillodynamics.com</p>
+                <p style="margin-top: 1rem;">&copy; 2026. Custom Solutions Only.</p>
+            </div>
+            <div class="compliance">
+                <p><strong>Privacy & SMS:</strong> By providing your phone number, you agree to receive text messages from Carrillo Dynamics for audit scheduling and technical updates. Message and data rates may apply. Message frequency varies. <strong>Reply STOP to opt-out.</strong> We value your operational security; your data is never sold to third-party marketing lists.</p>
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>
