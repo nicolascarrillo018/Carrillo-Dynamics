@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="icon" type="image/x-icon" href="/favicon.ico?v=1">
-<link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png?v=1">
-<link rel="apple-touch-icon" href="/android-chrome-512x512.png?v=1">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=1">
+    <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png?v=1">
+    <link rel="apple-touch-icon" href="/android-chrome-512x512.png?v=1">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrillo Dynamics | Industrial Automation</title>
-    <meta name="description" content="Industrial-grade automated workflows for Logistics, Freight, and Construction. We fix the broken processes that bleed cash.">
+    <title>Carrillo Dynamics | Freight & Logistics Automation</title>
+    <meta name="description" content="Automating the Supply Chain for Chicago's Freight Corridors. We fix the back-office bottlenecks that slow down your fleet.">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --bg: #0a0a0a;
@@ -23,7 +25,9 @@
             --text-low: #666666;
             --mono: 'JetBrains Mono', monospace;
         }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
             background-color: var(--bg);
             color: var(--text-high);
@@ -31,6 +35,7 @@
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
         }
+
         /* Industrial Grid Background Overlay */
         body::before {
             content: "";
@@ -44,179 +49,206 @@
             z-index: -1;
             opacity: 0.3;
         }
+
         .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
-       /* Utility */
-.mono { 
-    font-family: var(--mono); 
-    text-transform: uppercase; 
-    font-size: 0.7rem; 
-    letter-spacing: 0.05em; 
-    color: var(--accent); 
-}
-/* This rule targets the labels, making them bigger and adding breathing room */
-.section-label {
-    display: block;
-    font-size: 1.1rem; 
-    margin-top: 5rem;    /* This adds the space ABOVE the label */
-    margin-bottom: 1.5rem; /* This keeps the space BELOW the label */
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    white-space: normal; 
-}
+
+        /* Utility */
+        .mono { 
+            font-family: var(--mono); 
+            text-transform: uppercase; 
+            font-size: 0.7rem; 
+            letter-spacing: 0.05em; 
+            color: var(--accent); 
+        }
+
+        /* Section Labels */
+        .section-label {
+            display: block;
+            font-size: 1.1rem; 
+            margin-top: 5rem;    
+            margin-bottom: 1.5rem; 
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            white-space: normal; 
+        }
+
+        section { padding: 8rem 0; border-bottom: 1px solid var(--border); }
+
         /* Hero */
-        .hero { padding: 10rem 0 6rem; }
-        .hero h1 { font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 800; line-height: 0.9; letter-spacing: -0.04em; margin-bottom: 2rem; }
-        .hero p { font-size: 1.25rem; color: var(--text-mid); max-width: 600px; margin-bottom: 3rem; }
+        .hero { padding: 10rem 0 4rem; }
+        .hero h1 { font-size: clamp(2.5rem, 7vw, 4.5rem); font-weight: 800; line-height: 0.95; letter-spacing: -0.04em; margin-bottom: 2rem; }
+        .hero p { font-size: 1.25rem; color: var(--text-mid); max-width: 700px; margin-bottom: 3rem; line-height: 1.6; }
+
         .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
         .btn { padding: 1rem 2rem; font-weight: 700; text-decoration: none; border-radius: 0; transition: 0.2s; border: 1px solid transparent; }
         .btn-primary { background: var(--accent); color: white; }
         .btn-secondary { border: 1px solid var(--text-low); color: var(--text-high); }
         .btn:hover { filter: brightness(1.2); }
-        /* Pain Section ($53k Hook) */
-        .pain-box { background: var(--surface); border-left: 4px solid #ff3b30; padding: 3rem; margin-top: 2rem; }
-        .math-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 2rem; }
-        .math-item h4 { color: #ff3b30; font-family: var(--mono); font-size: 1.5rem; }
+
+        /* Tech Stack Bar */
+        .tech-stack {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+            opacity: 0.6;
+            font-family: var(--mono);
+            font-size: 0.8rem;
+            color: var(--text-low);
+            align-items: center;
+        }
+
+        /* Pain Section */
+        .pain-box { background: var(--surface); border-left: 4px solid #ff3b30; padding: 3rem; margin-top: 1rem; }
+        .math-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-top: 2rem; }
+        .math-item h4 { color: #ff3b30; font-family: var(--mono); font-size: 1.5rem; margin-bottom: 0.5rem; }
+
         /* Solutions */
-        .solutions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1px; background: var(--border); margin-top: 3rem; border: 1px solid var(--border); }
-        .solution-card { background: var(--bg); padding: 3rem; }
+        .solutions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1px; background: var(--border); margin-top: 2rem; border: 1px solid var(--border); }
+        .solution-card { background: var(--bg); padding: 3rem; height: 100%; display: flex; flex-direction: column; }
         .solution-card h3 { margin: 1rem 0; font-size: 1.5rem; }
-        .solution-card p { color: var(--text-mid); }
+        .solution-card p { color: var(--text-mid); flex-grow: 1; }
+
         /* Process */
-        .process-row { display: grid; grid-template-columns: 100px 1fr; gap: 2rem; margin-bottom: 4rem; }
+        .process-row { display: grid; grid-template-columns: 80px 1fr; gap: 2rem; margin-bottom: 3rem; }
         .step-num { font-family: var(--mono); font-size: 2rem; color: var(--text-low); }
+
         /* Footer */
         footer { padding: 4rem 0; background: #050505; color: var(--text-low); font-size: 0.9rem; }
         .footer-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; }
         .compliance { font-size: 0.75rem; line-height: 1.6; }
+
         @media (max-width: 768px) {
             .footer-grid { grid-template-columns: 1fr; }
+            .tech-stack { justify-content: flex-start; }
         }
     </style>
 </head>
 <body>
+
     <section class="container hero">
-        <p class="mono" id="live-timestamp">// [STATUS: ACTIVE] // LOADING DATA...</p>
-<script>
-    const updateTimestamp = () => {
-        const options = {
-            timeZone: 'America/Chicago',
-            hour12: false,
-            year: 'numeric',
-            month: '2-digit',
-            day: '2-digit',
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit'
-        };
-        const now = new Intl.DateTimeFormat('en-US', options).format(new Date());
-        // This formats it to YYYY-MM-DD HH:MM:SS style
-        const formatted = now.replace(/(\d+)\/(\d+)\/(\d+),?\s(.*)/, '$3-$1-$2 $4');
-        document.getElementById('live-timestamp').innerText = `// [STATUS: ACTIVE] // ${formatted} CST`;
-    }
-    // Update it immediately
-    updateTimestamp();
-    // Update it every second to make it look like a live feed
-    setInterval(updateTimestamp, 1000);
-</script>
-        <h1>Stop the Silent Leaks in Your Operation.</h1>
-        <p>We engineer automated workflows for Logistics, Freight, and Construction. We fix the broken processes that bleed cash.</p>
+        <p class="mono" id="live-timestamp">// [SYSTEM: ONLINE] // LOADING LOGISTICS DATA...</p>
+
+        <script>
+            const updateTimestamp = () => {
+                const options = {
+                    timeZone: 'America/Chicago',
+                    hour12: false,
+                    year: 'numeric', month: '2-digit', day: '2-digit',
+                    hour: '2-digit', minute: '2-digit', second: '2-digit'
+                };
+                const now = new Intl.DateTimeFormat('en-US', options).format(new Date());
+                const formatted = now.replace(/(\d+)\/(\d+)\/(\d+),?\s(.*)/, '$3-$1-$2 $4');
+                document.getElementById('live-timestamp').innerText = `// [SYSTEM: ONLINE] // ${formatted} CST`;
+            }
+            updateTimestamp();
+            setInterval(updateTimestamp, 1000);
+        </script>
+
+        <h1>Automating the Supply Chain, One Document at a Time.</h1>
+        <p>Your trucks are moving 65mph. Your back office is moving at the speed of paper. That gap is costing you 20% in lost efficiency. We bridge it.</p>
+        
         <div class="btn-group">
-            <a href="/audit/" class="btn btn-primary">Request an Operations Audit</a>
-<a href="/cases/" class="btn btn-secondary">View Case Studies</a>
+            <a href="/audit/" class="btn btn-primary">Request Fleet Audit</a>
+            <a href="/cases/" class="btn btn-secondary">View Freight Cases</a>
+        </div>
+
+        <div class="tech-stack">
+            <span>// INTEGRATIONS:</span>
+            <span>SAMSARA</span>
+            <span>MOTIVE</span>
+            <span>McLEOD</span>
+            <span>TMW</span>
+            <span>DAT</span>
+            <span>TRUCKSTOP</span>
         </div>
     </section>
+
     <section class="container">
-<p class="mono section-label">// The Cost of Inaction</p>        <div class="pain-box">
-            <h2>The math is simple, but the cost is hidden.</h2>
+        <p class="mono section-label">// The Cost of Paper</p>
+        <div class="pain-box">
+            <h2>The Vocabulary of Pain.</h2>
             <div class="math-grid">
                 <div class="math-item">
-                    <h4>$150</h4>
-                    <p>Per Diem fine for one missing J1 ticket.</p>
+                    <h4>DETENTION</h4>
+                    <p>Drivers stuck at the dock for 4+ hours because the broker didn't get the updated ETA.</p>
                 </div>
                 <div class="math-item">
-                    <h4>$5,000+</h4>
-                    <p>Average lost change order in construction.</p>
+                    <h4>FACTORING DELAG</h4>
+                    <p>Cash flow frozen for 24-48 hours because a single POD was scanned sideways.</p>
                 </div>
                 <div class="math-item">
-                    <h4>$50,000+</h4>
-                    <p>Annual cost of a single operational leak.</p>
+                    <h4>RATE CON ENTRY</h4>
+                    <p>Dispatchers wasting 15 mins per load manually typing data from PDF to TMS.</p>
                 </div>
             </div>
-            <p style="margin-top: 2rem; color: var(--text-mid);">A single operational leak can cost $50k+ a year. <strong>We plug the hole.</strong></p>
+            <p style="margin-top: 2rem; color: var(--text-mid);">Logistics never sleeps. Neither do our bots. <strong>We plug the leaks.</strong></p>
         </div>
     </section>
-<section class="container">
-<p class="mono section-label">// Solutions Architecture_v2.0</p>
-    <h2 style="font-size: 2.5rem; margin-top: 1rem;">Industrial-Grade Automation.</h2>
-    <div class="solutions-grid">
-        <div class="solution-card">
-            <p class="mono">01</p>
-            <h3>Document Parsing</h3>
-            <p>We turn messy PDFs, crumpled BOLs, and handwritten logs into structured data instantly using custom OCR pipelines.</p>
-        </div>
-        <div class="solution-card">
-            <p class="mono">02</p>
-            <h3>Compliance Defense</h3>
-            <p>Automated monitoring of insurance certificates and safety tickets. Systems lock workflows before certifications expire.</p>
-        </div>
-        <div class="solution-card">
-            <p class="mono">03</p>
-            <h3>Billing Velocity</h3>
-            <p>Bridge the gap between "Job Complete" and "Invoice Sent." Trigger billing the moment a digital signature hits the field app.</p>
-        </div>
-        <div class="solution-card">
-            <p class="mono">04</p>
-            <h3>Inventory/Material Sync</h3>
-            <p>Real-time reconciliation between warehouse stock and job-site consumption. Stop "missing" hardware from eating your margin.</p>
-        </div>
-        <div class="solution-card">
-            <p class="mono">05</p>
-            <h3>Predictive Fleet Logic</h3>
-            <p>Automated maintenance triggers based on engine hours and mileage logs. Prevent $10k repairs with $200 preventive alerts.</p>
-        </div>
-        <div class="solution-card">
-            <p class="mono">06</p>
-            <h3>Field-to-Office Bridge</h3>
-            <p>Eliminate the "Friday Afternoon Admin" rush. Field photos, safety logs, and hours are synced to your ERP in real-time.</p>
-        </div>
-    </div>
-</section>
+
     <section class="container">
-<p class="mono section-label">// Deployment Roadmap</p>
-        <div style="margin-top: 3rem;">
+        <p class="mono section-label">// The Big 3 Products</p>
+        <h2 style="font-size: 2.5rem; margin-top: 1rem; margin-bottom: 2rem;">Freight Automation Suite.</h2>
+        
+        <div class="solutions-grid">
+            <div class="solution-card">
+                <p class="mono">01</p>
+                <h3>The POD Chaser</h3>
+                <p>Instant capture of Proof of Delivery (POD) and BOLs. We rename, classify, and upload them before the driver even leaves the dock.</p>
+            </div>
+
+            <div class="solution-card">
+                <p class="mono">02</p>
+                <h3>The Rate Con Parser</h3>
+                <p>Stop typing. We extract load details (Origin, Dest, Rate, Weight) from broker emails and push them directly into your TMS automatically.</p>
+            </div>
+
+            <div class="solution-card">
+                <p class="mono">03</p>
+                <h3>The Compliance Guard</h3>
+                <p>Auto-track Driver CDLs, Insurance Certs, and IFTA fuel tax logs. The system alerts dispatch <strong>before</strong> a driver gets grounded.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <p class="mono section-label">// Deployment Roadmap</p>
+        <div style="margin-top: 2rem;">
             <div class="process-row">
                 <div class="step-num">01</div>
                 <div>
                     <h3>Diagnose</h3>
-                    <p>We walk your floor and find the bottleneck. No sales pitch, just a technical assessment of your current infrastructure.</p>
+                    <p>We audit your dispatch workflow. Where does the paper stop moving? Where are you losing billable miles?</p>
                 </div>
             </div>
             <div class="process-row">
                 <div class="step-num">02</div>
                 <div>
-                    <h3>Engineer</h3>
-                    <p>We build a custom automation using existing tools (Python, AI, APIs). We sell outcomes, not hours.</p>
+                    <h3>Integrate</h3>
+                    <p>We connect to your existing stack (Samsara, McLeod, etc). No new login portals for your drivers to learn.</p>
                 </div>
             </div>
             <div class="process-row">
                 <div class="step-num">03</div>
                 <div>
                     <h3>Deploy</h3>
-                    <p>We install the system and train your team. Software doesn't need to be pretty, it needs to work.</p>
+                    <p>We launch the automation. Your team stops doing data entry and starts moving freight.</p>
                 </div>
             </div>
         </div>
     </section>
+
     <section class="container">
-<p class="mono section-label">// About the Agency</p>
-        <div style="max-width: 800px; margin-top: 2rem;">
-            <p style="font-size: 1.5rem;">Founded by an ex-Project Engineer and South Side native. We understand that in logistics and construction, efficiency isn't a luxury, it's the difference between profit and loss.</p>
+        <p class="mono section-label">// About the Agency</p>
+        <div style="max-width: 800px;">
+            <p style="font-size: 1.5rem;">Founded by logistics natives in the Chicago/Midwest corridor. We serve asset-based fleets, freight brokers, and 3PLs who are tired of manual friction slowing down their growth.</p>
         </div>
     </section>
+
     <footer>
         <div class="container footer-grid">
             <div>
-                <p style="color: white; font-weight: 700;">Carrillo Dynamics - Industrial Automation</p>
+                <p style="color: white; font-weight: 700;">Carrillo Dynamics - Freight Automation</p>
                 <p>Chicago, IL</p>
                 <p>Email: engineering@carrillodynamics.com</p>
                 <p style="margin-top: 1rem;">&copy; 2026. Custom Solutions Only.</p>
@@ -226,5 +258,6 @@
             </div>
         </div>
     </footer>
+
 </body>
 </html>
