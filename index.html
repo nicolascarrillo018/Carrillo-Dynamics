@@ -86,16 +86,32 @@
         .btn:hover { filter: brightness(1.2); }
 
         /* Tech Stack Bar */
-        .tech-stack {
+.tech-stack {
             display: flex;
             gap: 2rem;
             flex-wrap: wrap;
-            margin-top: 3rem;
-            opacity: 0.6;
+            margin-top: 4rem;
             font-family: var(--mono);
-            font-size: 0.8rem;
-            color: var(--text-low);
+            font-size: 0.9rem; /* Increased from 0.8rem */
+            font-weight: 500; /* Added weight */
+            color: var(--text-mid); /* Brighter than var(--text-low) */
             align-items: center;
+            letter-spacing: 0.1em;
+        }
+
+        .tech-stack span {
+            transition: color 0.3s ease;
+        }
+
+        /* Highlight the specific tech names */
+        .tech-stack span:not(:first-child) {
+            color: var(--text-high);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2); /* Subtle glow */
+        }
+
+        .tech-stack span:first-child {
+            color: var(--accent); /* "SYSTEM COMPATIBILITY" stays blue */
+            opacity: 0.8;
         }
 
         /* Pain Section */
