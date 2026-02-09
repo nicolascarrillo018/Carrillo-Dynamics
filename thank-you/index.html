@@ -5,24 +5,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>System Acknowledged | Carrillo Dynamics</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
     <style>
+        /* --- MASTER THEME DNA --- */
         :root { --bg: #0a0a0a; --surface: #111111; --accent: #8833FF; --border: #222222; --text-high: #ffffff; --text-mid: #a0a0a0; --mono: 'JetBrains Mono', monospace; }
-        body { background-color: var(--bg); color: var(--text-high); font-family: 'Inter', sans-serif; margin: 0; display: flex; align-items: center; justify-content: center; height: 100vh; overflow: hidden; -webkit-font-smoothing: antialiased; }
-        body::before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 40px 40px; z-index: -1; opacity: 0.3; }
-        .status-container { background: var(--surface); border: 1px solid var(--border); padding: 4rem; max-width: 500px; text-align: center; border-top: 4px solid var(--accent); }
-        .mono { font-family: var(--mono); color: var(--accent); font-size: 0.8rem; margin-bottom: 1rem; text-transform: uppercase; }
-        h1 { font-size: 2rem; font-weight: 800; margin-bottom: 1.5rem; }
-        .btn-return { display: inline-block; margin-top: 2rem; color: #fff; text-decoration: none; font-family: var(--mono); font-size: 0.8rem; border: 1px solid var(--border); padding: 1rem 2rem; transition: 0.3s; }
-        .btn-return:hover { border-color: var(--accent); background: rgba(136, 51, 255, 0.1); }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--bg); color: var(--text-high); font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; }
+        
+        /* The Grid Background (Matched to Audit Page) */
+        body::before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 50px 50px; z-index: -1; opacity: 0.1; }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; width: 100%; }
+        .mono-head { font-family: var(--mono); text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.25em; color: var(--accent); font-weight: 700; display: block; }
+        
+        /* --- NAVIGATION --- */
+        nav { padding: 2.5rem 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); width: 100%; }
+        .nav-logo { font-weight: 800; font-size: 1.1rem; text-decoration: none; color: #fff; letter-spacing: -0.5px; }
+        .btn { padding: 0.8rem 1.5rem; background: var(--accent); color: #fff; text-decoration: none; font-weight: 700; font-family: var(--mono); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; border: 1px solid var(--accent); cursor: pointer; }
+        .btn:hover { background: transparent; color: var(--accent); }
+
+        /* --- SUCCESS CONTENT --- */
+        main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 4rem 0; }
+        .status-container { background: var(--surface); border: 1px solid var(--border); padding: 5rem 3rem; max-width: 650px; text-align: center; position: relative; border-top: 4px solid var(--accent); box-shadow: 0 40px 100px rgba(0,0,0,0.5); }
+        
+        h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; margin: 1.5rem 0; letter-spacing: -0.04em; }
+        .success-desc { color: var(--text-mid); font-size: 1.1rem; margin-bottom: 2.5rem; }
+        
+        .btn-return { display: inline-block; color: #fff; text-decoration: none; font-family: var(--mono); font-size: 0.8rem; border: 1px solid var(--border); padding: 1.2rem 2.5rem; transition: 0.3s; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; }
+        .btn-return:hover { border-color: var(--accent); background: rgba(136, 51, 255, 0.1); color: var(--accent); }
+
+        /* --- FOOTER --- */
+        footer { padding: 6rem 0; background: #000; color: var(--text-mid); border-top: 1px solid var(--border); }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; }
     </style>
 </head>
 <body>
-    <div class="status-container">
-        <p class="mono">// DATA TRANSFERRED</p>
-        <h1>System Acknowledged.</h1>
-        <p style="color: var(--text-mid);">Our engineering team has received your diagnostic report. We will review the friction points and contact you via secure channel.</p>
-        <a href="/" class="btn-return">← BACK TO HQ</a>
+
+    <div class="container">
+        <nav>
+            <a href="/" class="nav-logo">CARRILLO DYNAMICS</a>
+            <a href="/" class="btn">Return to HQ</a>
+        </nav>
     </div>
-</body>
-</html>
+
+    <main>
+        <div class="container" style="display: flex; justify-content: center;">
+            <div class="status-container">
+                <span class="mono-head">// Transmission Confirmed</span>
+                <h1>System Acknowledged.</h1>
+                <p class="success-desc">Our engineering team has received your diagnostic report. We will analyze your operational profile and provide a technical synchronization strategy within 24 hours.</p>
+                <a href="/" class="btn-return">← Back to HQ</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-grid">
+            <div>
+                <span style="color: #fff; font-weight: 800; margin-bottom: 1.5rem; display: block;">CARRILLO DYNAMICS</span>
+                <p style="font-size: 0.8rem; line-height: 1.6;">Industrial Engineering.<br>Chicago, IL.</p>
+            </div>
+            <div>
+                <span class="mono-head" style="margin-bottom: 1.5rem; color: #fff; font-size: 0.7rem;">Navigation
