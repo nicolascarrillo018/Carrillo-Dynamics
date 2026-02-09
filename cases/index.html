@@ -10,7 +10,7 @@
         /* --- MASTER THEME DNA --- */
         :root { --bg: #0a0a0a; --surface: #111111; --accent: #8833FF; --border: #222222; --text-high: #ffffff; --text-mid: #a0a0a0; --mono: 'JetBrains Mono', monospace; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: var(--bg); color: var(--text-high); font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.6; }
+        body { background: var(--bg); color: var(--text-high); font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.6; overflow-x: hidden; }
         
         /* Grid Background (50px Sync) */
         body::before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 50px 50px; z-index: -1; opacity: 0.1; }
@@ -26,28 +26,37 @@
 
         /* --- HERO --- */
         .results-header { padding: 8rem 0 4rem; }
-        .results-header h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; margin-top: 1.5rem; letter-spacing: -0.04em; line-height: 1; }
+        .results-header h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; margin-top: 1.5rem; letter-spacing: -0.04em; line-height: 1.1; }
         
         /* --- CASE GRID --- */
-        .case-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-bottom: 8rem; }
-        .case-card { background: var(--surface); border: 1px solid var(--border); padding: 3rem; position: relative; transition: 0.3s; }
+        .case-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-bottom: 8rem; }
+        .case-card { background: var(--surface); border: 1px solid var(--border); padding: clamp(2rem, 5vw, 3rem); position: relative; transition: 0.3s; display: flex; flex-direction: column; }
         .case-card:hover { border-color: var(--accent); transform: translateY(-5px); }
         .case-card h3 { font-size: 1.4rem; font-weight: 800; margin-bottom: 1rem; color: #fff; }
         .case-card p { color: var(--text-mid); font-size: 0.95rem; }
 
         .metric-box { border-left: 3px solid var(--accent); padding: 0.5rem 0 0.5rem 1.2rem; background: rgba(136, 51, 255, 0.05); margin-bottom: 2rem; }
-        .metric-val { display: block; font-family: var(--mono); font-size: 1.6rem; color: #fff; font-weight: 700; }
+        .metric-val { display: block; font-family: var(--mono); font-size: 1.6rem; color: #fff; font-weight: 700; white-space: nowrap; }
         .metric-label { font-size: 0.7rem; color: var(--text-mid); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; }
 
         /* --- CTA SECTION --- */
-        .cta-box { background: var(--surface); border: 1px solid var(--border); padding: 5rem; text-align: center; margin-bottom: 8rem; border-top: 4px solid var(--accent); }
-        .cta-box h2 { font-size: 2.5rem; font-weight: 800; margin-bottom: 2rem; }
-        .btn-large { display: inline-block; padding: 1.5rem 4rem; background: #fff; color: #000; text-decoration: none; font-weight: 800; font-family: var(--mono); text-transform: uppercase; letter-spacing: 3px; transition: 0.3s; }
+        .cta-box { background: var(--surface); border: 1px solid var(--border); padding: clamp(3rem, 10vw, 5rem) 2rem; text-align: center; margin-bottom: 8rem; border-top: 4px solid var(--accent); }
+        .cta-box h2 { font-size: clamp(1.8rem, 5vw, 2.5rem); font-weight: 800; margin-bottom: 2.5rem; line-height: 1.2; }
+        .btn-large { display: inline-block; padding: 1.5rem 3rem; background: #fff; color: #000; text-decoration: none; font-weight: 800; font-family: var(--mono); text-transform: uppercase; letter-spacing: 3px; transition: 0.3s; font-size: 0.9rem; }
         .btn-large:hover { background: var(--accent); color: #fff; }
 
         /* --- FOOTER --- */
         footer { padding: 6rem 0; background: #000; color: var(--text-mid); border-top: 1px solid var(--border); }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; }
+
+        /* --- MOBILE ADAPTATION --- */
+        @media (max-width: 768px) {
+            nav { padding: 1.5rem 0; flex-direction: column; gap: 1.5rem; text-align: center; }
+            .results-header { padding: 4rem 0 3rem; text-align: center; }
+            .case-grid { grid-template-columns: 1fr; margin-bottom: 4rem; }
+            .footer-grid { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
+            .btn-large { width: 100%; padding: 1.5rem 1rem; }
+        }
     </style>
 </head>
 <body>
@@ -60,7 +69,7 @@
 
         <header class="results-header">
             <span class="mono-head">// Proven Outcomes</span>
-            <h1>Systemic Results at Scale.</h1>
+            <h1>Systemic Results <br>at Scale.</h1>
         </header>
 
         <div class="case-grid">
