@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrillo Dynamics | Engineering Flow</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #0a0a0a;
@@ -27,10 +27,23 @@
         }
 
         .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-        .mono { font-family: var(--mono); text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.2em; color: var(--accent); }
+        
+        /* Updated Mono Headers: Bigger & Bolder */
+        .mono-head { 
+            font-family: var(--mono); 
+            text-transform: uppercase; 
+            font-size: 0.85rem; 
+            letter-spacing: 0.25em; 
+            color: var(--accent); 
+            font-weight: 700; 
+            display: block;
+        }
 
         nav { padding: 2.5rem 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
         .nav-logo { font-weight: 800; font-size: 1.1rem; text-decoration: none; color: #fff; letter-spacing: -0.5px; }
+        
+        /* Enhanced Clock */
+        #clock { font-size: 0.9rem; font-weight: 700; color: #fff; }
 
         .hero { padding: 10rem 0 8rem; border-bottom: 1px solid var(--border); }
         .hero h1 { font-size: clamp(3.5rem, 9vw, 6rem); font-weight: 800; line-height: 0.9; margin: 1.5rem 0; letter-spacing: -0.04em; }
@@ -46,25 +59,34 @@
         .section-title { margin-bottom: 4rem; }
         .section-title h2 { font-size: 2.5rem; font-weight: 800; margin-top: 1rem; letter-spacing: -0.02em; }
 
-        /* The Grid */
         .solutions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
         .solution-card { background: var(--bg); padding: 3rem; transition: 0.3s; display: flex; flex-direction: column; min-height: 350px; }
         .solution-card:hover { background: var(--surface); }
-        .solution-card h3 { font-size: 1.3rem; margin: 1.5rem 0 1rem; }
+        .solution-card h3 { font-size: 1.3rem; margin: 1.5rem 0 1rem; font-weight: 800; }
         .solution-card p { color: var(--text-mid); font-size: 0.95rem; flex-grow: 1; }
-        .gain-tag { margin-top: 2rem; font-family: var(--mono); font-size: 0.65rem; color: var(--accent); font-weight: 700; border: 1px solid var(--accent); padding: 0.5rem 0.8rem; display: inline-block; width: fit-content; }
+
+        /* Gain Tag: High-Visibility White */
+        .gain-tag { 
+            margin-top: 2rem; 
+            font-family: var(--mono); 
+            font-size: 0.7rem; 
+            color: #000; 
+            background: #fff; 
+            font-weight: 700; 
+            padding: 0.6rem 1rem; 
+            display: inline-block; 
+            width: fit-content; 
+            letter-spacing: 1px;
+        }
 
         @media (max-width: 1024px) { .solutions-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 768px) { .solutions-grid { grid-template-columns: 1fr; } }
 
-        /* Custom / Deployment Section */
         .custom-row { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-        .deployment-box { background: var(--surface); border: 1px solid var(--border); padding: 3rem; position: relative; }
+        .deployment-box { background: var(--surface); border: 1px solid var(--border); padding: 3rem; }
         .deployment-item { display: flex; justify-content: space-between; padding: 1.2rem 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
-        .deployment-item:last-child { border: none; }
         .deployment-item span:last-child { font-family: var(--mono); color: var(--accent); font-weight: 700; }
 
-        /* Footer */
         footer { padding: 6rem 0; background: #000; color: var(--text-mid); }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; }
         .footer-logo { color: #fff; font-weight: 800; margin-bottom: 1.5rem; display: block; }
@@ -75,57 +97,57 @@
     <div class="container">
         <nav>
             <a href="/" class="nav-logo">CARRILLO DYNAMICS</a>
-            <div id="clock" class="mono" style="font-size: 0.65rem;">00:00:00 CST</div>
+            <div id="clock" class="mono-head">00:00:00 CST</div>
         </nav>
 
         <header class="hero">
-            <p class="mono">// STRATEGIC INFRASTRUCTURE</p>
-            <h1>Engineering Flow,<br>Eliminiating Friction.</h1>
-            <p>We solve the "Legacy Gap", the friction between high-speed field operations and low-speed back-office administration. No software fluff. Just synchronized outputs.</p>
+            <span class="mono-head">// STRATEGIC INFRASTRUCTURE</span>
+            <h1>Engineering Flow.</h1>
+            <p>We solve the "Legacy Gap"—the friction between high-speed field operations and low-speed back-office administration. No software fluff. Just synchronized throughput.</p>
             <div class="btn-group">
                 <a href="/audit/" class="btn">Initiate Audit</a>
-                <a href="/cases/" class="btn-sec">View Results</a>
+                <a href="/cases/" class="btn-sec">View Outcomes</a>
             </div>
         </header>
 
         <section id="solutions">
             <div class="section-title">
-                <p class="mono">// MODULAR AUTOMATION</p>
+                <span class="mono-head">// MODULAR AUTOMATION</span>
                 <h2>Operational Integrity Suite</h2>
             </div>
             <div class="solutions-grid">
                 <div class="solution-card">
-                    <span class="mono">01</span>
+                    <span class="mono-head" style="font-size: 0.65rem; opacity: 0.5;">01</span>
                     <h3>Universal Parser</h3>
                     <p>Extract and normalize data from unstructured BOLs, field logs, and financial documents instantly.</p>
                     <div class="gain-tag">100% MANUAL ENTRY REMOVAL</div>
                 </div>
                 <div class="solution-card">
-                    <span class="mono">02</span>
+                    <span class="mono-head" style="font-size: 0.65rem; opacity: 0.5;">02</span>
                     <h3>The Iron Dome</h3>
                     <p>24/7 technical fail-safe logic ensuring zero front-end inquiry or lead leakage.</p>
                     <div class="gain-tag">ZERO LEAD LEAKAGE</div>
                 </div>
                 <div class="solution-card">
-                    <span class="mono">03</span>
+                    <span class="mono-head" style="font-size: 0.65rem; opacity: 0.5;">03</span>
                     <h3>Compliance Guard</h3>
                     <p>Real-time monitoring of safety certifications that hard-locks operations before failures occur.</p>
                     <div class="gain-tag">PRE-EMPTIVE RISK SHIELD</div>
                 </div>
                 <div class="solution-card">
-                    <span class="mono">04</span>
+                    <span class="mono-head" style="font-size: 0.65rem; opacity: 0.5;">04</span>
                     <h3>Field Sync</h3>
                     <p>Direct bridge between real-time field production and back-office settlement ledgers.</p>
                     <div class="gain-tag">-90% REVENUE REALIZATION LAG</div>
                 </div>
                 <div class="solution-card">
-                    <span class="mono">05</span>
+                    <span class="mono-head" style="font-size: 0.65rem; opacity: 0.5;">05</span>
                     <h3>Asset Sentry</h3>
                     <p>Telemetry-driven service orders triggered by raw engine hours and diagnostic fault codes.</p>
                     <div class="gain-tag">30% DOWNTIME REDUCTION</div>
                 </div>
                 <div class="solution-card">
-                    <span class="mono">06</span>
+                    <span class="mono-head" style="font-size: 0.65rem; opacity: 0.5;">06</span>
                     <h3>Supply Nexus</h3>
                     <p>Inventory replenishment logic that executes POs automatically based on live site burn rates.</p>
                     <div class="gain-tag">ZERO MATERIAL DELAYS</div>
@@ -136,13 +158,17 @@
         <section id="custom">
             <div class="custom-row">
                 <div>
-                    <p class="mono">// CUSTOM ENGINEERING</p>
-                    <h2 style="font-size: 2.5rem; font-weight: 800; margin: 1rem 0 2rem;">When modular isn't enough.</h2>
-                    <p style="color: var(--text-mid); margin-bottom: 2rem;">For industrial operations with deep legacy debt or specialized workflows, we engineer custom API bridges, data migrations, and proprietary dashboards.</p>
-                    <p style="color: var(--text-mid);">We don't "consult." We deploy code that removes bottlenecks in 2-4 week sprints.</p>
+                    <span class="mono-head">// CUSTOM ENGINEERING</span>
+                    <h2 style="font-size: 2.5rem; font-weight: 800; margin: 1rem 0 2rem;">When out-of-the-box fails.</h2>
+                    <p style="color: var(--text-mid); margin-bottom: 2rem; font-size: 1.1rem;">
+                        We specialize in salvaging operations burdened by legacy technical debt. By engineering custom API bridges and proprietary data pipelines, we transform fragmented workflows into unified systems.
+                    </p>
+                    <p style="color: var(--text-mid); font-size: 1.1rem;">
+                        We don't "consult" or write reports. We ship production code that eliminates operational bottlenecks in 2-4 week development sprints.
+                    </p>
                 </div>
                 <div class="deployment-box">
-                    <p class="mono" style="margin-bottom: 2rem; color: #fff;">// DEPLOYMENT LIFECYCLE</p>
+                    <span class="mono-head" style="margin-bottom: 2rem; color: #fff;">// DEPLOYMENT LIFECYCLE</span>
                     <div class="deployment-item"><span>Diagnostic Phase</span><span>3–5 DAYS</span></div>
                     <div class="deployment-item"><span>Engineering Sprint</span><span>2–4 WEEKS</span></div>
                     <div class="deployment-item"><span>System Sync / Launch</span><span>48–72 HOURS</span></div>
@@ -152,14 +178,14 @@
         </section>
 
         <section id="about">
-            <div style="max-width: 800px;">
-                <p class="mono">// ABOUT THE COMPANY</p>
-                <h2 style="font-size: 2.5rem; font-weight: 800; margin: 1rem 0 2rem;">Built for the High-Stakes Delta.</h2>
-                <p style="color: var(--text-mid); font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
-                    Carrillo Dynamics was founded on a single observation: **Field work is fast, but the systems managing it are slow.** We specialize in the high-stakes delta where manual data entry, compliance lapses, and communication silos bleed revenue.
+            <div style="max-width: 850px;">
+                <span class="mono-head">// ABOUT THE COMPANY</span>
+                <h2 style="font-size: 2.5rem; font-weight: 800; margin: 1rem 0 2rem;">Bridging the Industrial Gap.</h2>
+                <p style="color: var(--text-mid); font-size: 1.15rem; line-height: 1.8; margin-bottom: 2rem;">
+                    Carrillo Dynamics was founded to fix a fundamental industrial imbalance: <strong>Field execution is instant, but the administration governing it is slow.</strong> We occupy the delta where manual entry, compliance gaps, and communication silos erode your margins.
                 </p>
-                <p style="color: var(--text-mid); font-size: 1.1rem; line-height: 1.8;">
-                    Based in Chicago, we serve industrial suppliers, logistics fleets, and field service firms who have outgrown their spreadsheets but aren't served by bloated enterprise software. We engineer the flow.
+                <p style="color: var(--text-mid); font-size: 1.15rem; line-height: 1.8;">
+                    Based in Chicago, we serve the fleets, suppliers, and field service firms that have outgrown their spreadsheets but are ignored by bloated, overpriced enterprise software. We don't just manage the flow, we engineer it.
                 </p>
             </div>
         </section>
@@ -172,13 +198,13 @@
                 <p style="font-size: 0.8rem; line-height: 1.6;">Industrial Infrastructure Engineering.<br>Chicago, IL.</p>
             </div>
             <div>
-                <p class="mono" style="margin-bottom: 1.5rem; color: #fff;">Navigation</p>
+                <span class="mono-head" style="margin-bottom: 1.5rem; color: #fff; font-size: 0.65rem;">Navigation</span>
                 <p style="font-size: 0.8rem; margin-bottom: 0.8rem;"><a href="/cases/" style="color: inherit; text-decoration: none;">Case Studies</a></p>
                 <p style="font-size: 0.8rem; margin-bottom: 0.8rem;"><a href="/audit/" style="color: inherit; text-decoration: none;">Initiate Audit</a></p>
             </div>
             <div>
-                <p class="mono" style="margin-bottom: 1.5rem; color: #fff;">Legal</p>
-                <p style="font-size: 0.7rem; line-height: 1.6;">© 2026 Engineering Flow. By submitting an audit, you agree to technical SMS updates. Reply STOP to opt-out.</p>
+                <span class="mono-head" style="margin-bottom: 1.5rem; color: #fff; font-size: 0.65rem;">Legal</span>
+                <p style="font-size: 0.7rem; line-height: 1.6;">© 2026 Engineering Flow. All data encrypted. By submitting an audit, you agree to technical updates. Reply STOP to opt-out.</p>
             </div>
         </div>
     </footer>
