@@ -12,7 +12,6 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background: var(--bg); color: var(--text-high); font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.6; }
         
-        /* The Grid Background */
         body::before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 50px 50px; z-index: -1; opacity: 0.1; }
         
         .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
@@ -26,29 +25,47 @@
 
         /* --- AUDIT CONTENT --- */
         .audit-header { padding: 8rem 0 4rem; text-align: center; }
-        .audit-header h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; margin-top: 1.5rem; letter-spacing: -0.04em; }
+        .audit-header h1 { font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 800; margin-top: 1.5rem; letter-spacing: -0.04em; }
         
         .diagnostic-form { background: var(--surface); border: 1px solid var(--border); padding: 4rem; margin: 0 auto 8rem; max-width: 850px; position: relative; box-shadow: 0 40px 100px rgba(0,0,0,0.5); }
         .diagnostic-form::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--accent); }
         
         .section-break { margin: 4rem 0 2.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem; color: var(--text-mid); font-family: var(--mono); font-size: 1rem; text-transform: uppercase; letter-spacing: 3px; }
-        
         .form-group { margin-bottom: 3rem; }
         
-        /* INCREASED FONT SIZES */
         label.field-label { display: block; font-family: var(--mono); color: #ffffff; font-size: 1.05rem; font-weight: 700; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; border-left: 3px solid var(--accent); padding-left: 15px; }
-        
         .field-desc { display: block; font-size: 1rem; color: var(--text-mid); margin-bottom: 1.5rem; font-style: italic; line-height: 1.5; padding-left: 18px; }
         
         input, select, textarea { width: 100%; background: #000000; border: 1px solid var(--border); padding: 1.4rem; color: white; font-family: 'Inter', sans-serif; font-size: 1.15rem; border-radius: 0; transition: 0.3s; }
         input:focus, select:focus, textarea:focus { border-color: var(--accent); outline: none; background: #050505; }
         
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+
         .submit-btn { width: 100%; padding: 2rem; background: #ffffff; color: #000; border: none; font-weight: 800; text-transform: uppercase; letter-spacing: 3px; cursor: pointer; transition: 0.3s; font-family: var(--mono); font-size: 1.2rem; }
         .submit-btn:hover { background: var(--accent); color: white; }
 
         /* --- FOOTER --- */
         footer { padding: 6rem 0; background: #000; color: var(--text-mid); border-top: 1px solid var(--border); }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; }
+
+        /* --- MOBILE OPTIMIZATION --- */
+        @media (max-width: 768px) {
+            .container { padding: 0 1.5rem; }
+            nav { padding: 1.5rem 0; flex-direction: column; gap: 1.5rem; text-align: center; }
+            .audit-header { padding: 4rem 0 2rem; }
+            .audit-header h1 { font-size: 2.2rem; }
+            
+            .diagnostic-form { padding: 2.5rem 1.2rem; margin-bottom: 4rem; }
+            .section-break { margin: 3rem 0 2rem; font-size: 0.8rem; }
+            
+            label.field-label { font-size: 0.95rem; }
+            .field-desc { font-size: 0.85rem; padding-left: 12px; margin-bottom: 1rem; }
+            
+            input, select, textarea { padding: 1.1rem; font-size: 1rem; }
+            .form-row { grid-template-columns: 1fr; gap: 0; }
+            
+            .footer-grid { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
+        }
     </style>
 </head>
 <body>
@@ -56,7 +73,7 @@
     <div class="container">
         <nav>
             <a href="/" class="nav-logo">CARRILLO DYNAMICS</a>
-            <a href="/cases/" class="btn">View System Results →</a>
+            <a href="/cases/" class="btn">View Results →</a>
         </nav>
 
         <div class="audit-header">
@@ -74,7 +91,7 @@
                 
                 <div class="form-group">
                     <label class="field-label">Weekly Manual Data Latency</label>
-                    <span class="field-desc">The estimated total hours per week your team spends manually entering data, reconciling spreadsheets, or chasing missing documentation.</span>
+                    <span class="field-desc">Estimated hours per week spent on manual entry/reconciliation.</span>
                     <select name="entry.2069660095" required>
                         <option value="O-5 Hours (Manageable)">0-5 Hours (Manageable)</option>
                         <option value="6-15 Hours (Inefficient)">6-15 Hours (Inefficient)</option>
@@ -85,24 +102,24 @@
 
                 <div class="form-group">
                     <label class="field-label">Primary Friction Point</label>
-                    <span class="field-desc">Identify the core bottleneck currently preventing your infrastructure from reaching maximum yield.</span>
+                    <span class="field-desc">Core bottleneck preventing maximum yield.</span>
                     <select name="entry.360325844" required>
-                        <option value='Settlement Lag: Time delta between "Job Complete" and "Capital Realized"'>Settlement Lag (Job to Cash)</option>
-                        <option value="Data Ingestion: Manually extracting data from field documents/emails into core systems">Data Ingestion (Manual Entry)</option>
-                        <option value="Compliance Turbulence: Manually monitoring licenses, certifications, and risk-mitigation logs">Compliance Turbulence</option>
-                        <option value="Communication Silos: Lost revenue due to missed inquiries or slow response times">Communication Silos</option>
-                        <option value="Asset Utilization: Administrative friction preventing assets from being deployed at capacity.">Asset Utilization</option>
+                        <option value='Settlement Lag'>Settlement Lag (Job to Cash)</option>
+                        <option value="Data Ingestion">Data Ingestion (Manual Entry)</option>
+                        <option value="Compliance Turbulence">Compliance Turbulence</option>
+                        <option value="Communication Silos">Communication Silos</option>
+                        <option value="Asset Utilization">Asset Utilization</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label class="field-label">Estimated Annual Financial Leakage</label>
-                    <span class="field-desc">Aggregate loss resulting from administrative errors, billing delays, overhead, and underutilized field assets.</span>
+                    <label class="field-label">Annual Financial Leakage</label>
+                    <span class="field-desc">Aggregate loss from errors, delays, and underutilization.</span>
                     <select name="entry.1480765121" required>
                         <option value="Under $25k">Under $25k</option>
                         <option value="$25k - $75k">$25k - $75k</option>
                         <option value="$75k - $250k">$75k - $250k</option>
-                        <option value="$250k+ (Immediate Intervention Required)">$250k+</option>
+                        <option value="$250k+">$250k+ (Immediate Intervention Required)</option>
                     </select>
                 </div>
 
@@ -110,23 +127,12 @@
 
                 <div class="form-group">
                     <label class="field-label">Core Management System</label>
-                    <span class="field-desc">The primary software environment or method used to log and track your daily operational data.</span>
+                    <span class="field-desc">Primary software environment used to track daily data.</span>
                     <select name="entry.850091313" required>
-                        <option value="Legacy ERP/TMS (On-premise / Server-based)">Legacy ERP/TMS</option>
-                        <option value="Cloud-Native Management Suites (SaaS / Web-based)">Cloud SaaS</option>
-                        <option value="Field Asset Telematics (Samsara, Motive, Procore, etc.)">Field Telematics</option>
-                        <option value="Manual Systems (Excel / Google Sheets / Physical Paper)">Manual Systems</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label class="field-label">Primary Data Ingestion Method</label>
-                    <span class="field-desc">How information from field operations, vendors, or partners currently enters your primary management system.</span>
-                    <select name="entry.99889003" required>
-                        <option value="Digital Attachments (PDFs / Invoices via Email)">Email / PDFs</option>
-                        <option value="Mobile Capture (Field operators scanning via mobile apps)">Mobile Apps</option>
-                        <option value="Unstructured Media (Raw photos via Text/SMS)">SMS / Photos</option>
-                        <option value="External Portals (Downloading data from third-party sources)">External Portals</option>
+                        <option value="Legacy ERP/TMS">Legacy ERP/TMS</option>
+                        <option value="Cloud SaaS">Cloud SaaS</option>
+                        <option value="Field Telematics">Field Telematics</option>
+                        <option value="Manual Systems">Manual Systems</option>
                     </select>
                 </div>
 
@@ -134,11 +140,11 @@
 
                 <div class="form-group">
                     <label class="field-label">The Single Point of Failure</label>
-                    <span class="field-desc">If one administrative process could be fully automated by tomorrow, which one would yield the highest ROI?</span>
-                    <textarea name="entry.2001113340" rows="4" placeholder="Briefly describe the bottleneck..." required></textarea>
+                    <span class="field-desc">Which single automation would yield the highest ROI?</span>
+                    <textarea name="entry.2001113340" rows="4" placeholder="Briefly describe..." required></textarea>
                 </div>
 
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                <div class="form-row">
                     <div class="form-group">
                         <label class="field-label">Full Name</label>
                         <input type="text" name="entry.1469877125" required>
