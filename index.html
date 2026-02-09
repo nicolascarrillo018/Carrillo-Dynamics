@@ -4,43 +4,38 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico?v=1">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrillo Dynamics | Engineering Flow</title>
+    <title>Carrillo Dynamics | Industrial Systems Engineering</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
     <style>
-        :root { --bg: #0a0a0a; --surface: #111111; --accent: #007aff; --border: #222222; --text-high: #ffffff; --text-mid: #a0a0a0; --mono: 'JetBrains Mono', monospace; }
+        :root { --bg: #0a0a0a; --surface: #111111; --accent: #CC8899; --border: #222222; --text-high: #ffffff; --text-mid: #a0a0a0; --mono: 'JetBrains Mono', monospace; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: var(--bg); color: var(--text-high); font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.6; }
-        body::before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 50px 50px; z-index: -1; opacity: 0.1; }
+        body { background: var(--bg); color: var(--text-high); font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        body::before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 40px 40px; z-index: -1; opacity: 0.1; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
         .mono-head { font-family: var(--mono); text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.25em; color: var(--accent); font-weight: 700; display: block; }
+        
+        /* Master Header */
         nav { padding: 2.5rem 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
         .nav-logo { font-weight: 800; font-size: 1.1rem; text-decoration: none; color: #fff; letter-spacing: -0.5px; }
         #clock { font-size: 1.1rem; font-weight: 800; color: #fff; font-family: var(--mono); }
-        .hero { padding: 10rem 0 8rem; border-bottom: 1px solid var(--border); }
-        .hero h1 { font-size: clamp(3.5rem, 9vw, 6rem); font-weight: 800; line-height: 0.9; margin: 1.5rem 0; letter-spacing: -0.04em; }
-        .hero p { font-size: 1.3rem; color: var(--text-mid); max-width: 700px; margin-bottom: 3rem; }
-        .btn-group { display: flex; gap: 1rem; }
-        .btn { padding: 1.2rem 2.5rem; background: var(--accent); color: #fff; text-decoration: none; font-weight: 700; font-family: var(--mono); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; border: 1px solid var(--accent); }
-        .btn:hover { background: transparent; color: var(--accent); }
-        .btn-white { padding: 1.2rem 2.5rem; background: #fff; color: #000; text-decoration: none; font-weight: 700; font-family: var(--mono); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; border: 1px solid #fff; }
-        .btn-white:hover { background: transparent; color: #fff; }
-        section { padding: 8rem 0; border-bottom: 1px solid var(--border); }
-        .section-title { margin-bottom: 4rem; }
-        .section-title h2 { font-size: 2.5rem; font-weight: 800; margin-top: 1rem; letter-spacing: -0.02em; }
-        .solutions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
-        .solution-card { background: var(--bg); padding: 3rem; transition: 0.3s; display: flex; flex-direction: column; min-height: 350px; }
-        .solution-card:hover { background: var(--surface); }
-        .solution-card h3 { font-size: 1.3rem; margin: 1.5rem 0 1rem; font-weight: 800; }
-        .solution-card p { color: var(--text-mid); font-size: 0.95rem; flex-grow: 1; }
-        .gain-tag { margin-top: 2rem; font-family: var(--mono); font-size: 0.75rem; color: #ffffff; border: 1px solid var(--accent); background: rgba(0, 122, 255, 0.1); font-weight: 700; padding: 0.6rem 1rem; display: inline-block; letter-spacing: 1.5px; text-transform: uppercase; }
-        .custom-row { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-        .deployment-box { background: var(--surface); border: 1px solid var(--border); padding: 3rem; }
-        .deployment-item { display: flex; justify-content: space-between; padding: 1.2rem 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
-        .deployment-item span:last-child { font-family: var(--mono); color: var(--accent); font-weight: 700; }
-        footer { padding: 6rem 0; background: #000; color: var(--text-mid); border-top: 1px solid var(--border); }
+
+        /* Hero */
+        .hero { padding: 10rem 0 6rem; }
+        .hero h1 { font-size: clamp(3rem, 8vw, 6rem); font-weight: 800; line-height: 0.9; letter-spacing: -2px; margin: 1.5rem 0; }
+        .btn-main { display: inline-block; padding: 1.5rem 3rem; background: #fff; color: #000; text-decoration: none; font-weight: 800; font-family: var(--mono); text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; margin-top: 2rem; }
+        .btn-main:hover { background: var(--accent); color: #fff; }
+
+        /* Six-Card Grid */
+        .case-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 1.5rem; margin: 4rem 0; }
+        .case-card { background: var(--surface); border: 1px solid var(--border); padding: 2.5rem; }
+        .metric-box { border-left: 3px solid var(--accent); padding: 0.5rem 0 0.5rem 1.2rem; background: rgba(0, 122, 255, 0.05); margin-bottom: 1.5rem; }
+        .metric-val { display: block; font-family: var(--mono); font-size: 1.5rem; color: #fff; font-weight: 700; }
+        .metric-label { font-size: 0.65rem; color: var(--text-mid); text-transform: uppercase; letter-spacing: 1px; }
+
+        /* Master Footer */
+        footer { padding: 6rem 0; background: #000; color: var(--text-mid); border-top: 1px solid var(--border); margin-top: 6rem; }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; }
-        @media (max-width: 1024px) { .solutions-grid { grid-template-columns: repeat(2, 1fr); } .custom-row { grid-template-columns: 1fr; } }
-        @media (max-width: 768px) { .solutions-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -49,58 +44,53 @@
             <a href="/" class="nav-logo">CARRILLO DYNAMICS</a>
             <div id="clock" class="mono-head">00:00:00 CST</div>
         </nav>
-        <header class="hero">
-            <span class="mono-head">// OPERATIONAL AUTONOMY</span>
-            <h1>Engineering Flow,<br>Eliminating Friction.</h1>
-            <p>We solve the "Legacy Gap"—the friction between high-speed field operations and low-speed back-office administration. No software fluff. Just synchronized output.</p>
-            <div class="btn-group">
-                <a href="/audit/" class="btn">Initiate Audit</a>
-                <a href="/cases/" class="btn-white">View Results</a>
-            </div>
-        </header>
-        <section id="solutions">
-            <div class="section-title">
-                <span class="mono-head">// MODULAR AUTOMATION</span>
-                <h2>Operational Integrity Suite</h2>
-            </div>
-            <div class="solutions-grid">
-                <div class="solution-card">
-                    <span class="mono-head" style="font-size: 0.7rem; opacity: 0.5;">01</span>
-                    <h3>Universal Parser</h3>
-                    <p>Extract and normalize data from unstructured BOLs, field logs, and financial documents instantly.</p>
-                    <div class="gain-tag">100% MANUAL ENTRY REMOVAL</div>
-                </div>
-                <div class="solution-card">
-                    <span class="mono-head" style="font-size: 0.7rem; opacity: 0.5;">02</span>
-                    <h3>The Iron Dome</h3>
-                    <p>24/7 technical fail-safe logic ensuring zero front-end inquiry or lead leakage.</p>
-                    <div class="gain-tag">ZERO LEAD LEAKAGE</div>
-                </div>
-                <div class="solution-card">
-                    <span class="mono-head" style="font-size: 0.7rem; opacity: 0.5;">04</span>
-                    <h3>Field Sync</h3>
-                    <p>Direct bridge between real-time field production and back-office settlement ledgers.</p>
-                    <div class="gain-tag">-90% REVENUE REALIZATION LAG</div>
-                </div>
-            </div>
+        <section class="hero">
+            <span class="mono-head">// OPERATIONAL EXCELLENCE</span>
+            <h1>Engineering<br>Flow.</h1>
+            <p style="max-width: 600px; font-size: 1.25rem; color: var(--text-mid); line-height: 1.6;">We eliminate the friction between field operations and back-office intelligence. High-throughput systems for high-stakes industries.</p>
+            <a href="/audit/" class="btn-main">Initiate Audit →</a>
         </section>
-        <section id="custom">
-            <div class="custom-row">
-                <div>
-                    <span class="mono-head">// CUSTOM ENGINEERING</span>
-                    <h2 style="font-size: 2.5rem; font-weight: 800; margin: 1rem 0 2rem;">When out-of-the-box fails.</h2>
-                    <p style="color: var(--text-mid); margin-bottom: 2rem; font-size: 1.1rem;">Legacy technical debt is an operational tax. We engineer the proprietary bridges required to unify fragmented data streams and automate specialized industrial workflows.</p>
+
+        <section style="padding: 4rem 0;">
+            <span class="mono-head">// SYSTEMIC IMPACT</span>
+            <div class="case-grid">
+                <div class="case-card">
+                    <div class="metric-box"><span class="metric-val">+420 HRS / YR</span><span class="metric-label">Capacity Reclaimed</span></div>
+                    <h3 style="margin-bottom: 0.5rem;">Data Ingestion</h3>
+                    <p style="color: var(--text-mid); font-size: 0.9rem;">Eliminated manual data entry from field BOLs and unstructured media.</p>
                 </div>
-                <div class="deployment-box">
-                    <span class="mono-head" style="margin-bottom: 2rem; color: #fff;">// DEPLOYMENT LIFECYCLE</span>
-                    <div class="deployment-item"><span>Phase 01</span><span>Infrastructure Audit</span></div>
-                    <div class="deployment-item"><span>Phase 02</span><span>Logic Engineering</span></div>
-                    <div class="deployment-item"><span>Phase 03</span><span>System Sync</span></div>
-                    <div class="deployment-item" style="border:none; margin-top: 1rem;"><span style="color: #fff; font-weight: 700;">Final Result</span><span>Frictionless Output</span></div>
+                <div class="case-card">
+                    <div class="metric-box"><span class="metric-val">$14K / MO</span><span class="metric-label">Leakage Plugged</span></div>
+                    <h3 style="margin-bottom: 0.5rem;">Iron Dome</h3>
+                    <p style="color: var(--text-mid); font-size: 0.9rem;">Automated inquiry response logic ensuring zero missed opportunities.</p>
                 </div>
+                <div class="case-card">
+                    <div class="metric-box"><span class="metric-val">-85% LATENCY</span><span class="metric-label">Settlement Cycle</span></div>
+                    <h3 style="margin-bottom: 0.5rem;">Office Sync</h3>
+                    <p style="color: var(--text-mid); font-size: 0.9rem;">Real-time job-to-cash pipeline acceleration via cloud automation.</p>
+                </div>
+                <div class="case-card">
+                    <div class="metric-box"><span class="metric-val">100% SYNC</span><span class="metric-label">Legacy Integrity</span></div>
+                    <h3 style="margin-bottom: 0.5rem;">API Bridging</h3>
+                    <p style="color: var(--text-mid); font-size: 0.9rem;">Connecting on-premise legacy ERPs to modern cloud-native toolsets.</p>
+                </div>
+                <div class="case-card">
+                    <div class="metric-box"><span class="metric-val">30% REDUCTION</span><span class="metric-label">Operational Friction</span></div>
+                    <h3 style="margin-bottom: 0.5rem;">Compliance Guard</h3>
+                    <p style="color: var(--text-mid); font-size: 0.9rem;">Hard-locking field assets against regulatory and licensing lapses.</p>
+                </div>
+                <div class="case-card">
+                    <div class="metric-box"><span class="metric-val">+22% YIELD</span><span class="metric-label">Asset Utilization</span></div>
+                    <h3 style="margin-bottom: 0.5rem;">Asset Sentry</h3>
+                    <p style="color: var(--text-mid); font-size: 0.9rem;">Telemetry-driven dispatching for maximum machinery uptime.</p>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <a href="/cases/" style="color: var(--accent); font-family: var(--mono); text-decoration: none; font-size: 0.9rem;">VIEW ALL CASE STUDIES →</a>
             </div>
         </section>
     </div>
+
     <footer>
         <div class="container footer-grid">
             <div>
@@ -118,6 +108,13 @@
             </div>
         </div>
     </footer>
-    <script>function updateClock() { const now = new Date(); const time = now.toLocaleTimeString('en-US', { hour12: false, timeZone: 'America/Chicago' }); document.getElementById('clock').innerText = time + ' CST'; } setInterval(updateClock, 1000); updateClock();</script>
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const time = now.toLocaleTimeString('en-US', { hour12: false, timeZone: 'America/Chicago' });
+            document.getElementById('clock').innerText = time + ' CST';
+        }
+        setInterval(updateClock, 1000); updateClock();
+    </script>
 </body>
 </html>
