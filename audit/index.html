@@ -61,17 +61,18 @@
         .form-group { margin-bottom: 2.5rem; }
         
         /* High Contrast Labels */
-        label.field-label { 
-            display: block; 
-            font-family: var(--mono); 
-            color: #ffffff; 
-            font-size: 0.75rem; 
-            margin-bottom: 1.2rem; 
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            border-left: 3px solid var(--accent);
-            padding-left: 12px;
-        }
+label.field-label { 
+    display: block; 
+    font-family: var(--mono); 
+    color: #ffffff; 
+    font-size: 0.9rem; /* Increased from 0.75rem */
+    font-weight: 700;  /* Added Bold */
+    margin-bottom: 1.2rem; 
+    text-transform: uppercase;
+    letter-spacing: 2px; /* Increased for legibility */
+    border-left: 3px solid var(--accent);
+    padding-left: 12px;
+}
 
         input[type="text"], input[type="email"], select, textarea {
             width: 100%;
