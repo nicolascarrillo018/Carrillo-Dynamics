@@ -19,13 +19,10 @@
         .mono-head { font-family: var(--mono); text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.25em; color: var(--accent); font-weight: 700; display: block; }
         
         /* --- NAVIGATION --- */
-<nav>
-    <a href="/" class="nav-logo">CARRILLO DYNAMICS</a>
-    <div style="font-family: var(--mono); color: #ff3333; border: 1px solid #331111; padding: 0.8rem 1.5rem; background: rgba(255, 51, 51, 0.05); text-align: right; line-height: 1.2;">
-        <span style="color: var(--text-mid); font-size: 0.6rem; display: block; text-transform: uppercase;">Est. Leakage:</span>
-        $<span id="leak-amount" style="font-size: 1.1rem; font-weight: 700;">0.00</span>
-    </div>
-</nav>
+        nav { padding: 2.5rem 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
+        .nav-logo { font-weight: 800; font-size: 1.1rem; text-decoration: none; color: #fff; letter-spacing: -0.5px; }
+        .btn { padding: 0.8rem 1.5rem; background: var(--accent); color: #fff; text-decoration: none; font-weight: 700; font-family: var(--mono); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; border: 1px solid var(--accent); cursor: pointer; display: inline-block; }
+        .btn:hover { background: transparent; color: var(--accent); }
 
         /* --- AUDIT CONTENT --- */
         .audit-header { padding: 8rem 0 4rem; text-align: center; }
@@ -170,17 +167,5 @@
             </div>
         </div>
     </footer>
-<script>
-    let totalLeak = 0.00;
-    // Calculation: $0.12 per second. 
-    // This runs every 1/10th of a second for a smooth "rolling" counter.
-    setInterval(function(){
-        totalLeak += 0.012; 
-        const display = document.getElementById("leak-amount");
-        if(display) {
-            display.innerHTML = totalLeak.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
-        }
-    }, 100);
-</script>
 </body>
 </html>
