@@ -2,15 +2,9 @@
 <html lang="en">
 <head>
     <link rel="icon" type="image/x-icon" href="/favicon.ico?v=1">
-    <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png?v=1">
-    <link rel="apple-touch-icon" href="/android-chrome-512x512.png?v=1">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrillo Dynamics | Systemic Throughput & Operations</title>
-    <meta name="description" content="We eliminate systemic latency in high-stakes environments. We engineer the digital infrastructure that turns field execution into settled revenue. No hype. Just throughput.">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Carrillo Dynamics | Engineering Flow & Operational Integrity</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <style>
@@ -18,273 +12,227 @@
             --bg: #0a0a0a;
             --surface: #111111;
             --accent: #007aff;
-            --accent-dim: rgba(0, 122, 255, 0.1);
             --border: #222222;
             --text-high: #ffffff;
             --text-mid: #a0a0a0;
-            --text-low: #666666;
             --mono: 'JetBrains Mono', monospace;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            background-color: var(--bg);
-            color: var(--text-high);
-            font-family: 'Inter', sans-serif;
-            line-height: 1.5;
-            -webkit-font-smoothing: antialiased;
-        }
+        body { background: var(--bg); color: var(--text-high); font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 
         body::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background-image: 
-                linear-gradient(var(--border) 1px, transparent 1px),
-                linear-gradient(90deg, var(--border) 1px, transparent 1px);
-            background-size: 40px 40px;
-            z-index: -1;
-            opacity: 0.3;
+            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 40px 40px; z-index: -1; opacity: 0.2;
         }
 
         .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+        .mono { font-family: var(--mono); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.1em; color: var(--accent); }
 
-        .mono { 
-            font-family: var(--mono); 
-            text-transform: uppercase; 
-            font-size: 0.7rem; 
-            letter-spacing: 0.05em; 
-            color: var(--accent); 
-        }
+        .hero { padding: 10rem 0 6rem; }
+        .hero h1 { font-size: clamp(2.5rem, 7vw, 4.5rem); font-weight: 800; line-height: 0.95; margin-bottom: 2rem; letter-spacing: -0.02em; }
+        .hero p { font-size: 1.25rem; color: var(--text-mid); max-width: 750px; line-height: 1.6; }
 
-        .section-label {
-            display: block;
-            font-size: 1.1rem; 
-            margin-top: 5rem;    
-            margin-bottom: 1.5rem; 
-            font-weight: 500;
-            letter-spacing: 0.15em;
-            white-space: normal; 
-        }
-
-        section { padding: 8rem 0; border-bottom: 1px solid var(--border); }
-
-        /* Hero */
-        .hero { padding: 10rem 0 4rem; }
-        .hero h1 { font-size: clamp(2.5rem, 7vw, 4.5rem); font-weight: 800; line-height: 0.95; letter-spacing: -0.04em; margin-bottom: 2rem; }
-        .hero p { font-size: 1.25rem; color: var(--text-mid); max-width: 700px; margin-bottom: 3rem; line-height: 1.6; }
-
-        .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
-        .btn { padding: 1rem 2rem; font-weight: 700; text-decoration: none; border-radius: 0; transition: 0.2s; border: 1px solid transparent; }
-        .btn-primary { background: var(--accent); color: white; }
-        .btn-secondary { border: 1px solid var(--text-low); color: var(--text-high); }
-        .btn:hover { filter: brightness(1.2); }
-
-        .tech-stack {
-            display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 4rem;
-            font-family: var(--mono); font-size: 0.9rem; font-weight: 500;
-            color: var(--text-mid); align-items: center; letter-spacing: 0.1em;
-        }
-        .tech-stack span:not(:first-child) { color: var(--text-high); text-shadow: 0 0 10px rgba(255, 255, 255, 0.2); }
-        .tech-stack span:first-child { color: var(--accent); opacity: 0.8; }
-
-        /* Pain Section */
-        .pain-box { background: var(--surface); border-left: 4px solid #ff3b30; padding: 3rem; margin-top: 1rem; }
-        .math-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-top: 2rem; }
-        .math-item h4 { color: #ff3b30; font-family: var(--mono); font-size: 1.2rem; margin-bottom: 0.5rem; }
-
-        /* Solutions Grid Update */
-        .solutions-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
-            gap: 2rem; 
-            margin-top: 2rem; 
-        }
+        .solutions-grid { display: flex; flex-direction: column; gap: 1rem; margin-top: 4rem; }
+        
         .solution-card { 
             background: var(--surface); 
-            padding: 2.5rem; 
-            border: 1px solid var(--border);
-            border-top: 4px solid var(--accent);
-            display: flex; 
-            flex-direction: column; 
-            transition: 0.3s;
+            border: 1px solid var(--border); 
+            padding: 1.5rem 2.5rem; 
+            cursor: pointer; 
+            transition: 0.3s ease;
         }
-        .solution-card:hover { border-color: var(--accent); transform: translateY(-5px); }
-        .solution-card h3 { margin: 1rem 0; font-size: 1.4rem; }
-        .solution-card p { color: var(--text-mid); font-size: 0.95rem; margin-bottom: 1.5rem; line-height: 1.6; }
+        
+        .solution-card:hover { border-color: var(--accent); background: #161616; }
+        
+        .card-header { display: flex; align-items: center; justify-content: space-between; pointer-events: none; }
+        .card-header h3 { font-size: 1.4rem; font-weight: 700; letter-spacing: -0.01em; }
+        
+        .expand-icon { font-family: var(--mono); color: var(--accent); font-size: 1.5rem; transition: 0.4s; }
+        
+        .card-content { 
+            max-height: 0; 
+            opacity: 0; 
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+            overflow: hidden;
+        }
+
+        .solution-card.active { border-color: var(--accent); }
+        .solution-card.active .card-content { max-height: 400px; opacity: 1; padding-top: 2rem; padding-bottom: 1rem; }
+        .solution-card.active .expand-icon { transform: rotate(45deg); color: #fff; }
+
         .gain-label { 
-            margin-top: auto; 
-            padding-top: 1.5rem; 
-            border-top: 1px solid var(--border); 
+            display: inline-block;
+            margin-top: 1.5rem; 
+            padding: 0.5rem 1rem; 
+            background: rgba(0, 122, 255, 0.1);
+            border: 1px solid var(--accent);
+            color: #ffffff; 
             font-family: var(--mono); 
             font-size: 0.75rem; 
-            color: var(--accent); 
+            font-weight: 700;
+            text-transform: uppercase;
         }
 
-        /* Custom Table Styling */
+        .custom-item { display: flex; align-items: center; gap: 12px; margin-bottom: 1.2rem; font-family: var(--mono); font-size: 0.85rem; color: #fff; }
+        .plus-icon { color: var(--accent); font-weight: 800; font-size: 1rem; }
+
         .deployment-table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; }
-        .deployment-table tr { border-bottom: 1px solid var(--border); }
-        .deployment-table td { padding: 1.2rem 0; font-size: 0.9rem; }
-        .deployment-table td:last-child { text-align: right; color: var(--accent); font-family: var(--mono); }
+        .deployment-table td { padding: 1.2rem 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; color: var(--text-mid); }
+        .deployment-table td:last-child { text-align: right; color: var(--accent); font-family: var(--mono); font-weight: 700; }
 
-        /* Process */
-        .process-row { display: grid; grid-template-columns: 80px 1fr; gap: 2rem; margin-bottom: 3rem; }
-        .step-num { font-family: var(--mono); font-size: 2rem; color: var(--text-low); }
+        .btn { display: inline-block; padding: 1.2rem 2.5rem; background: var(--accent); color: #fff; text-decoration: none; font-weight: 700; font-family: var(--mono); text-transform: uppercase; letter-spacing: 2px; margin-top: 2rem; transition: 0.3s; }
+        .btn:hover { background: #fff; color: #000; transform: translateY(-2px); }
 
-        footer { padding: 4rem 0; background: #050505; color: var(--text-low); font-size: 0.9rem; }
-        .footer-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; }
+        footer { padding: 6rem 0; border-top: 1px solid var(--border); background: #050505; }
     </style>
 </head>
 <body>
 
-    <section class="container hero">
-        <p class="mono" id="live-timestamp">// [SYSTEM: ONLINE] // LOADING...</p>
-
-        <script>
-            const updateTimestamp = () => {
-                const options = {
-                    timeZone: 'America/Chicago',
-                    hour12: false,
-                    year: 'numeric', month: '2-digit', day: '2-digit',
-                    hour: '2-digit', minute: '2-digit', second: '2-digit'
-                };
-                const now = new Intl.DateTimeFormat('en-US', options).format(new Date());
-                const formatted = now.replace(/(\d+)\/(\d+)\/(\d+),?\s(.*)/, '$3-$1-$2 $4');
-                document.getElementById('live-timestamp').innerText = `// [SYSTEM: ONLINE] // ${formatted} CST`;
-            }
-            updateTimestamp();
-            setInterval(updateTimestamp, 1000);
-        </script>
-
+    <div class="container hero">
+        <p class="mono" id="live-timestamp">// [SYSTEM: ACTIVE] // STRATEGIC FLOW INITIATED</p>
         <h1>Engineering Flow,<br>Eliminating Friction.</h1>
-        <p>Field operations move in real-time. Back offices move at the speed of paper. We build the digital infrastructure that synchronizes field execution with back-office settlement.</p>
-        
-        <div class="btn-group">
-            <a href="/audit/" class="btn btn-primary">Request Operational Audit</a>
-            <a href="/cases/" class="btn btn-secondary">View Infrastructure Cases</a>
-        </div>
+        <p>Field execution moves in real-time. Back offices move at the speed of paper. We engineer the digital infrastructure that synchronizes them, turning operational output into settled revenue.</p>
+        <a href="/audit/" class="btn">Execute Audit →</a>
+    </div>
 
-        <div class="tech-stack">
-            <span>// SYSTEM COMPATIBILITY:</span>
-            <span>ERP</span><span>CRM</span><span>TMS</span><span>SAMSARA</span><span>PROCORE</span><span>SERVICE TITAN</span><span>API NATIVE</span>
-        </div>
-    </section>
-
-    <section class="container">
-        <p class="mono section-label">// The Cost of INACTION</p>
-        <div class="pain-box">
-            <h2>The Assembly Line is Stalled</h2>
-            <div class="math-grid">
-                <div class="math-item">
-                    <h4>THROUGHPUT COLLAPSE</h4>
-                    <p>Manual data ingestion is a bottleneck. If your team is spending hours on "data entry," your revenue is trapped in Digital WIP.</p>
-                </div>
-                <div class="math-item">
-                    <h4>SETTLEMENT LATENCY</h4>
-                    <p>Non-standardized capture creates a 48-hour lag in cash flow. We minimize the time between "Job Complete" and "Capital Realized."</p>
-                </div>
-                <div class="math-item">
-                    <h4>COMPLIANCE TURBULENCE</h4>
-                    <p>Administrative oversight on licenses and safety results in grounded assets and unbillable downtime.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="container">
-        <p class="mono section-label">// MODULAR AUTOMATION SUITE</p>
-        <h2 style="font-size: 3rem; margin-top: 1rem; margin-bottom: 3rem;">High-Velocity Infrastructure</h2>
-        
+    <section class="container" style="padding-bottom: 8rem;">
+        <p class="mono">// MODULAR AUTOMATION SUITE</p>
         <div class="solutions-grid">
-            <div class="solution-card">
-                <p class="mono">01 [ HIGH-VOLUME INGESTION ]</p>
-                <h3>The Universal Parser</h3>
-                <p>Instantly extract unstructured data from BOLs, Field Logs, and Invoices. We normalize messy data for zero-touch system updates.</p>
-                <div class="gain-label">GAIN: 100% Manual Entry Removal</div>
+            
+            <div class="solution-card" onclick="this.classList.toggle('active')">
+                <div class="card-header">
+                    <div style="display:flex; align-items:center; gap:2rem;">
+                        <span class="mono" style="opacity:0.5; font-size:1.2rem;">01</span>
+                        <h3>The Universal Parser</h3>
+                    </div>
+                    <span class="expand-icon">+</span>
+                </div>
+                <div class="card-content">
+                    <p style="color: var(--text-mid); max-width: 800px; line-height: 1.7;">High-Volume Ingestion. Instantly extract unstructured data from BOLs, Field Logs, and Invoices. We normalize messy data and push it directly to your core management systems with zero human touch.</p>
+                    <div class="gain-label">GAIN: 100% MANUAL ENTRY REMOVAL</div>
+                </div>
             </div>
 
-            <div class="solution-card">
-                <p class="mono">02 [ REVENUE RECOVERY ]</p>
-                <h3>The Iron Dome</h3>
-                <p>A 24/7 technical fail-safe. Automated missed-call recovery and lead capture ensures no inquiry ever slips through the cracks.</p>
-                <div class="gain-label">GAIN: Zero-Lead Leakage</div>
+            <div class="solution-card" onclick="this.classList.toggle('active')">
+                <div class="card-header">
+                    <div style="display:flex; align-items:center; gap:2rem;">
+                        <span class="mono" style="opacity:0.5; font-size:1.2rem;">02</span>
+                        <h3>The Iron Dome</h3>
+                    </div>
+                    <span class="expand-icon">+</span>
+                </div>
+                <div class="card-content">
+                    <p style="color: var(--text-mid); max-width: 800px; line-height: 1.7;">Revenue & Lead Recovery. A 24/7 technical fail-safe for your front-end. Automated missed-call recovery and lead capture ensure no inquiry ever slips through the cracks.</p>
+                    <div class="gain-label">GAIN: ZERO-LEAD LEAKAGE</div>
+                </div>
             </div>
 
-            <div class="solution-card">
-                <p class="mono">03 [ RISK MITIGATION ]</p>
-                <h3>The Compliance Guard</h3>
-                <p>Automated oversight of certifications and safety logs. Alerts you before compliance failures halt your operations.</p>
-                <div class="gain-label">GAIN: Pre-Emptive Operational Safety</div>
+            <div class="solution-card" onclick="this.classList.toggle('active')">
+                <div class="card-header">
+                    <div style="display:flex; align-items:center; gap:2rem;">
+                        <span class="mono" style="opacity:0.5; font-size:1.2rem;">03</span>
+                        <h3>The Compliance Guard</h3>
+                    </div>
+                    <span class="expand-icon">+</span>
+                </div>
+                <div class="card-content">
+                    <p style="color: var(--text-mid); max-width: 800px; line-height: 1.7;">Risk Mitigation Engine. Automated oversight of certifications, insurance, and safety logs. The system monitors your entire partner network, alerting you before a compliance failure halts operations.</p>
+                    <div class="gain-label">GAIN: PRE-EMPTIVE OPERATIONAL SAFETY</div>
+                </div>
             </div>
 
-            <div class="solution-card">
-                <p class="mono">04 [ RESOURCE SYNC ]</p>
-                <h3>The Field Superintendent</h3>
-                <p>Real-time synchronization of field timesheets and project milestones with ERP/Payroll to stop multi-day labor cost lag.</p>
-                <div class="gain-label">GAIN: 95% Payroll Latency Reduction</div>
+            <div class="solution-card" onclick="this.classList.toggle('active')">
+                <div class="card-header">
+                    <div style="display:flex; align-items:center; gap:2rem;">
+                        <span class="mono" style="opacity:0.5; font-size:1.2rem;">04</span>
+                        <h3>The Field Superintendent</h3>
+                    </div>
+                    <span class="expand-icon">+</span>
+                </div>
+                <div class="card-content">
+                    <p style="color: var(--text-mid); max-width: 800px; line-height: 1.7;">Labor & Resource Synchronization. We synchronize field-generated timesheets and project milestones with your ERP/Payroll in real-time to eliminate multi-day labor-cost visibility lag.</p>
+                    <div class="gain-label">GAIN: 95% PAYROLL LATENCY REDUCTION</div>
+                </div>
             </div>
 
-            <div class="solution-card">
-                <p class="mono">05 [ TELEMETRY MIDDLEWARE ]</p>
-                <h3>The Asset Sentry</h3>
-                <p>Bridges raw telematics (engine hours, fault codes) into Asset Management software to trigger automated service orders.</p>
-                <div class="gain-label">GAIN: 30% Downtime Reduction</div>
+            <div class="solution-card" onclick="this.classList.toggle('active')">
+                <div class="card-header">
+                    <div style="display:flex; align-items:center; gap:2rem;">
+                        <span class="mono" style="opacity:0.5; font-size:1.2rem;">05</span>
+                        <h3>The Asset Sentry</h3>
+                    </div>
+                    <span class="expand-icon">+</span>
+                </div>
+                <div class="card-content">
+                    <p style="color: var(--text-mid); max-width: 800px; line-height: 1.7;">Telemetry & Maintenance Middleware. We bridge raw telematics data (engine hours, fault codes) directly into your Asset Management software to trigger automated service orders.</p>
+                    <div class="gain-label">GAIN: 30% REDUCTION IN UNPLANNED DOWNTIME</div>
+                </div>
             </div>
 
-            <div class="solution-card">
-                <p class="mono">06 [ PROCUREMENT ORCHESTRATION ]</p>
-                <h3>The Supply Nexus</h3>
-                <p>Logic-based replenishment monitoring site consumption. Automatically executes POs when inventory hits critical thresholds.</p>
-                <div class="gain-label">GAIN: Optimized Cash Flow</div>
+            <div class="solution-card" onclick="this.classList.toggle('active')">
+                <div class="card-header">
+                    <div style="display:flex; align-items:center; gap:2rem;">
+                        <span class="mono" style="opacity:0.5; font-size:1.2rem;">06</span>
+                        <h3>The Supply Nexus</h3>
+                    </div>
+                    <span class="expand-icon">+</span>
+                </div>
+                <div class="card-content">
+                    <p style="color: var(--text-mid); max-width: 800px; line-height: 1.7;">Procurement & Material Orchestration. A logic-based replenishment engine that monitors site consumption and automatically executes Purchase Orders when inventory hits critical thresholds.</p>
+                    <div class="gain-label">GAIN: ZERO MATERIAL-BASED DELAYS</div>
+                </div>
             </div>
+
         </div>
     </section>
 
-    <section class="container" style="border-top: 1px solid var(--border);">
-        <p class="mono section-label">// BEYOND MODULAR</p>
+    <section class="container" style="padding: 8rem 0; border-top: 1px solid var(--border);">
+        <p class="mono">// BEYOND MODULAR</p>
         <h2 style="font-size: 2.5rem; margin-top: 1rem;">Custom System Engineering</h2>
-        
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4rem; margin-top: 3rem;">
             <div>
-                <p style="color: var(--text-mid); line-height: 1.8; margin-bottom: 2rem;">
-                    We operate on high-velocity development sprints. Our goal is to move from diagnostic to deployment in under 30 days, minimizing systemic downtime. When off-the-shelf software hits its ceiling, we build the floor.
+                <p style="color: var(--text-mid); line-height: 1.8; margin-bottom: 2.5rem;">
+                    When off-the-shelf software hits its ceiling, we build the floor. We operate on high-velocity sprints to move from diagnostic to deployment in under 30 days.
                 </p>
-                <ul style="list-style: none; font-family: var(--mono); color: var(--accent); font-size: 0.85rem;">
-                    <li style="margin-bottom: 1rem;">[+] PROPRIETARY API BRIDGING</li>
-                    <li style="margin-bottom: 1rem;">[+] LEGACY DATABASE MIGRATION</li>
-                    <li style="margin-bottom: 1rem;">[+] TELEMETRY NORMALIZATION</li>
-                </ul>
+                <div class="custom-item"><span class="plus-icon">[+]</span> PROPRIETARY API BRIDGING</div>
+                <div class="custom-item"><span class="plus-icon">[+]</span> LEGACY DATABASE MIGRATION</div>
+                <div class="custom-item"><span class="plus-icon">[+]</span> TELEMETRY NORMALIZATION</div>
             </div>
             
-            <div style="background: var(--surface); padding: 2.5rem; border: 1px solid var(--border);">
-                <h3 style="font-size: 1.2rem; margin-bottom: 1rem; font-family: var(--mono);">// THE DEPLOYMENT CYCLE</h3>
+            <div style="background: var(--surface); padding: 3rem; border: 1px solid var(--border); border-top: 4px solid #fff;">
+                <h3 style="font-size: 0.9rem; margin-bottom: 1.5rem; font-family: var(--mono); color: #fff;">// DEPLOYMENT CYCLE</h3>
                 <table class="deployment-table">
                     <tr><td>Diagnostic Phase</td><td>3–5 DAYS</td></tr>
                     <tr><td>Engineering Sprint</td><td>2–4 WEEKS</td></tr>
                     <tr><td>System Sync/Launch</td><td>48–72 HOURS</td></tr>
                 </table>
-                <p style="margin-top: 2rem; font-size: 0.75rem; color: var(--text-low); font-style: italic;">
-                    *Custom builds are quoted following a Technical Audit.
-                </p>
             </div>
         </div>
     </section>
 
-    <footer>
-        <div class="container footer-grid">
+    <footer class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 2rem;">
             <div>
-                <p style="color: white; font-weight: 700;">Carrillo Dynamics - Infrastructure Engineering</p>
-                <p>Chicago, IL</p>
-                <p>engineering@carrillodynamics.com</p>
-                <p style="margin-top: 1rem;">&copy; 2026. Custom Solutions Only.</p>
+                <p class="mono" style="color:#fff; margin-bottom: 1rem;">Carrillo Dynamics</p>
+                <p style="color: var(--text-low); font-size: 0.8rem;">Chicago Industrial Corridor<br>Custom Solutions Only.</p>
             </div>
-            <div class="compliance">
-                <p><strong>Privacy & SMS:</strong> By providing your phone number, you agree to receive text messages for audit scheduling and technical updates. Message and data rates may apply. <strong>Reply STOP to opt-out.</strong> Your data is never sold to third-party marketing lists.</p>
-            </div>
+            <p style="color: var(--text-low); font-size: 0.7rem; max-width: 400px; line-height: 1.6;">
+                © 2026 Engineering Flow. All data streams encrypted. By providing contact info, you agree to technical updates via SMS. Reply STOP to opt-out.
+            </p>
         </div>
     </footer>
+
+    <script>
+        const updateTimestamp = () => {
+            const options = { timeZone: 'America/Chicago', hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            const now = new Intl.DateTimeFormat('en-US', options).format(new Date());
+            document.getElementById('live-timestamp').innerText = `// [SYSTEM: ACTIVE] // ${now} CST`;
+        }
+        setInterval(updateTimestamp, 1000);
+        updateTimestamp();
+    </script>
 
 </body>
 </html>
