@@ -12,23 +12,18 @@
         body { background: var(--bg); color: var(--text-high); font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.6; }
         body::before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 50px 50px; z-index: -1; opacity: 0.1; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-        .mono-head { font-family: var(--mono); text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.25em; color: var(--accent); font-weight: 700; display: block; }
         nav { padding: 2.5rem 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
-        .nav-logo { font-weight: 800; font-size: 1.1rem; text-decoration: none; color: #fff; letter-spacing: -0.5px; }
-        .btn { padding: 0.8rem 1.5rem; background: var(--accent); color: #fff; text-decoration: none; font-weight: 700; font-family: var(--mono); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; border: 1px solid var(--accent); cursor: pointer; display: inline-block; }
+        .nav-logo { font-weight: 800; font-size: 1.1rem; text-decoration: none; color: #fff; }
+        .btn { padding: 0.8rem 1.5rem; background: var(--accent); color: #fff; text-decoration: none; font-weight: 700; font-family: var(--mono); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; border: 1px solid var(--accent); cursor: pointer; }
         .btn:hover { background: transparent; color: var(--accent); }
-        .btn-full { width: 100%; text-align: center; padding: 1.2rem 0; font-size: 1rem; margin-top: 2rem; }
         .audit-header { padding: 8rem 0 4rem; text-align: center; }
-        .audit-header h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; margin-top: 1.5rem; letter-spacing: -0.04em; }
-        .diagnostic-form { background: var(--surface); border: 1px solid var(--border); padding: 4rem; margin: 0 auto 8rem; max-width: 800px; position: relative; }
-        .diagnostic-form::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--accent); }
-        .section-break { margin: 3rem 0 2rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem; color: var(--text-mid); font-family: var(--mono); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; }
-        .form-group { margin-bottom: 2.5rem; }
-        label.field-label { display: block; font-family: var(--mono); color: #ffffff; font-size: 0.8rem; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1.5px; border-left: 3px solid var(--accent); padding-left: 12px; }
-        input, select, textarea { width: 100%; background: #000; border: 1px solid var(--border); padding: 1.2rem; color: white; font-family: 'Inter', sans-serif; font-size: 1rem; }
-        input:focus, select:focus, textarea:focus { border-color: var(--accent); outline: none; }
-        footer { padding: 6rem 0; background: #000; color: var(--text-mid); border-top: 1px solid var(--border); }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; }
+        .audit-header h1 { font-size: 3rem; font-weight: 800; margin-top: 1rem; }
+        .diagnostic-form { background: var(--surface); border: 1px solid var(--border); padding: 3rem; margin: 0 auto 8rem; max-width: 800px; border-top: 4px solid var(--accent); }
+        .form-group { margin-bottom: 2rem; }
+        label { display: block; font-family: var(--mono); color: #fff; font-size: 0.8rem; margin-bottom: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+        input, select, textarea { width: 100%; background: #000; border: 1px solid var(--border); padding: 1rem; color: #fff; font-size: 1rem; }
+        .submit-btn { width: 100%; padding: 1.5rem; background: var(--accent); color: #fff; border: none; font-weight: 800; text-transform: uppercase; cursor: pointer; font-family: var(--mono); letter-spacing: 2px; }
+        footer { padding: 4rem 0; border-top: 1px solid var(--border); text-align: center; color: var(--text-mid); font-size: 0.8rem; }
     </style>
 </head>
 <body>
@@ -36,11 +31,10 @@
     <div class="container">
         <nav>
             <a href="/" class="nav-logo">CARRILLO DYNAMICS</a>
-            <a href="/" class="btn">← Back to HQ</a>
+            <a href="/" class="btn">← BACK TO HQ</a>
         </nav>
 
         <div class="audit-header">
-            <span class="mono-head">// Infrastructure Diagnostic Console</span>
             <h1>Operational Audit</h1>
         </div>
 
@@ -50,12 +44,9 @@
             
             <form action="https://docs.google.com/forms/d/e/1FAIpQLSeYORu0sT_EQeYXGxizn_umuLRNONKEQRuWwGcOcKLASQCrEA/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;">
                 
-                <div class="section-break">// 01. Quantify Friction</div>
-
                 <div class="form-group">
-                    <label class="field-label">Weekly Manual Data Latency</label>
+                    <label>Weekly Manual Data Latency</label>
                     <select name="entry.2069660095" required>
-                        <option value="" disabled selected>Select estimated hours...</option>
                         <option value="O-5 Hours (Manageable)">0-5 Hours (Manageable)</option>
                         <option value="6-15 Hours (Inefficient)">6-15 Hours (Inefficient)</option>
                         <option value="16-40 Hours (One Full-Time Resource Lost)">16-40 Hours (One Full-Time Resource Lost)</option>
@@ -64,11 +55,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="field-label">Primary Friction Point</label>
+                    <label>Primary Friction Point</label>
                     <select name="entry.360325844" required>
-                        <option value="" disabled selected>Identify primary bottleneck...</option>
-                        <option value='Settlement Lag: Time delta between "Job Complete" and "Capital Realized"'>Settlement Lag (Job to Cash)</option>
-                        <option value="Data Ingestion: Manually extracting data from field documents/emails into core systems">Data Ingestion (Manual Entry)</option>
+                        <option value='Settlement Lag: Time delta between "Job Complete" and "Capital Realized"'>Settlement Lag</option>
+                        <option value="Data Ingestion: Manually extracting data from field documents/emails into core systems">Data Ingestion</option>
                         <option value="Compliance Turbulence: Manually monitoring licenses, certifications, and risk-mitigation logs">Compliance Turbulence</option>
                         <option value="Communication Silos: Lost revenue due to missed inquiries or slow response times">Communication Silos</option>
                         <option value="Asset Utilization: Administrative friction preventing assets from being deployed at capacity.">Asset Utilization</option>
@@ -76,22 +66,18 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="field-label">Estimated Annual Financial Leakage</label>
+                    <label>Annual Financial Leakage</label>
                     <select name="entry.1480765121" required>
-                        <option value="" disabled selected>Select estimated loss...</option>
                         <option value="Under $25k">Under $25k</option>
                         <option value="$25k - $75k">$25k - $75k</option>
                         <option value="$75k - $250k">$75k - $250k</option>
-                        <option value="$250k+ (Immediate Intervention Required)">$250k+ (Immediate Intervention Required)</option>
+                        <option value="$250k+ (Immediate Intervention Required)">$250k+</option>
                     </select>
                 </div>
 
-                <div class="section-break">// 02. Infrastructure</div>
-
                 <div class="form-group">
-                    <label class="field-label">Core Management System</label>
+                    <label>Core Management System</label>
                     <select name="entry.850091313" required>
-                        <option value="" disabled selected>Select system type...</option>
                         <option value="Legacy ERP/TMS (On-premise / Server-based)">Legacy ERP/TMS</option>
                         <option value="Cloud-Native Management Suites (SaaS / Web-based)">Cloud SaaS</option>
                         <option value="Field Asset Telematics (Samsara, Motive, Procore, etc.)">Field Telematics</option>
@@ -100,38 +86,32 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="field-label">Data Ingestion Method</label>
+                    <label>Data Ingestion Method</label>
                     <select name="entry.99889003" required>
-                        <option value="" disabled selected>Select method...</option>
-                        <option value="Digital Attachments (PDFs / Invoices via Email)">Digital Attachments (PDFs / Email)</option>
-                        <option value="Mobile Capture (Field operators scanning via mobile apps)">Mobile Capture (Apps)</option>
-                        <option value="Unstructured Media (Raw photos via Text/SMS)">Unstructured Media (SMS/Photos)</option>
+                        <option value="Digital Attachments (PDFs / Invoices via Email)">Email / PDFs</option>
+                        <option value="Mobile Capture (Field operators scanning via mobile apps)">Mobile Apps</option>
+                        <option value="Unstructured Media (Raw photos via Text/SMS)">Raw Photos / SMS</option>
                         <option value="External Portals (Downloading data from third-party sources)">External Portals</option>
                     </select>
                 </div>
 
-                <div class="section-break">// 03. Alignment</div>
-
                 <div class="form-group">
-                    <label class="field-label">The Single Point of Failure</label>
-                    <textarea name="entry.2001113340" rows="3" placeholder="What specific task should we automate first?" required></textarea>
+                    <label>The Single Point of Failure</label>
+                    <textarea name="entry.2001113340" rows="3" required></textarea>
                 </div>
 
-                <div class="form-group"><label class="field-label">Full Name</label><input type="text" name="entry.1469877125" required></div>
-                <div class="form-group"><label class="field-label">Business Email</label><input type="email" name="entry.376015793" required></div>
-                <div class="form-group"><label class="field-label">Company Name</label><input type="text" name="entry.1264214439" required></div>
+                <div class="form-group"><label>Full Name</label><input type="text" name="entry.1469877125" required></div>
+                <div class="form-group"><label>Email</label><input type="email" name="entry.376015793" required></div>
+                <div class="form-group"><label>Company</label><input type="text" name="entry.1264214439" required></div>
 
-                <button type="submit" class="btn btn-full">Execute Diagnostic →</button>
+                <button type="submit" class="submit-btn">Execute Diagnostic →</button>
             </form>
         </div>
     </div>
 
     <footer>
-        <div class="container footer-grid">
-            <div><span style="color: #fff; font-weight: 800; margin-bottom: 1.5rem; display: block;">CARRILLO DYNAMICS</span><p style="font-size: 0.8rem;">Industrial Engineering.<br>Chicago, IL.</p></div>
-            <div><span class="mono-head" style="margin-bottom: 1.5rem; color: #fff; font-size: 0.7rem;">Navigation</span><p style="font-size: 0.8rem; margin-bottom: 0.8rem;"><a href="/cases/" style="color: inherit; text-decoration: none;">Case Studies</a></p><p style="font-size: 0.8rem;"><a href="/audit/" style="color: inherit; text-decoration: none;">Initiate Audit</a></p></div>
-            <div><span class="mono-head" style="margin-bottom: 1.5rem; color: #fff; font-size: 0.7rem;">Legal</span><p style="font-size: 0.7rem;">© 2026 Engineering Flow.</p></div>
-        </div>
+        <p>© 2026 Carrillo Dynamics | Engineering Flow</p>
     </footer>
+
 </body>
 </html>
