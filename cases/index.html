@@ -5,11 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Infrastructure Case Studies | Carrillo Dynamics</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
     <style>
         :root {
             --bg: #0a0a0a;
@@ -21,146 +17,61 @@
             --mono: 'JetBrains Mono', monospace;
         }
 
-        body {
-            background-color: var(--bg);
-            color: var(--text-high);
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            -webkit-font-smoothing: antialiased;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--bg); color: var(--text-high); font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
 
         body::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background-image: 
-                linear-gradient(var(--border) 1px, transparent 1px),
-                linear-gradient(90deg, var(--border) 1px, transparent 1px);
-            background-size: 40px 40px;
-            z-index: -1;
-            opacity: 0.3;
+            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 40px 40px; z-index: -1; opacity: 0.2;
         }
 
         .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
-        .mono { font-family: var(--mono); color: var(--accent); letter-spacing: 0.05em; font-size: 0.8rem; text-transform: uppercase; }
+        .mono { font-family: var(--mono); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.1em; color: var(--accent); }
+
+        nav { padding: 2.5rem 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
+        .nav-logo { font-weight: 800; text-decoration: none; color: white; font-size: 1rem; letter-spacing: 1px; }
+        .nav-link { color: var(--text-mid); text-decoration: none; font-size: 0.8rem; font-family: var(--mono); transition: 0.2s; }
+        .nav-link:hover { color: var(--accent); }
+
+        .case-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin: 4rem 0; }
+        .case-card { background: var(--surface); border: 1px solid var(--border); padding: 2.5rem; transition: 0.3s; }
+        .case-card:hover { border-color: var(--accent); transform: translateY(-5px); }
         
-        nav { padding: 2rem 0; display: flex; justify-content: space-between; align-items: center; }
-        .nav-logo { font-weight: 800; text-decoration: none; color: white; font-size: 1.2rem; }
-        .nav-link { color: var(--text-mid); text-decoration: none; font-size: 0.9rem; transition: 0.2s; }
-        .nav-link:hover { color: white; }
+        .metric-box { border-left: 3px solid var(--accent); padding: 0.5rem 0 0.5rem 1.2rem; background: rgba(0, 122, 255, 0.05); margin-bottom: 2rem; }
+        .metric-val { display: block; font-family: var(--mono); font-size: 1.6rem; color: #fff; font-weight: 700; }
+        .metric-label { font-size: 0.7rem; color: var(--text-mid); text-transform: uppercase; letter-spacing: 1px; margin-top: 0.2rem; }
 
-        .case-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin: 4rem 0; }
-        .case-card { background: var(--surface); border: 1px solid var(--border); padding: 2.5rem; display: flex; flex-direction: column; }
-        
-        .metric-box { border-left: 2px solid var(--accent); padding-left: 1rem; margin-bottom: 2rem; }
-        .metric-val { display: block; font-family: var(--mono); font-size: 1.5rem; color: #fff; margin-bottom: 0.25rem; }
-        .metric-label { font-size: 0.8rem; color: var(--text-mid); text-transform: uppercase; letter-spacing: 1px; }
+        h3 { font-size: 1.2rem; margin-bottom: 1rem; color: #fff; }
+        p { color: var(--text-mid); line-height: 1.6; font-size: 0.95rem; }
 
-        h3 { font-size: 1.5rem; margin-bottom: 1rem; color: #fff; }
-        p { color: var(--text-mid); line-height: 1.6; flex-grow: 1; }
-
-        .cta-section { text-align: center; padding: 6rem 1rem; border-top: 1px solid var(--border); margin-top: 4rem; }
-        .btn-cta {
-            display: inline-block;
-            background: #fff; color: #000;
-            padding: 18px 40px;
-            font-weight: 800; text-transform: uppercase; letter-spacing: 2px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border: 1px solid #fff;
-            margin-top: 2rem;
-        }
-        .btn-cta:hover { background: transparent; color: #fff; }
-
-        footer { padding: 4rem 0; background: #050505; color: var(--text-mid); font-size: 0.8rem; text-align: center; border-top: 1px solid var(--border); }
+        .cta-section { text-align: center; padding: 8rem 0; border-top: 1px solid var(--border); }
+        .btn-cta { display: inline-block; background: #fff; color: #000; padding: 1.2rem 3rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; transition: 0.3s; }
+        .btn-cta:hover { background: var(--accent); color: #fff; }
     </style>
 </head>
 <body>
-
     <div class="container">
-        <nav>
-            <a href="/" class="nav-logo">CARRILLO DYNAMICS</a>
-            <a href="/" class="nav-link">← Back to HQ</a>
-        </nav>
+        <nav><a href="/" class="nav-logo">CARRILLO DYNAMICS</a><a href="/" class="nav-link">← RETURN_TO_HQ</a></nav>
 
         <section style="padding: 6rem 0 2rem;">
             <p class="mono">// PROVEN OUTCOMES</p>
-            <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; margin-top: 1rem;">Systemic Throughput at Scale.</h1>
-            <p style="max-width: 600px; color: var(--text-mid); margin-top: 1.5rem; font-size: 1.1rem;">
-                We don't sell software. We engineer the removal of operational friction. These are the technical results of synchronized digital infrastructure.
-            </p>
+            <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; margin-top: 1rem; line-height: 0.95;">Systemic Throughput<br>at Scale.</h1>
         </section>
 
         <div class="case-grid">
-            <div class="case-card">
-                <div class="metric-box">
-                    <span class="metric-val">+420 HRS / YR</span>
-                    <span class="metric-label">Operational Capacity Reclaimed</span>
-                </div>
-                <h3>High-Volume Data Ingestion</h3>
-                <p>A mid-sized partner was losing critical hours manually extracting data from unstructured PDF documents. We engineered a parser that ingest Origin, Destination, and Financial data instantly—syncing with their Management Systems with zero human touch.</p>
-            </div>
-
-            <div class="case-card">
-                <div class="metric-box">
-                    <span class="metric-val">$14,000 / MO</span>
-                    <span class="metric-label">Systemic Leak Plugged</span>
-                </div>
-                <h3>Automated Compliance Integrity</h3>
-                <p>A high-risk fleet faced mounting fines due to documentation lapses. We deployed a Risk Mitigation engine that monitors certifications in real-time and hard-locks operational capabilities before compliance failures occur.</p>
-            </div>
-
-            <div class="case-card">
-                <div class="metric-box">
-                    <span class="metric-val">-85% LATENCY</span>
-                    <span class="metric-label">In Settlement Cycles</span>
-                </div>
-                <h3>Field-to-Office Synchronization</h3>
-                <p>Reduced the gap between "Job Completion" and "Revenue Realization" from 4 days to 4 hours. Field data is captured, classified, and pushed to the financial ledger automatically by our modular infrastructure.</p>
-            </div>
-
-            <div class="case-card">
-                <div class="metric-box">
-                    <span class="metric-val">22% INCREASE</span>
-                    <span class="metric-label">In Capture Efficiency</span>
-                </div>
-                <h3>Revenue Recovery (Iron Dome)</h3>
-                <p>An industrial supplier was bleeding revenue through missed inquiries. We deployed the Iron Dome fail-safe to capture and recover missed leads 24/7, ensuring that every front-end opportunity is pushed to the CRM for immediate action.</p>
-            </div>
-
-            <div class="case-card">
-                <div class="metric-box">
-                    <span class="metric-val">100% SYNC</span>
-                    <span class="metric-label">Legacy System Integration</span>
-                </div>
-                <h3>Infrastructure Harmonization</h3>
-                <p>A high-volume service firm was trapped in a "Legacy Bottleneck" between two incompatible software suites. We engineered an API-native bridge that synchronized their historical databases with modern workflows, eliminating 100% of redundant data entry.</p>
-            </div>
-             <div class="case-card">
-                <div class="metric-box">
-                    <span class="metric-val">+30% YIELD</span>
-                    <span class="metric-label">Asset Utilization Rate</span>
-                </div>
-                <h3>Dynamic Resource Allocation</h3>
-                <p>A multi-site operation was struggling with "Dark Assets"—equipment and personnel sitting idle due to communication silos. We engineered a real-time visibility dashboard that synchronized field availability with the central dispatch ledger, maximizing daily throughput without increasing headcount.</p>
-            </div>
+            <div class="case-card"><div class="metric-box"><span class="metric-val">+420 HRS / YR</span><span class="metric-label">Capacity Reclaimed</span></div><h3>High-Volume Ingestion</h3><p>Engineered a parser that ingest Origin and Financial data from BOLs instantly, syncing with core ERPs with zero human touch.</p></div>
+            <div class="case-card"><div class="metric-box"><span class="metric-val">$14K / MO</span><span class="metric-label">Leakage Plugged</span></div><h3>Compliance Integrity</h3><p>Deployed a Risk Mitigation engine that hard-locks operational capabilities before documentation lapses can trigger fines.</p></div>
+            <div class="case-card"><div class="metric-box"><span class="metric-val">-85% LATENCY</span><span class="metric-label">Settlement Cycles</span></div><h3>Field-to-Office Sync</h3><p>Reduced the gap between "Job Completion" and "Revenue Realization" from 4 days to 4 hours via automated classification.</p></div>
+            <div class="case-card"><div class="metric-box"><span class="metric-val">22% INCREASE</span><span class="metric-label">Capture Efficiency</span></div><h3>Iron Dome Recovery</h3><p>Deployed technical fail-safes to capture missed inquiries 24/7, pushing directly to CRM for immediate field action.</p></div>
+            <div class="case-card"><div class="metric-box"><span class="metric-val">100% SYNC</span><span class="metric-label">Legacy Integration</span></div><h3>Infrastructure Bridge</h3><p>Engineered an API-native bridge to synchronize incompatible software suites, eliminating 100% of redundant data entry.</p></div>
+            <div class="case-card"><div class="metric-box"><span class="metric-val">+30% YIELD</span><span class="metric-label">Asset Utilization</span></div><h3>Dynamic Allocation</h3><p>Real-time visibility dashboard synchronized field availability with the central ledger, maximizing daily throughput.</p></div>
         </div>
+
         <div class="cta-section">
-            <h2 style="font-size: 2rem; margin-bottom: 1rem;">Stop Managing Friction. Start Engineering Flow.</h2>
-            <p style="color: var(--text-mid);">We specialize in the high-stakes delta between field work and back-office settlement.</p>
-            <a href="/audit/" class="btn-cta">Identify Your Bottlenecks →</a>
+            <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">Stop Managing Friction. Start Engineering Flow.</h2>
+            <a href="/audit/" class="btn-cta">Execute Audit →</a>
         </div>
     </div>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Carrillo Dynamics | Infrastructure Engineering</p>
-            <p style="font-size: 0.7rem; margin-top: 1rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-                Privacy & SMS: By providing your phone number, you agree to receive text messages from Carrillo Dynamics regarding your audit request. Message and data rates may apply. Reply STOP to opt-out.
-            </p>
-        </div>
-    </footer>
-
 </body>
 </html>
