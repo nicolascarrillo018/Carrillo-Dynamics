@@ -10,7 +10,7 @@
         /* --- MASTER THEME DNA --- */
         :root { --bg: #0a0a0a; --surface: #111111; --accent: #8833FF; --border: #222222; --text-high: #ffffff; --text-mid: #a0a0a0; --mono: 'JetBrains Mono', monospace; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: var(--bg); color: var(--text-high); font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; }
+        body { background: var(--bg); color: var(--text-high); font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; overflow-x: hidden; }
         
         /* Grid Background */
         body::before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 50px 50px; z-index: -1; opacity: 0.1; }
@@ -22,14 +22,14 @@
         nav { padding: 2.5rem 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); width: 100%; }
         .nav-logo { font-weight: 800; font-size: 1.1rem; text-decoration: none; color: #fff; letter-spacing: -0.5px; }
         
-        #redirect-timer { font-family: var(--mono); color: var(--accent); font-size: 0.8rem; letter-spacing: 2px; border: 1px solid var(--border); padding: 0.8rem 1.5rem; background: rgba(136, 51, 255, 0.05); }
+        #redirect-timer { font-family: var(--mono); color: var(--accent); font-size: 0.75rem; letter-spacing: 2px; border: 1px solid var(--border); padding: 0.8rem 1.5rem; background: rgba(136, 51, 255, 0.05); }
 
         /* --- SUCCESS CONTENT --- */
-        main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 4rem 0; }
-        .status-container { background: var(--surface); border: 1px solid var(--border); padding: 5rem 3rem; max-width: 650px; text-align: center; position: relative; border-top: 4px solid var(--accent); box-shadow: 0 40px 100px rgba(0,0,0,0.5); }
+        main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 4rem 1.5rem; }
+        .status-container { background: var(--surface); border: 1px solid var(--border); padding: clamp(3rem, 8vw, 5rem) 2rem; max-width: 650px; text-align: center; position: relative; border-top: 4px solid var(--accent); box-shadow: 0 40px 100px rgba(0,0,0,0.5); width: 100%; }
         
-        h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; margin: 1.5rem 0; letter-spacing: -0.04em; }
-        .success-desc { color: var(--text-mid); font-size: 1.1rem; margin-bottom: 2.5rem; }
+        h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; margin: 1.5rem 0; letter-spacing: -0.04em; line-height: 1.2; }
+        .success-desc { color: var(--text-mid); font-size: 1.1rem; margin-bottom: 2.5rem; max-width: 500px; margin-left: auto; margin-right: auto; }
         
         .btn-return { display: inline-block; color: #fff; text-decoration: none; font-family: var(--mono); font-size: 0.8rem; border: 1px solid var(--border); padding: 1.2rem 2.5rem; transition: 0.3s; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; }
         .btn-return:hover { border-color: var(--accent); background: rgba(136, 51, 255, 0.1); color: var(--accent); }
@@ -37,6 +37,13 @@
         /* --- FOOTER --- */
         footer { padding: 6rem 0; background: #000; color: var(--text-mid); border-top: 1px solid var(--border); }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; }
+
+        /* --- MOBILE --- */
+        @media (max-width: 768px) {
+            nav { flex-direction: column; gap: 1.5rem; padding: 1.5rem 0; }
+            #redirect-timer { font-size: 0.65rem; padding: 0.6rem 1rem; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
+        }
     </style>
 </head>
 <body>
@@ -51,13 +58,11 @@
     </div>
 
     <main>
-        <div class="container" style="display: flex; justify-content: center;">
-            <div class="status-container">
-                <span class="mono-head">// Transmission Confirmed</span>
-                <h1>System Acknowledged.</h1>
-                <p class="success-desc">Our engineering team has received your diagnostic report. We will analyze your operational profile and provide a technical synchronization strategy within 24 hours.</p>
-                <a href="/" class="btn-return">← Manual Return to HQ</a>
-            </div>
+        <div class="status-container">
+            <span class="mono-head">// Transmission Confirmed</span>
+            <h1>System Acknowledged.</h1>
+            <p class="success-desc">Our engineering team has received your diagnostic report. We will analyze your operational profile and provide a technical synchronization strategy within 24 hours.</p>
+            <a href="/" class="btn-return">← Manual Return to HQ</a>
         </div>
     </main>
 
@@ -65,7 +70,7 @@
         <div class="container footer-grid">
             <div>
                 <span style="color: #fff; font-weight: 800; margin-bottom: 1.5rem; display: block;">CARRILLO DYNAMICS</span>
-                <p style="font-size: 0.8rem; line-height: 1.6;">Industrial Engineering.<br>Chicago, IL.</p>
+                <p style="font-size: 0.8rem;">Industrial Engineering.<br>Chicago, IL.</p>
             </div>
             <div>
                 <span class="mono-head" style="margin-bottom: 1.5rem; color: #fff; font-size: 0.7rem;">Navigation</span>
@@ -75,22 +80,24 @@
             </div>
             <div>
                 <span class="mono-head" style="margin-bottom: 1.5rem; color: #fff; font-size: 0.7rem;">Legal</span>
-                <p style="font-size: 0.7rem; line-height: 1.6;">© 2026 Carrillo Dynamics | Engineering Flow.</p>
+                <p style="font-size: 0.7rem;">© 2026 Carrillo Dynamics | Engineering Flow.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        let timeLeft = 60;
-        const downloadTimer = setInterval(function(){
-            if(timeLeft <= 0){
-                clearInterval(downloadTimer);
-                window.location.href = "/";
-            } else {
-                document.getElementById("countdown").innerHTML = timeLeft;
-            }
-            timeLeft -= 1;
-        }, 1000);
+        (function() {
+            let timeLeft = 60;
+            const countdownEl = document.getElementById("countdown");
+            const timer = setInterval(function() {
+                timeLeft--;
+                if (countdownEl) countdownEl.innerHTML = timeLeft;
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    window.location.href = "/";
+                }
+            }, 1000);
+        })();
     </script>
 
 </body>
