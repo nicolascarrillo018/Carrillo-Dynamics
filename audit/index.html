@@ -7,21 +7,16 @@
     <title>Operational Audit | Carrillo Dynamics</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
     <style>
-        /* --- MASTER THEME DNA --- */
         :root { --bg: #0a0a0a; --surface: #111111; --accent: #8833FF; --border: #222222; --text-high: #ffffff; --text-mid: #a0a0a0; --mono: 'JetBrains Mono', monospace; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background: var(--bg); color: var(--text-high); font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.6; }
         body::before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 50px 50px; z-index: -1; opacity: 0.1; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
         .mono-head { font-family: var(--mono); text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.25em; color: var(--accent); font-weight: 700; display: block; }
-        
-        /* --- NAVIGATION --- */
         nav { padding: 2.5rem 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
         .nav-logo { font-weight: 800; font-size: 1.1rem; text-decoration: none; color: #fff; letter-spacing: -0.5px; }
         .btn { padding: 0.8rem 1.5rem; background: var(--accent); color: #fff; text-decoration: none; font-weight: 700; font-family: var(--mono); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; border: 1px solid var(--accent); cursor: pointer; display: inline-block; }
         .btn:hover { background: transparent; color: var(--accent); }
-
-        /* --- AUDIT CONTENT --- */
         .audit-header { padding: 8rem 0 4rem; text-align: center; }
         .audit-header h1 { font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 800; margin-top: 1.5rem; letter-spacing: -0.04em; }
         .diagnostic-form { background: var(--surface); border: 1px solid var(--border); padding: 4rem; margin: 0 auto 8rem; max-width: 850px; position: relative; box-shadow: 0 40px 100px rgba(0,0,0,0.5); }
@@ -31,54 +26,39 @@
         label.field-label { display: block; font-family: var(--mono); color: #ffffff; font-size: 1.05rem; font-weight: 700; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; border-left: 3px solid var(--accent); padding-left: 15px; }
         .field-desc { display: block; font-size: 1rem; color: var(--text-mid); margin-bottom: 1.5rem; font-style: italic; line-height: 1.5; padding-left: 18px; }
         input, select, textarea { width: 100%; background: #000000; border: 1px solid var(--border); padding: 1.4rem; color: white; font-family: 'Inter', sans-serif; font-size: 1.15rem; border-radius: 0; transition: 0.3s; }
-        input:focus, select:focus, textarea:focus { border-color: var(--accent); outline: none; background: #050505; }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
         .submit-btn { width: 100%; padding: 2rem; background: #ffffff; color: #000; border: none; font-weight: 800; text-transform: uppercase; letter-spacing: 3px; cursor: pointer; transition: 0.3s; font-family: var(--mono); font-size: 1.2rem; }
         .submit-btn:hover { background: var(--accent); color: white; }
-
-        /* --- FOOTER --- */
         footer { padding: 6rem 0; background: #000; color: var(--text-mid); border-top: 1px solid var(--border); }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; }
 
-        /* --- MOBILE OPTIMIZATION --- */
         @media (max-width: 768px) {
             .container { padding: 0 1.5rem; }
             nav { padding: 1.5rem 0; flex-direction: column; gap: 1.5rem; text-align: center; }
             .audit-header { padding: 4rem 0 2rem; }
-            .audit-header h1 { font-size: 2.2rem; }
             .diagnostic-form { padding: 2.5rem 1.2rem; margin-bottom: 4rem; }
-            .section-break { margin: 3rem 0 2rem; font-size: 0.8rem; }
-            label.field-label { font-size: 0.95rem; }
-            .field-desc { font-size: 0.85rem; padding-left: 12px; margin-bottom: 1rem; }
-            input, select, textarea { padding: 1.1rem; font-size: 1rem; }
             .form-row { grid-template-columns: 1fr; gap: 0; }
             .footer-grid { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
         }
     </style>
 </head>
 <body>
-
     <div class="container">
         <nav>
             <a href="/" class="nav-logo">CARRILLO DYNAMICS</a>
             <a href="/cases/" class="btn">View Results →</a>
         </nav>
-
         <div class="audit-header">
             <span class="mono-head">// Infrastructure Diagnostic Console</span>
             <h1>Operational Audit</h1>
         </div>
-
         <div class="diagnostic-form">
             <script type="text/javascript">var submitted=false;</script>
-            
             <form action="https://docs.google.com/forms/d/e/1FAIpQLSeYORu0sT_EQeYXGxizn_umuLRNONKEQRuWwGcOcKLASQCrEA/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;">
                 
                 <div class="section-break">// 01. Friction Quant</div>
-                
                 <div class="form-group">
                     <label class="field-label">Weekly Manual Data Latency</label>
-                    <span class="field-desc">Estimated hours per week spent on manual entry/reconciliation.</span>
                     <select name="entry.2069660095" required>
                         <option value="O-5 Hours (Manageable)">0-5 Hours (Manageable)</option>
                         <option value="6-15 Hours (Inefficient)">6-15 Hours (Inefficient)</option>
@@ -89,57 +69,50 @@
 
                 <div class="form-group">
                     <label class="field-label">Primary Friction Point</label>
-                    <span class="field-desc">Core bottleneck preventing maximum yield.</span>
                     <select name="entry.360325844" required>
-                        <option value='Settlement Lag'>Settlement Lag (Job to Cash)</option>
-                        <option value="Data Ingestion">Data Ingestion (Manual Entry)</option>
-                        <option value="Compliance Turbulence">Compliance Turbulence</option>
-                        <option value="Communication Silos">Communication Silos</option>
-                        <option value="Asset Utilization">Asset Utilization</option>
+                        <option value='Settlement Lag: Time delta between "Job Complete" and "Capital Realized"'>Settlement Lag (Job to Cash)</option>
+                        <option value="Data Ingestion: Manually extracting data from field documents/emails into core systems">Data Ingestion (Manual Entry)</option>
+                        <option value="Compliance Turbulence: Manually monitoring licenses, certifications, and risk-mitigation logs">Compliance Turbulence</option>
+                        <option value="Communication Silos: Lost revenue due to missed inquiries or slow response times">Communication Silos</option>
+                        <option value="Asset Utilization: Administrative friction preventing assets from being deployed at capacity.">Asset Utilization</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label class="field-label">Annual Financial Leakage</label>
-                    <span class="field-desc">Aggregate loss from errors, delays, and underutilization.</span>
+                    <label class="field-label">Estimated Annual Financial Leakage</label>
                     <select name="entry.1480765121" required>
                         <option value="Under $25k">Under $25k</option>
                         <option value="$25k - $75k">$25k - $75k</option>
                         <option value="$75k - $250k">$75k - $250k</option>
-                        <option value="$250k+">$250k+ (Immediate Intervention Required)</option>
+                        <option value="$250k+ (Immediate Intervention Required)">$250k+</option>
                     </select>
                 </div>
 
                 <div class="section-break">// 02. Infrastructure</div>
-
                 <div class="form-group">
                     <label class="field-label">Core Management System</label>
-                    <span class="field-desc">Primary software environment used to track daily data.</span>
                     <select name="entry.850091313" required>
-                        <option value="Legacy ERP/TMS">Legacy ERP/TMS</option>
-                        <option value="Cloud SaaS">Cloud SaaS</option>
-                        <option value="Field Telematics">Field Telematics</option>
-                        <option value="Manual Systems">Manual Systems</option>
+                        <option value="Legacy ERP/TMS (On-premise / Server-based)">Legacy ERP/TMS</option>
+                        <option value="Cloud-Native Management Suites (SaaS / Web-based)">Cloud SaaS</option>
+                        <option value="Field Asset Telematics (Samsara, Motive, Procore, etc.)">Field Telematics</option>
+                        <option value="Manual Systems (Excel / Google Sheets / Physical Paper)">Manual Systems</option>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label class="field-label">Primary Data Ingestion Method</label>
-                    <span class="field-desc">How information enters your primary management system.</span>
                     <select name="entry.99889003" required>
-                        <option value="Email / PDFs">Email / PDFs</option>
-                        <option value="Mobile Apps">Mobile Apps</option>
-                        <option value="SMS / Photos">SMS / Photos</option>
-                        <option value="External Portals">External Portals</option>
+                        <option value="Digital Attachments (PDFs / Invoices via Email)">Email / PDFs</option>
+                        <option value="Mobile Capture (Field operators scanning via mobile apps)">Mobile Apps</option>
+                        <option value="Unstructured Media (Raw photos via Text/SMS)">SMS / Photos</option>
+                        <option value="External Portals (Downloading data from third-party sources)">External Portals</option>
                     </select>
                 </div>
 
                 <div class="section-break">// 03. Context</div>
-
                 <div class="form-group">
                     <label class="field-label">The Single Point of Failure</label>
-                    <span class="field-desc">Which single automation would yield the highest ROI?</span>
-                    <textarea name="entry.2001113340" rows="4" placeholder="Briefly describe..." required></textarea>
+                    <textarea name="entry.2001113340" rows="4" required></textarea>
                 </div>
 
                 <div class="form-row">
@@ -162,27 +135,13 @@
             </form>
         </div>
     </div>
-
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {window.location='/thank-you/';}"></iframe>
     <footer>
         <div class="container footer-grid">
-            <div>
-                <span style="color: #fff; font-weight: 800; margin-bottom: 1.5rem; display: block;">CARRILLO DYNAMICS</span>
-                <p style="font-size: 0.8rem;">Industrial Engineering.<br>Chicago, IL.</p>
-            </div>
-            <div>
-                <span class="mono-head" style="margin-bottom: 1.5rem; color: #fff; font-size: 0.7rem;">Navigation</span>
-                <p style="font-size: 0.8rem; margin-bottom: 0.8rem;"><a href="/" style="color: inherit; text-decoration: none;">HQ</a></p>
-                <p style="font-size: 0.8rem; margin-bottom: 0.8rem;"><a href="/audit/" style="color: inherit; text-decoration: none;">AUDIT</a></p>
-                <p style="font-size: 0.8rem; margin-bottom: 0.8rem;"><a href="/cases/" style="color: inherit; text-decoration: none;">RESULTS</a></p>
-            </div>
-            <div>
-                <span class="mono-head" style="margin-bottom: 1.5rem; color: #fff; font-size: 0.7rem;">Legal</span>
-                <p style="font-size: 0.7rem;">© 2026 Carrillo Dynamics | Engineering Flow.</p>
-            </div>
+            <div><span style="color: #fff; font-weight: 800; display: block; margin-bottom: 1rem;">CARRILLO DYNAMICS</span><p style="font-size: 0.8rem;">Industrial Engineering.<br>Chicago, IL.</p></div>
+            <div><span class="mono-head" style="color: #fff; font-size: 0.7rem; margin-bottom: 1rem;">Navigation</span><p style="font-size: 0.8rem;"><a href="/" style="color: inherit; text-decoration: none;">HQ</a></p><p style="font-size: 0.8rem;"><a href="/audit/" style="color: inherit; text-decoration: none;">AUDIT</a></p></div>
+            <div><span class="mono-head" style="color: #fff; font-size: 0.7rem; margin-bottom: 1rem;">Legal</span><p style="font-size: 0.7rem;">© 2026 Carrillo Dynamics.</p></div>
         </div>
     </footer>
-
-    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {window.location='/thank-you/';}"></iframe>
-
 </body>
 </html>
