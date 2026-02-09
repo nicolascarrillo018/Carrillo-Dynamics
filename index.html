@@ -4,7 +4,7 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico?v=1">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrillo Dynamics | Engineering Flow & Operational Integrity</title>
+    <title>Carrillo Dynamics | Engineering Flow</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -18,85 +18,178 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: var(--bg); color: var(--text-high); font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        body { background: var(--bg); color: var(--text-high); font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.6; }
 
         body::before {
             content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
-            background-size: 40px 40px; z-index: -1; opacity: 0.2;
+            background-size: 50px 50px; z-index: -1; opacity: 0.1;
         }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
-        .mono { font-family: var(--mono); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.1em; color: var(--accent); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .mono { font-family: var(--mono); text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.2em; color: var(--accent); }
 
-        .hero { padding: 10rem 0 6rem; }
-        .hero h1 { font-size: clamp(2.5rem, 7vw, 4.5rem); font-weight: 800; line-height: 0.95; margin-bottom: 2rem; letter-spacing: -0.02em; }
-        .hero p { font-size: 1.25rem; color: var(--text-mid); max-width: 750px; line-height: 1.6; }
+        nav { padding: 2.5rem 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
+        .nav-logo { font-weight: 800; font-size: 1.1rem; text-decoration: none; color: #fff; letter-spacing: -0.5px; }
 
-        .btn-group { display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap; }
-        .btn { display: inline-block; padding: 1.2rem 2.5rem; background: var(--accent); color: #fff; text-decoration: none; font-weight: 700; font-family: var(--mono); text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
-        .btn:hover { background: #fff; color: #000; transform: translateY(-2px); }
-        .btn-secondary { display: inline-block; padding: 1.2rem 2.5rem; border: 1px solid var(--border); color: #fff; text-decoration: none; font-weight: 700; font-family: var(--mono); text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
-        .btn-secondary:hover { border-color: var(--accent); background: rgba(0, 122, 255, 0.05); }
+        .hero { padding: 10rem 0 8rem; border-bottom: 1px solid var(--border); }
+        .hero h1 { font-size: clamp(3.5rem, 9vw, 6rem); font-weight: 800; line-height: 0.9; margin: 1.5rem 0; letter-spacing: -0.04em; }
+        .hero p { font-size: 1.3rem; color: var(--text-mid); max-width: 700px; margin-bottom: 3rem; font-weight: 400; }
 
-        .solutions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.2rem; margin-top: 4rem; }
-        .solution-card { background: var(--surface); border: 1px solid var(--border); padding: 1.8rem; cursor: pointer; transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); height: fit-content; }
-        .solution-card:hover { border-color: var(--accent); }
-        .card-header { display: flex; align-items: center; justify-content: space-between; pointer-events: none; }
-        .card-header h3 { font-size: 1.1rem; font-weight: 700; letter-spacing: -0.01em; }
-        .expand-icon { font-family: var(--mono); color: var(--accent); font-size: 1.3rem; transition: 0.4s; }
-        .card-content { max-height: 0; opacity: 0; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); overflow: hidden; }
-        .solution-card.active { border-color: var(--accent); background: #161616; }
-        .solution-card.active .card-content { max-height: 350px; opacity: 1; padding-top: 1.5rem; }
-        .solution-card.active .expand-icon { transform: rotate(45deg); color: #fff; }
+        .btn-group { display: flex; gap: 1rem; }
+        .btn { padding: 1.2rem 2.5rem; background: var(--accent); color: #fff; text-decoration: none; font-weight: 700; font-family: var(--mono); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; border: 1px solid var(--accent); }
+        .btn:hover { background: transparent; color: var(--accent); }
+        .btn-sec { padding: 1.2rem 2.5rem; border: 1px solid var(--border); color: #fff; text-decoration: none; font-weight: 700; font-family: var(--mono); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
+        .btn-sec:hover { border-color: #fff; }
 
-        .gain-label { display: inline-block; margin-top: 1.5rem; padding: 0.4rem 0.8rem; background: rgba(0, 122, 255, 0.15); border: 1px solid var(--accent); color: #ffffff; font-family: var(--mono); font-size: 0.65rem; font-weight: 700; text-transform: uppercase; }
+        section { padding: 8rem 0; border-bottom: 1px solid var(--border); }
+        .section-title { margin-bottom: 4rem; }
+        .section-title h2 { font-size: 2.5rem; font-weight: 800; margin-top: 1rem; letter-spacing: -0.02em; }
 
-        footer { padding: 6rem 0; border-top: 1px solid var(--border); background: #050505; margin-top: 8rem; }
+        /* The Grid */
+        .solutions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+        .solution-card { background: var(--bg); padding: 3rem; transition: 0.3s; display: flex; flex-direction: column; min-height: 350px; }
+        .solution-card:hover { background: var(--surface); }
+        .solution-card h3 { font-size: 1.3rem; margin: 1.5rem 0 1rem; }
+        .solution-card p { color: var(--text-mid); font-size: 0.95rem; flex-grow: 1; }
+        .gain-tag { margin-top: 2rem; font-family: var(--mono); font-size: 0.65rem; color: var(--accent); font-weight: 700; border: 1px solid var(--accent); padding: 0.5rem 0.8rem; display: inline-block; width: fit-content; }
+
+        @media (max-width: 1024px) { .solutions-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { .solutions-grid { grid-template-columns: 1fr; } }
+
+        /* Custom / Deployment Section */
+        .custom-row { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+        .deployment-box { background: var(--surface); border: 1px solid var(--border); padding: 3rem; position: relative; }
+        .deployment-item { display: flex; justify-content: space-between; padding: 1.2rem 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+        .deployment-item:last-child { border: none; }
+        .deployment-item span:last-child { font-family: var(--mono); color: var(--accent); font-weight: 700; }
+
+        /* Footer */
+        footer { padding: 6rem 0; background: #000; color: var(--text-mid); }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; }
+        .footer-logo { color: #fff; font-weight: 800; margin-bottom: 1.5rem; display: block; }
     </style>
 </head>
 <body>
-    <div class="container hero">
-        <p class="mono" id="live-timestamp">// [SYSTEM: ACTIVE] // STRATEGIC FLOW INITIATED</p>
-        <h1>Engineering Flow,<br>Eliminating Friction.</h1>
-        <p>Field execution moves in real-time. Back offices move at the speed of paper. We engineer the digital infrastructure that synchronizes them, turning operational output into settled revenue.</p>
-        <div class="btn-group">
-            <a href="/audit/" class="btn">Initiate Audit →</a>
-            <a href="/cases/" class="btn-secondary">View Cases</a>
-        </div>
+
+    <div class="container">
+        <nav>
+            <a href="/" class="nav-logo">CARRILLO DYNAMICS</a>
+            <div id="clock" class="mono" style="font-size: 0.65rem;">00:00:00 CST</div>
+        </nav>
+
+        <header class="hero">
+            <p class="mono">// STRATEGIC INFRASTRUCTURE</p>
+            <h1>Engineering Flow.</h1>
+            <p>We solve the "Legacy Gap"—the friction between high-speed field operations and low-speed back-office administration. No software fluff. Just synchronized throughput.</p>
+            <div class="btn-group">
+                <a href="/audit/" class="btn">Initiate Audit</a>
+                <a href="/cases/" class="btn-sec">View Outcomes</a>
+            </div>
+        </header>
+
+        <section id="solutions">
+            <div class="section-title">
+                <p class="mono">// MODULAR AUTOMATION</p>
+                <h2>Operational Integrity Suite</h2>
+            </div>
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <span class="mono">01</span>
+                    <h3>Universal Parser</h3>
+                    <p>Extract and normalize data from unstructured BOLs, field logs, and financial documents instantly.</p>
+                    <div class="gain-tag">100% MANUAL ENTRY REMOVAL</div>
+                </div>
+                <div class="solution-card">
+                    <span class="mono">02</span>
+                    <h3>The Iron Dome</h3>
+                    <p>24/7 technical fail-safe logic ensuring zero front-end inquiry or lead leakage.</p>
+                    <div class="gain-tag">ZERO LEAD LEAKAGE</div>
+                </div>
+                <div class="solution-card">
+                    <span class="mono">03</span>
+                    <h3>Compliance Guard</h3>
+                    <p>Real-time monitoring of safety certifications that hard-locks operations before failures occur.</p>
+                    <div class="gain-tag">PRE-EMPTIVE RISK SHIELD</div>
+                </div>
+                <div class="solution-card">
+                    <span class="mono">04</span>
+                    <h3>Field Sync</h3>
+                    <p>Direct bridge between real-time field production and back-office settlement ledgers.</p>
+                    <div class="gain-tag">-90% REVENUE REALIZATION LAG</div>
+                </div>
+                <div class="solution-card">
+                    <span class="mono">05</span>
+                    <h3>Asset Sentry</h3>
+                    <p>Telemetry-driven service orders triggered by raw engine hours and diagnostic fault codes.</p>
+                    <div class="gain-tag">30% DOWNTIME REDUCTION</div>
+                </div>
+                <div class="solution-card">
+                    <span class="mono">06</span>
+                    <h3>Supply Nexus</h3>
+                    <p>Inventory replenishment logic that executes POs automatically based on live site burn rates.</p>
+                    <div class="gain-tag">ZERO MATERIAL DELAYS</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="custom">
+            <div class="custom-row">
+                <div>
+                    <p class="mono">// CUSTOM ENGINEERING</p>
+                    <h2 style="font-size: 2.5rem; font-weight: 800; margin: 1rem 0 2rem;">When modular isn't enough.</h2>
+                    <p style="color: var(--text-mid); margin-bottom: 2rem;">For industrial operations with deep legacy debt or specialized workflows, we engineer custom API bridges, data migrations, and proprietary dashboards.</p>
+                    <p style="color: var(--text-mid);">We don't "consult." We deploy code that removes bottlenecks in 2-4 week sprints.</p>
+                </div>
+                <div class="deployment-box">
+                    <p class="mono" style="margin-bottom: 2rem; color: #fff;">// DEPLOYMENT LIFECYCLE</p>
+                    <div class="deployment-item"><span>Diagnostic Phase</span><span>3–5 DAYS</span></div>
+                    <div class="deployment-item"><span>Engineering Sprint</span><span>2–4 WEEKS</span></div>
+                    <div class="deployment-item"><span>System Sync / Launch</span><span>48–72 HOURS</span></div>
+                    <div class="deployment-item" style="border:none; margin-top: 1rem;"><span style="color: #fff; font-weight: 700;">Average ROI Realization</span><span>< 60 DAYS</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div style="max-width: 800px;">
+                <p class="mono">// ABOUT THE COMPANY</p>
+                <h2 style="font-size: 2.5rem; font-weight: 800; margin: 1rem 0 2rem;">Built for the High-Stakes Delta.</h2>
+                <p style="color: var(--text-mid); font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
+                    Carrillo Dynamics was founded on a single observation: **Field work is fast, but the systems managing it are slow.** We specialize in the high-stakes delta where manual data entry, compliance lapses, and communication silos bleed revenue.
+                </p>
+                <p style="color: var(--text-mid); font-size: 1.1rem; line-height: 1.8;">
+                    Based in Chicago, we serve industrial suppliers, logistics fleets, and field service firms who have outgrown their spreadsheets but aren't served by bloated enterprise software. We engineer the flow.
+                </p>
+            </div>
+        </section>
     </div>
 
-    <section class="container">
-        <p class="mono">// MODULAR AUTOMATION SUITE</p>
-        <div class="solutions-grid">
-            <div class="solution-card" onclick="this.classList.toggle('active')"><div class="card-header"><div style="display:flex; align-items:center; gap:1.2rem;"><span class="mono" style="opacity:0.5;">01</span><h3>Universal Parser</h3></div><span class="expand-icon">+</span></div><div class="card-content"><p style="color: var(--text-mid); line-height: 1.6; font-size: 0.9rem;">Instantly extract data from BOLs and Field Logs. We normalize messy data for zero-touch system updates.</p><div class="gain-label">GAIN: 100% MANUAL ENTRY REMOVAL</div></div></div>
-            <div class="solution-card" onclick="this.classList.toggle('active')"><div class="card-header"><div style="display:flex; align-items:center; gap:1.2rem;"><span class="mono" style="opacity:0.5;">02</span><h3>The Iron Dome</h3></div><span class="expand-icon">+</span></div><div class="card-content"><p style="color: var(--text-mid); line-height: 1.6; font-size: 0.9rem;">24/7 technical fail-safe for front-end inquiries. Automated lead capture ensures zero inquiry leakage.</p><div class="gain-label">GAIN: ZERO-LEAD LEAKAGE</div></div></div>
-            <div class="solution-card" onclick="this.classList.toggle('active')"><div class="card-header"><div style="display:flex; align-items:center; gap:1.2rem;"><span class="mono" style="opacity:0.5;">03</span><h3>Compliance Guard</h3></div><span class="expand-icon">+</span></div><div class="card-content"><p style="color: var(--text-mid); line-height: 1.6; font-size: 0.9rem;">Automated oversight of certifications. Hard-locks operations before compliance failures can occur.</p><div class="gain-label">GAIN: PRE-EMPTIVE SAFETY</div></div></div>
-            <div class="solution-card" onclick="this.classList.toggle('active')"><div class="card-header"><div style="display:flex; align-items:center; gap:1.2rem;"><span class="mono" style="opacity:0.5;">04</span><h3>Field Superintendent</h3></div><span class="expand-icon">+</span></div><div class="card-content"><p style="color: var(--text-mid); line-height: 1.6; font-size: 0.9rem;">Sync field timesheets with ERP in real-time. Eliminates the multi-day labor-cost visibility lag.</p><div class="gain-label">GAIN: 95% PAYROLL LATENCY REDUCTION</div></div></div>
-            <div class="solution-card" onclick="this.classList.toggle('active')"><div class="card-header"><div style="display:flex; align-items:center; gap:1.2rem;"><span class="mono" style="opacity:0.5;">05</span><h3>Asset Sentry</h3></div><span class="expand-icon">+</span></div><div class="card-content"><p style="color: var(--text-mid); line-height: 1.6; font-size: 0.9rem;">Telemetry bridge for raw asset data. Triggers automated service orders based on engine hours/fault codes.</p><div class="gain-label">GAIN: 30% DOWNTIME REDUCTION</div></div></div>
-            <div class="solution-card" onclick="this.classList.toggle('active')"><div class="card-header"><div style="display:flex; align-items:center; gap:1.2rem;"><span class="mono" style="opacity:0.5;">06</span><h3>Supply Nexus</h3></div><span class="expand-icon">+</span></div><div class="card-content"><p style="color: var(--text-mid); line-height: 1.6; font-size: 0.9rem;">Logic-based replenishment engine. Automatically executes POs when site inventory hits critical thresholds.</p><div class="gain-label">GAIN: ZERO MATERIAL DELAYS</div></div></div>
-        </div>
-    </section>
-
-    <footer class="container">
-        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 2rem;">
+    <footer>
+        <div class="container footer-grid">
             <div>
-                <p class="mono" style="color:#fff; margin-bottom: 1rem;">Carrillo Dynamics</p>
-                <p style="color: var(--text-low); font-size: 0.8rem;">Chicago Industrial Corridor<br>Custom Solutions Only.</p>
+                <span class="footer-logo">CARRILLO DYNAMICS</span>
+                <p style="font-size: 0.8rem; line-height: 1.6;">Industrial Infrastructure Engineering.<br>Chicago, IL.</p>
             </div>
-            <p style="color: var(--text-low); font-size: 0.7rem; max-width: 400px; line-height: 1.6;">
-                © 2026 Engineering Flow. All data streams encrypted. By providing contact info, you agree to technical updates via SMS. Reply STOP to opt-out.
-            </p>
+            <div>
+                <p class="mono" style="margin-bottom: 1.5rem; color: #fff;">Navigation</p>
+                <p style="font-size: 0.8rem; margin-bottom: 0.8rem;"><a href="/cases/" style="color: inherit; text-decoration: none;">Case Studies</a></p>
+                <p style="font-size: 0.8rem; margin-bottom: 0.8rem;"><a href="/audit/" style="color: inherit; text-decoration: none;">Initiate Audit</a></p>
+            </div>
+            <div>
+                <p class="mono" style="margin-bottom: 1.5rem; color: #fff;">Legal</p>
+                <p style="font-size: 0.7rem; line-height: 1.6;">© 2026 Engineering Flow. By submitting an audit, you agree to technical SMS updates. Reply STOP to opt-out.</p>
+            </div>
         </div>
     </footer>
 
     <script>
-        const updateTimestamp = () => {
-            const options = { timeZone: 'America/Chicago', hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' };
-            const now = new Intl.DateTimeFormat('en-US', options).format(new Date());
-            document.getElementById('live-timestamp').innerText = `// [SYSTEM: ACTIVE] // ${now} CST`;
+        function updateClock() {
+            const now = new Date();
+            const time = now.toLocaleTimeString('en-US', { hour12: false, timeZone: 'America/Chicago' });
+            document.getElementById('clock').innerText = time + ' CST';
         }
-        setInterval(updateTimestamp, 1000); updateTimestamp();
+        setInterval(updateClock, 1000); updateClock();
     </script>
 </body>
 </html>
