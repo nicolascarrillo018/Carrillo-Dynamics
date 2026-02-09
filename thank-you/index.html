@@ -1,62 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=1">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>System Acknowledged | Carrillo Dynamics</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --bg: #0a0a0a;
-            --surface: #111111;
-            --accent: #007aff;
-            --border: #222222;
-            --text-high: #ffffff;
-            --text-mid: #a0a0a0;
-            --mono: 'JetBrains Mono', monospace;
-        }
-
-        body {
-            background-color: var(--bg);
-            color: var(--text-high);
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            overflow: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background-image: 
-                linear-gradient(var(--border) 1px, transparent 1px),
-                linear-gradient(90deg, var(--border) 1px, transparent 1px);
-            background-size: 40px 40px;
-            z-index: -1;
-            opacity: 0.3;
-        }
-
-        .status-container {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            padding: 4rem;
-            max-width: 500px;
-            text-align: center;
-            border-top: 4px solid var(--accent);
-        }
-
-        .mono { font-family: var(--mono); color: var(--accent); font-size: 0.8rem; margin-bottom: 1rem; text-transform: uppercase; }
-        
-        h1 { font-size: 2rem; font-weight: 800; margin-bottom: 1.5rem; }
-        p { color: var(--text-mid); line-height: 1.6; margin-bottom: 2rem; }
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Acknowledged | Carrillo Dynamics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #0a0a0a; --surface: #111111; --accent: #8833FF; --border: #222222; --text-high: #ffffff; --text-mid: #a0a0a0; --mono: 'JetBrains Mono', monospace; }
+        body { background-color: var(--bg); color: var(--text-high); font-family: 'Inter', sans-serif; margin: 0; display: flex; align-items: center; justify-content: center; height: 100vh; overflow: hidden; -webkit-font-smoothing: antialiased; }
+        body::before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 40px 40px; z-index: -1; opacity: 0.3; }
+        .status-container { background: var(--surface); border: 1px solid var(--border); padding: 4rem; max-width: 500px; text-align: center; border-top: 4px solid var(--accent); }
+        .mono { font-family: var(--mono); color: var(--accent); font-size: 0.8rem; margin-bottom: 1rem; text-transform: uppercase; }
+        h1 { font-size: 2rem; font-weight: 800; margin-bottom: 1.5rem; }
+        .btn-return { display: inline-block; margin-top: 2rem; color: #fff; text-decoration: none; font-family: var(--mono); font-size: 0.8rem; border: 1px solid var(--border); padding: 1rem 2rem; transition: 0.3s; }
+        .btn-return:hover { border-color: var(--accent); background: rgba(136, 51, 255, 0.1); }
+    </style>
+</head>
+<body>
+    <div class="status-container">
+        <p class="mono">// DATA TRANSFERRED</p>
+        <h1>System Acknowledged.</h1>
+        <p style="color: var(--text-mid);">Our engineering team has received your diagnostic report. We will review the friction points and contact you via secure channel.</p>
+        <a href="/" class="btn-return">RETURN_TO_HQ</a>
+    </div>
+</body>
+</html>
