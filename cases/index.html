@@ -29,30 +29,40 @@
         .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
         .mono { font-family: var(--mono); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.1em; color: var(--accent); }
 
+        /* Standardized Nav */
         nav { padding: 2.5rem 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
-        .nav-logo { font-weight: 800; text-decoration: none; color: white; font-size: 1rem; letter-spacing: 1px; }
-        .nav-link { color: var(--text-mid); text-decoration: none; font-size: 0.8rem; font-family: var(--mono); transition: 0.2s; }
-        .nav-link:hover { color: var(--accent); }
+        .nav-logo { font-weight: 800; text-decoration: none; color: white; font-size: 1.1rem; letter-spacing: 1px; }
+        .nav-link { 
+            color: #fff; 
+            text-decoration: none; 
+            font-size: 0.75rem; 
+            font-family: var(--mono); 
+            border: 1px solid var(--border); 
+            padding: 0.6rem 1.2rem;
+            transition: 0.2s; 
+        }
+        .nav-link:hover { border-color: var(--accent); background: rgba(0, 122, 255, 0.05); }
 
         .case-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin: 4rem 0; }
         .case-card { background: var(--surface); border: 1px solid var(--border); padding: 2.5rem; transition: 0.3s; }
-        .case-card:hover { border-color: var(--accent); transform: translateY(-5px); }
         
         .metric-box { border-left: 3px solid var(--accent); padding: 0.5rem 0 0.5rem 1.2rem; background: rgba(0, 122, 255, 0.05); margin-bottom: 2rem; }
         .metric-val { display: block; font-family: var(--mono); font-size: 1.6rem; color: #fff; font-weight: 700; }
-        .metric-label { font-size: 0.7rem; color: var(--text-mid); text-transform: uppercase; letter-spacing: 1px; margin-top: 0.2rem; }
-
-        h3 { font-size: 1.2rem; margin-bottom: 1rem; color: #fff; }
-        p { color: var(--text-mid); line-height: 1.6; font-size: 0.95rem; }
+        .metric-label { font-size: 0.7rem; color: var(--text-mid); text-transform: uppercase; letter-spacing: 1px; }
 
         .cta-section { text-align: center; padding: 8rem 0; border-top: 1px solid var(--border); }
-        .btn-cta { display: inline-block; background: #fff; color: #000; padding: 1.2rem 3rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; transition: 0.3s; }
-        .btn-cta:hover { background: var(--accent); color: #fff; }
+        .btn-cta { display: inline-block; background: #fff; color: #000; padding: 1.2rem 3rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; transition: 0.3s; border: 1px solid #fff; }
+        .btn-cta:hover { background: transparent; color: #fff; }
+
+        footer { padding: 6rem 0; border-top: 1px solid var(--border); background: #050505; }
     </style>
 </head>
 <body>
     <div class="container">
-        <nav><a href="/" class="nav-logo">CARRILLO DYNAMICS</a><a href="/" class="nav-link">← RETURN_TO_HQ</a></nav>
+        <nav>
+            <a href="/" class="nav-logo">CARRILLO DYNAMICS</a>
+            <a href="/" class="nav-link">RETURN_TO_HQ</a>
+        </nav>
 
         <section style="padding: 6rem 0 2rem;">
             <p class="mono">// PROVEN OUTCOMES</p>
@@ -70,8 +80,20 @@
 
         <div class="cta-section">
             <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">Stop Managing Friction. Start Engineering Flow.</h2>
-            <a href="/audit/" class="btn-cta">Execute Audit →</a>
+            <a href="/audit/" class="btn-cta">Initiate Audit →</a>
         </div>
     </div>
+
+    <footer class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 2rem;">
+            <div>
+                <p class="mono" style="color:#fff; margin-bottom: 1rem;">Carrillo Dynamics</p>
+                <p style="color: var(--text-low); font-size: 0.8rem;">Chicago Industrial Corridor<br>Custom Solutions Only.</p>
+            </div>
+            <p style="color: var(--text-low); font-size: 0.7rem; max-width: 400px; line-height: 1.6;">
+                © 2026 Engineering Flow. All data streams encrypted. By providing contact info, you agree to technical updates via SMS. Reply STOP to opt-out.
+            </p>
+        </div>
+    </footer>
 </body>
 </html>
