@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <style>
-        :root {
+:root {
             --bg: #0a0a0a;
             --surface: #111111;
             --accent: #007aff;
@@ -42,7 +42,7 @@
             opacity: 0.3;
         }
 
-        .container { max-width: 800px; margin: 0 auto; padding: 0 1.5rem; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
         .mono { font-family: var(--mono); color: var(--accent); letter-spacing: 0.05em; font-size: 0.8rem; text-transform: uppercase; }
 
         nav { padding: 2rem 0; display: flex; justify-content: space-between; align-items: center; }
@@ -50,22 +50,76 @@
         .nav-link { color: var(--text-mid); text-decoration: none; font-size: 0.9rem; transition: 0.2s; }
         .nav-link:hover { color: white; }
 
-        .audit-header { padding: 6rem 0 3rem; text-align: center; }
-        .audit-header h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; margin-top: 1rem; line-height: 1.1; }
-        .audit-header p { color: var(--text-mid); margin-top: 1.5rem; font-size: 1.1rem; line-height: 1.6; }
+        .audit-header { padding: 4rem 0 2rem; text-align: center; }
+        .audit-header h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; margin-top: 1rem; }
+        .audit-header p { max-width: 600px; margin: 1.5rem auto; color: var(--text-mid); }
 
-        .checklist-box { background: var(--surface); border: 1px solid var(--border); padding: 2.5rem; margin-bottom: 3rem; border-left: 4px solid var(--accent); }
-        .checklist-item { display: flex; gap: 1rem; margin-bottom: 1.2rem; align-items: flex-start; }
-        .check-icon { color: var(--accent); font-family: var(--mono); font-weight: bold; }
+        /* The Console Styling */
+        .diagnostic-form {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 3rem;
+            margin: 0 auto 5rem;
+            max-width: 750px;
+            border-top: 4px solid var(--accent);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
 
-        .form-container { background: #fff; border-radius: 4px; overflow: hidden; min-height: 800px; }
+        .form-group { margin-bottom: 2.5rem; }
         
-        footer { padding: 4rem 0; margin-top: 4rem; background: #050505; color: var(--text-mid); font-size: 0.8rem; text-align: center; border-top: 1px solid var(--border); }
+        label { 
+            display: block; 
+            font-family: var(--mono); 
+            color: var(--accent); 
+            font-size: 0.75rem; 
+            margin-bottom: 1rem; 
+            text-transform: uppercase;
+        }
+
+        input[type="text"], input[type="email"], select, textarea {
+            width: 100%;
+            background: #050505;
+            border: 1px solid var(--border);
+            padding: 1.2rem;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            border-radius: 0;
+            appearance: none;
+            box-sizing: border-box;
+        }
+
+        select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23007aff' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1.2rem center;
+        }
+
+        .checkbox-group { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+        .checkbox-item { display: flex; align-items: center; gap: 10px; color: var(--text-mid); font-size: 0.9rem; cursor: pointer; }
+        .checkbox-item input { accent-color: var(--accent); width: 18px; height: 18px; }
+
+        input:focus, select:focus, textarea:focus { border-color: var(--accent); outline: none; }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.5rem;
+            background: white;
+            color: black;
+            border: none;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .submit-btn:hover { background: var(--accent); color: white; }
+
+        footer { padding: 4rem 0; background: #050505; color: var(--text-mid); text-align: center; border-top: 1px solid var(--border); }
     </style>
 </head>
 <body>
-
-    <div class="container">
+<div class="container">
         <nav>
             <a href="/" class="nav-logo">CARRILLO DYNAMICS</a>
             <a href="/" class="nav-link">← Back to HQ</a>
@@ -74,96 +128,97 @@
         <div class="audit-header">
             <p class="mono">// 15-MINUTE SYSTEMIC DIAGNOSTIC</p>
             <h1>Identify Your Bottlenecks.</h1>
-            <p>
-                We isolate the friction points in your administrative assembly line. 
-                Submit your operational profile for a technical review.
-            </p>
+            <p>Submit your operational profile for a technical review. We will identify your friction points within 24 hours.</p>
         </div>
 
-        <div class="checklist-box">
-            <p class="mono" style="margin-bottom: 1.5rem; color: #fff;">// DIAGNOSTIC FOCUS:</p>
-            <div class="checklist-item">
-                <span class="check-icon">[+]</span>
-                <p style="margin: 0; color: #ccc;"><strong>Throughput Velocity:</strong> We identify where manual data entry is throttling your billing cycles.</p>
-            </div>
-            <div class="checklist-item">
-                <span class="check-icon">[+]</span>
-                <p style="margin: 0; color: #ccc;"><strong>Systemic Latency:</strong> We analyze the "dead time" between field execution and settlement.</p>
-            </div>
-        </div>
+        <div class="diagnostic-form">
+            <script type="text/javascript">var submitted=false;</script>
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {window.location='/thank-you/';}"></iframe>
 
-<div class="form-container" style="background: transparent; padding: 0;">
-            <form id="native-audit-form" 
-                  action="https://docs.google.com/forms/d/e/1FAIpQLSeYORu0sT_EQeYXGxizn_umuLRNONKEQRuWwGcOcKLASQCrEA/formResponse" 
+            <form action="https://docs.google.com/forms/d/e/1FAIpQLSeYORu0sT_EQeYXGxizn_umuLRNONKEQRuWwGcOcKLASQCrEA/formResponse" 
                   method="POST" 
-                  target="hidden_iframe"
+                  target="hidden_iframe" 
                   onsubmit="submitted=true;">
 
-                <div class="diagnostic-form">
-                    
-                    <div class="form-group">
-                        <label>// Weekly Manual Data Latency</label>
-                        <select name="entry.2069660095" required>
-                            <option value="" disabled selected>Select estimated hours...</option>
-                            <option value="O-5 Hours (Manageable)">0-5 Hours (Manageable)</option>
-                            <option value="6-15 Hours (Inefficient)">6-15 Hours (Inefficient)</option>
-                            <option value="16-40 Hours (One Full-Time Resource Lost)">16-40 Hours (One Full-Time Resource Lost)</option>
-                            <option value="40+ Hours (Critical Systemic Failure)">40+ Hours (Critical Systemic Failure)</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>// Primary Friction Point</label>
-                        <select name="entry.360325844" required>
-                            <option value="" disabled selected>Identify primary bottleneck...</option>
-                            <option value='Settlement Lag: Time delta between "Job Complete" and "Capital Realized"'>Settlement Lag (Job to Cash)</option>
-                            <option value="Data Ingestion: Manually extracting data from field documents/emails into core systems">Data Ingestion (Manual Entry)</option>
-                            <option value="Compliance Turbulence: Manually monitoring licenses, certifications, and risk-mitigation logs">Compliance Turbulence</option>
-                            <option value="Communication Silos: Lost revenue due to missed inquiries or slow response times">Communication Silos</option>
-                            <option value="Asset Utilization: Administrative friction preventing assets from being deployed at capacity">Asset Utilization</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>// Annual Financial Leakage (Estimated)</label>
-                        <select name="entry.1480765121" required>
-                            <option value="Under $25k">Under $25,000</option>
-                            <option value="$25k - $75k (Cost of one administrative resource)">$25,000 - $75,000</option>
-                            <option value="$75k - $150k (Multiple resource overlap)">$75,000 - $150,000</option>
-                            <option value="$150k+ (Major profit leak)">$150,000+</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>// The Single Point of Failure</label>
-                        <textarea name="entry.2001113340" rows="3" placeholder="If we could engineer the removal of ONE bottleneck tomorrow, what would it be?" required></textarea>
-                    </div>
-
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1rem;">
-                        <div class="form-group">
-                            <label>// Full Name</label>
-                            <input type="text" name="entry.1469877125" required>
-                        </div>
-                        <div class="form-group">
-                            <label>// Business Email</label>
-                            <input type="email" name="entry.376015793" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label>// Company Name</label>
-                        <input type="text" name="entry.1264214439" required>
-                    </div>
-
-                    <button type="submit" class="submit-btn">Execute Diagnostic →</button>
+                <div class="form-group">
+                    <label>// Weekly Manual Data Latency</label>
+                    <select name="entry.2069660095" required>
+                        <option value="" disabled selected>Select estimated hours...</option>
+                        <option value="O-5 Hours (Manageable)">0-5 Hours (Manageable)</option>
+                        <option value="6-15 Hours (Inefficient)">6-15 Hours (Inefficient)</option>
+                        <option value="16-40 Hours (One Full-Time Resource Lost)">16-40 Hours (One Full-Time Resource Lost)</option>
+                        <option value="40+ Hours (Critical Systemic Failure)">40+ Hours (Critical Systemic Failure)</option>
+                    </select>
                 </div>
-            </form>
 
-            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {window.location='/thank-you/';}"></iframe>
+                <div class="form-group">
+                    <label>// Primary Friction Point</label>
+                    <select name="entry.360325844" required>
+                        <option value="" disabled selected>Identify primary bottleneck...</option>
+                        <option value='Settlement Lag: Time delta between "Job Complete" and "Capital Realized"'>Settlement Lag (Job to Cash)</option>
+                        <option value="Data Ingestion: Manually extracting data from field documents/emails into core systems">Data Ingestion (Manual Entry)</option>
+                        <option value="Compliance Turbulence: Manually monitoring licenses, certifications, and risk-mitigation logs">Compliance Turbulence</option>
+                        <option value="Communication Silos: Lost revenue due to missed inquiries or slow response times">Communication Silos</option>
+                        <option value="Asset Utilization: Administrative friction preventing assets from being deployed at capacity.">Asset Utilization</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>// Core Management Infrastructure</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item"><input type="checkbox" name="entry.850091313" value="Legacy ERP/TMS (On-premise / Server-based)"> Legacy ERP/TMS</label>
+                        <label class="checkbox-item"><input type="checkbox" name="entry.850091313" value="Cloud-Native Management Suites (SaaS / Web-based)"> Cloud-Native SaaS</label>
+                        <label class="checkbox-item"><input type="checkbox" name="entry.850091313" value="Field Asset Telematics (Samsara, Motive, Procore, etc.)"> Field Telematics</label>
+                        <label class="checkbox-item"><input type="checkbox" name="entry.850091313" value="Manual Systems (Excel / Google Sheets / Physical Paper)"> Manual Systems</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>// Data Ingestion Method</label>
+                    <select name="entry.99889003" required>
+                        <option value="" disabled selected>Select input method...</option>
+                        <option value="Digital Attachments (PDFs / Invoices via Email)">Email / PDF Attachments</option>
+                        <option value="Mobile Capture (Field operators scanning via mobile apps)">Mobile Capture / Apps</option>
+                        <option value="Unstructured Media (Raw photos via Text/SMS)">Raw Photos / SMS</option>
+                        <option value="External Portals (Downloading data from third-party sources)">External Portals</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>// Estimated Annual Financial Leakage</label>
+                    <select name="entry.1480765121" required>
+                        <option value="Under $25k">Under $25,000</option>
+                        <option value="$25k - $75k (Cost of one administrative resource)">$25,000 - $75,000</option>
+                        <option value="$75k - $150k (Multiple resource overlap)">$75,000 - $150,000</option>
+                        <option value="$150k+ (Major profit leak)">$150,000+</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>// The Single Point of Failure</label>
+                    <textarea name="entry.2001113340" rows="3" placeholder="What specific task should we automate?" required></textarea>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <div class="form-group">
+                        <label>// Full Name</label>
+                        <input type="text" name="entry.1469877125" required>
+                    </div>
+                    <div class="form-group">
+                        <label>// Business Email</label>
+                        <input type="email" name="entry.376015793" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>// Company Name</label>
+                    <input type="text" name="entry.1264214439" required>
+                </div>
+
+                <button type="submit" class="submit-btn">Execute Diagnostic →</button>
+            </form>
         </div>
     </div>
-
-    <script>var submitted=false;</script>
 
     <footer>
         <div class="container">
