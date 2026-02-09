@@ -66,9 +66,30 @@
                 <div class="solution-card"><span class="mono-head" style="font-size: 0.7rem; opacity: 0.5;">05</span><h3>Asset Sentry</h3><p>Telemetry-driven service orders triggered by raw engine hours and diagnostic fault codes.</p><div class="gain-tag">30% DOWNTIME REDUCTION</div></div>
                 <div class="solution-card"><span class="mono-head" style="font-size: 0.7rem; opacity: 0.5;">06</span><h3>Supply Nexus</h3><p>Inventory replenishment logic that executes POs automatically based on live site burn rates.</p><div class="gain-tag">ZERO MATERIAL DELAYS</div></div>
             </div>
-            <div style="text-align: center; margin-top: 4rem;">
-    <a href="/cases/" class="btn" style="background: #ffffff; color: #000; border: 1px solid #ffffff; padding: 1.2rem 3rem; font-family: var(--mono); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s;">View System Results →</a>
+<div style="text-align: center; margin-top: 4rem;">
+    <a href="/cases/" class="btn-white-glow">View System Results →</a>
 </div>
+
+<style>
+    .btn-white-glow {
+        display: inline-block;
+        padding: 1.2rem 3rem;
+        background: #ffffff;
+        color: #000000;
+        text-decoration: none;
+        font-family: var(--mono);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        transition: 0.3s;
+        border: 1px solid #ffffff;
+    }
+    .btn-white-glow:hover {
+        background: transparent;
+        color: #ffffff;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+</style>
         </section>
         <section id="custom">
             <div class="custom-row">
@@ -85,9 +106,32 @@
                     <div class="deployment-item" style="border:none; margin-top: 1rem;"><span style="color: #fff; font-weight: 700;">Final Result</span><span style="color: #fff;">Frictionless Output</span></div>
                 </div>
             </div>
-            <div style="margin-top: 3rem;">
-    <a href="/audit/" class="btn" style="width: 100%; text-align: center; padding: 1.5rem 0; letter-spacing: 3px;">Initiate System Audit →</a>
+<div style="margin-top: 4rem; text-align: center;">
+    <a href="/audit/" class="btn-audit-fixed">Initiate System Audit →</a>
 </div>
+
+<style>
+    .btn-audit-fixed {
+        display: block; /* Takes up full width available for importance */
+        max-width: 450px; /* Prevents it from being too wide on desktop */
+        margin: 0 auto;
+        padding: 1.8rem 0; /* Huge vertical padding to stop the cramped look */
+        background: var(--accent);
+        color: #fff;
+        text-decoration: none;
+        font-family: var(--mono);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        transition: 0.3s;
+        border: 1px solid var(--accent);
+    }
+    .btn-audit-fixed:hover {
+        background: transparent;
+        color: var(--accent);
+        box-shadow: 0 0 30px rgba(136, 51, 255, 0.3);
+    }
+</style>
         </section>
     </div>
     <footer>
