@@ -36,7 +36,6 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Industrial Grid Background Overlay */
         body::before {
             content: "";
             position: fixed;
@@ -52,7 +51,6 @@
 
         .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
 
-        /* Utility */
         .mono { 
             font-family: var(--mono); 
             text-transform: uppercase; 
@@ -61,7 +59,6 @@
             color: var(--accent); 
         }
 
-        /* Section Labels */
         .section-label {
             display: block;
             font-size: 1.1rem; 
@@ -85,65 +82,65 @@
         .btn-secondary { border: 1px solid var(--text-low); color: var(--text-high); }
         .btn:hover { filter: brightness(1.2); }
 
-        /* Tech Stack Bar */
-.tech-stack {
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-top: 4rem;
-            font-family: var(--mono);
-            font-size: 0.9rem; /* Increased from 0.8rem */
-            font-weight: 500; /* Added weight */
-            color: var(--text-mid); /* Brighter than var(--text-low) */
-            align-items: center;
-            letter-spacing: 0.1em;
+        .tech-stack {
+            display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 4rem;
+            font-family: var(--mono); font-size: 0.9rem; font-weight: 500;
+            color: var(--text-mid); align-items: center; letter-spacing: 0.1em;
         }
-
-        .tech-stack span {
-            transition: color 0.3s ease;
-        }
-
-        /* Highlight the specific tech names */
-        .tech-stack span:not(:first-child) {
-            color: var(--text-high);
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2); /* Subtle glow */
-        }
-
-        .tech-stack span:first-child {
-            color: var(--accent); /* "SYSTEM COMPATIBILITY" stays blue */
-            opacity: 0.8;
-        }
+        .tech-stack span:not(:first-child) { color: var(--text-high); text-shadow: 0 0 10px rgba(255, 255, 255, 0.2); }
+        .tech-stack span:first-child { color: var(--accent); opacity: 0.8; }
 
         /* Pain Section */
         .pain-box { background: var(--surface); border-left: 4px solid #ff3b30; padding: 3rem; margin-top: 1rem; }
         .math-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-top: 2rem; }
-        .math-item h4 { color: #ff3b30; font-family: var(--mono); font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .math-item h4 { color: #ff3b30; font-family: var(--mono); font-size: 1.2rem; margin-bottom: 0.5rem; }
 
-        /* Solutions */
-        .solutions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1px; background: var(--border); margin-top: 2rem; border: 1px solid var(--border); }
-        .solution-card { background: var(--bg); padding: 3rem; height: 100%; display: flex; flex-direction: column; }
-        .solution-card h3 { margin: 1rem 0; font-size: 1.5rem; }
-        .solution-card p { color: var(--text-mid); flex-grow: 1; }
+        /* Solutions Grid Update */
+        .solutions-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+            gap: 2rem; 
+            margin-top: 2rem; 
+        }
+        .solution-card { 
+            background: var(--surface); 
+            padding: 2.5rem; 
+            border: 1px solid var(--border);
+            border-top: 4px solid var(--accent);
+            display: flex; 
+            flex-direction: column; 
+            transition: 0.3s;
+        }
+        .solution-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+        .solution-card h3 { margin: 1rem 0; font-size: 1.4rem; }
+        .solution-card p { color: var(--text-mid); font-size: 0.95rem; margin-bottom: 1.5rem; line-height: 1.6; }
+        .gain-label { 
+            margin-top: auto; 
+            padding-top: 1.5rem; 
+            border-top: 1px solid var(--border); 
+            font-family: var(--mono); 
+            font-size: 0.75rem; 
+            color: var(--accent); 
+        }
+
+        /* Custom Table Styling */
+        .deployment-table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; }
+        .deployment-table tr { border-bottom: 1px solid var(--border); }
+        .deployment-table td { padding: 1.2rem 0; font-size: 0.9rem; }
+        .deployment-table td:last-child { text-align: right; color: var(--accent); font-family: var(--mono); }
 
         /* Process */
         .process-row { display: grid; grid-template-columns: 80px 1fr; gap: 2rem; margin-bottom: 3rem; }
         .step-num { font-family: var(--mono); font-size: 2rem; color: var(--text-low); }
 
-        /* Footer */
         footer { padding: 4rem 0; background: #050505; color: var(--text-low); font-size: 0.9rem; }
         .footer-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; }
-        .compliance { font-size: 0.75rem; line-height: 1.6; }
-
-        @media (max-width: 768px) {
-            .footer-grid { grid-template-columns: 1fr; }
-            .tech-stack { justify-content: flex-start; }
-        }
     </style>
 </head>
 <body>
 
     <section class="container hero">
-        <p class="mono" id="live-timestamp">// [SYSTEM: ONLINE] // LOADING DATA STREAMS...</p>
+        <p class="mono" id="live-timestamp">// [SYSTEM: ONLINE] // LOADING...</p>
 
         <script>
             const updateTimestamp = () => {
@@ -162,7 +159,7 @@
         </script>
 
         <h1>Engineering Throughput,<br>Eliminating Friction.</h1>
-        <p>Field operations move in real-time. Back offices move at the speed of paper. That latency is a bottleneck on your capital. We build the digital infrastructure that synchronizes field execution with back-office settlement.</p>
+        <p>Field operations move in real-time. Back offices move at the speed of paper. We build the digital infrastructure that synchronizes field execution with back-office settlement.</p>
         
         <div class="btn-group">
             <a href="/audit/" class="btn btn-primary">Request Operational Audit</a>
@@ -171,13 +168,7 @@
 
         <div class="tech-stack">
             <span>// SYSTEM COMPATIBILITY:</span>
-            <span>ERP</span>
-            <span>CRM</span>
-            <span>TMS</span>
-            <span>SAMSARA</span>
-            <span>PROCORE</span>
-            <span>SERVICE TITAN</span>
-            <span>API NATIVE</span>
+            <span>ERP</span><span>CRM</span><span>TMS</span><span>SAMSARA</span><span>PROCORE</span><span>SERVICE TITAN</span><span>API NATIVE</span>
         </div>
     </section>
 
@@ -188,77 +179,96 @@
             <div class="math-grid">
                 <div class="math-item">
                     <h4>THROUGHPUT COLLAPSE</h4>
-                    <p>Manual data ingestion is a bottleneck. If your team is spending hours on "data entry," your revenue is trapped in Digital WIP (Work in Progress).</p>
+                    <p>Manual data ingestion is a bottleneck. If your team is spending hours on "data entry," your revenue is trapped in Digital WIP.</p>
                 </div>
                 <div class="math-item">
                     <h4>SETTLEMENT LATENCY</h4>
-                    <p>Non-standardized document capture creates a 48-hour lag in cash flow. We minimize the time between "Job Complete" and "Capital Realized."</p>
+                    <p>Non-standardized capture creates a 48-hour lag in cash flow. We minimize the time between "Job Complete" and "Capital Realized."</p>
                 </div>
                 <div class="math-item">
                     <h4>COMPLIANCE TURBULENCE</h4>
-                    <p>Administrative oversight on licenses, insurance, and certifications results in grounded assets and unbillable downtime.</p>
+                    <p>Administrative oversight on licenses and safety results in grounded assets and unbillable downtime.</p>
                 </div>
             </div>
-            <p style="margin-top: 2rem; color: var(--text-mid);">Logistics never sleeps. Neither do our bots. <strong>We plug the leaks.</strong></p>
         </div>
     </section>
 
     <section class="container">
         <p class="mono section-label">// MODULAR AUTOMATION SUITE</p>
-        <h2 style="font-size: 2.5rem; margin-top: 1rem; margin-bottom: 2rem;">High-Velocity Infrastructure</h2>
+        <h2 style="font-size: 3rem; margin-top: 1rem; margin-bottom: 3rem;">High-Velocity Infrastructure</h2>
         
         <div class="solutions-grid">
             <div class="solution-card">
-                <p class="mono">01</p>
+                <p class="mono">01 [ HIGH-VOLUME INGESTION ]</p>
                 <h3>The Universal Parser</h3>
-                <p>High-Volume Ingestion Module. Instantly extract unstructured data from BOLs, Field Logs, and Invoices. We normalize messy data and push it directly to your core management systems with zero human touch.</p>
+                <p>Instantly extract unstructured data from BOLs, Field Logs, and Invoices. We normalize messy data for zero-touch system updates.</p>
+                <div class="gain-label">GAIN: 100% Manual Entry Removal</div>
             </div>
 
             <div class="solution-card">
-                <p class="mono">02</p>
+                <p class="mono">02 [ REVENUE RECOVERY ]</p>
                 <h3>The Iron Dome</h3>
-                <p>Revenue & Lead Recovery. A 24/7 technical fail-safe for your front-end. Automated missed-call recovery and lead capture ensure no inquiry, whether a broker or a patient, ever slips through the cracks.</p>
+                <p>A 24/7 technical fail-safe. Automated missed-call recovery and lead capture ensures no inquiry ever slips through the cracks.</p>
+                <div class="gain-label">GAIN: Zero-Lead Leakage</div>
             </div>
 
             <div class="solution-card">
-                <p class="mono">03</p>
+                <p class="mono">03 [ RISK MITIGATION ]</p>
                 <h3>The Compliance Guard</h3>
-                <p>Risk Mitigation Engine. Automated oversight of certifications, insurance, and safety logs. The system monitors your entire partner and operator network, alerting you <strong>before</strong> a compliance failure halts your operations.</p>
+                <p>Automated oversight of certifications and safety logs. Alerts you before compliance failures halt your operations.</p>
+                <div class="gain-label">GAIN: Pre-Emptive Operational Safety</div>
+            </div>
+
+            <div class="solution-card">
+                <p class="mono">04 [ RESOURCE SYNC ]</p>
+                <h3>The Field Superintendent</h3>
+                <p>Real-time synchronization of field timesheets and project milestones with ERP/Payroll to stop multi-day labor cost lag.</p>
+                <div class="gain-label">GAIN: 95% Payroll Latency Reduction</div>
+            </div>
+
+            <div class="solution-card">
+                <p class="mono">05 [ TELEMETRY MIDDLEWARE ]</p>
+                <h3>The Asset Sentry</h3>
+                <p>Bridges raw telematics (engine hours, fault codes) into Asset Management software to trigger automated service orders.</p>
+                <div class="gain-label">GAIN: 30% Downtime Reduction</div>
+            </div>
+
+            <div class="solution-card">
+                <p class="mono">06 [ PROCUREMENT ORCHESTRATION ]</p>
+                <h3>The Supply Nexus</h3>
+                <p>Logic-based replenishment monitoring site consumption. Automatically executes POs when inventory hits critical thresholds.</p>
+                <div class="gain-label">GAIN: Optimized Cash Flow</div>
             </div>
         </div>
     </section>
 
-    <section class="container">
-        <p class="mono section-label">// Deployment Protocol</p>
-        <div style="margin-top: 2rem;">
-            <div class="process-row">
-                <div class="step-num">01</div>
-                <div>
-                    <h3>Diagnose</h3>
-                    <p>We audit your existing workflow to identify the highest points of data turbulence. We don't sell software; we solve bottlenecks.</p>
-                </div>
+    <section class="container" style="border-top: 1px solid var(--border);">
+        <p class="mono section-label">// BEYOND MODULAR</p>
+        <h2 style="font-size: 2.5rem; margin-top: 1rem;">Custom System Engineering</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4rem; margin-top: 3rem;">
+            <div>
+                <p style="color: var(--text-mid); line-height: 1.8; margin-bottom: 2rem;">
+                    We operate on high-velocity development sprints. Our goal is to move from diagnostic to deployment in under 30 days, minimizing systemic downtime. When off-the-shelf software hits its ceiling, we build the floor.
+                </p>
+                <ul style="list-style: none; font-family: var(--mono); color: var(--accent); font-size: 0.85rem;">
+                    <li style="margin-bottom: 1rem;">[+] PROPRIETARY API BRIDGING</li>
+                    <li style="margin-bottom: 1rem;">[+] LEGACY DATABASE MIGRATION</li>
+                    <li style="margin-bottom: 1rem;">[+] TELEMETRY NORMALIZATION</li>
+                </ul>
             </div>
-            <div class="process-row">
-                <div class="step-num">02</div>
-                <div>
-                    <h3>Integrate</h3>
-                    <p>We connect to your existing stack. No new "portals" for your team to learn. We sell outcomes, not hours.</p>
-                </div>
+            
+            <div style="background: var(--surface); padding: 2.5rem; border: 1px solid var(--border);">
+                <h3 style="font-size: 1.2rem; margin-bottom: 1rem; font-family: var(--mono);">// THE DEPLOYMENT CYCLE</h3>
+                <table class="deployment-table">
+                    <tr><td>Diagnostic Phase</td><td>3–5 DAYS</td></tr>
+                    <tr><td>Engineering Sprint</td><td>2–4 WEEKS</td></tr>
+                    <tr><td>System Sync/Launch</td><td>48–72 HOURS</td></tr>
+                </table>
+                <p style="margin-top: 2rem; font-size: 0.75rem; color: var(--text-low); font-style: italic;">
+                    *Custom builds are quoted following a Technical Audit.
+                </p>
             </div>
-            <div class="process-row">
-                <div class="step-num">03</div>
-                <div>
-                    <h3>Deploy</h3>
-                    <p>Hardened workflows are pushed to production. Your team stops doing data entry and starts managing the system.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="container">
-        <p class="mono section-label">// MISSION PROFILE</p>
-        <div style="max-width: 800px;">
-            <p style="font-size: 1.5rem;"><strong>Founded by an Engineer. Built for High-Stakes Environments.</strong><br>Based in the Chicago industrial corridor, Carrillo Dynamics applies Engineering and Economics principles to digital infrastructure. We serve asset-based fleets, industrial suppliers, and high-volume service providers who require <strong>Reliability over Hype.</strong></p>
         </div>
     </section>
 
@@ -267,11 +277,11 @@
             <div>
                 <p style="color: white; font-weight: 700;">Carrillo Dynamics - Infrastructure Engineering</p>
                 <p>Chicago, IL</p>
-                <p>Email: engineering@carrillodynamics.com</p>
+                <p>engineering@carrillodynamics.com</p>
                 <p style="margin-top: 1rem;">&copy; 2026. Custom Solutions Only.</p>
             </div>
             <div class="compliance">
-                <p><strong>Privacy & SMS:</strong> By providing your phone number, you agree to receive text messages from Carrillo Dynamics for audit scheduling and technical updates. Message and data rates may apply. Message frequency varies. <strong>Reply STOP to opt-out.</strong> We value your operational security; your data is never sold to third-party marketing lists.</p>
+                <p><strong>Privacy & SMS:</strong> By providing your phone number, you agree to receive text messages for audit scheduling and technical updates. Message and data rates may apply. <strong>Reply STOP to opt-out.</strong> Your data is never sold to third-party marketing lists.</p>
             </div>
         </div>
     </footer>
