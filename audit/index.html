@@ -19,27 +19,31 @@
         nav { padding: 2.5rem 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
         .nav-logo { font-weight: 800; font-size: 1.1rem; text-decoration: none; color: #fff; letter-spacing: -0.5px; }
         
-        /* --- BUTTONS (Unified Style) --- */
+        /* --- BUTTONS --- */
         .btn { padding: 0.8rem 1.5rem; background: var(--accent); color: #fff; text-decoration: none; font-weight: 700; font-family: var(--mono); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; border: 1px solid var(--accent); cursor: pointer; display: inline-block; }
         .btn:hover { background: transparent; color: var(--accent); }
-        .btn-full { width: 100%; text-align: center; padding: 1.2rem 0; }
+        .btn-full { width: 100%; text-align: center; padding: 1.2rem 0; font-size: 1rem; }
 
         /* --- AUDIT SPECIFIC STYLES --- */
         .audit-header { padding: 8rem 0 4rem; text-align: center; }
         .audit-header h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; margin-top: 1.5rem; letter-spacing: -0.04em; line-height: 1.1; }
+        .audit-header p { color: var(--text-mid); max-width: 600px; margin: 1.5rem auto 0; font-size: 1.1rem; }
         
         .diagnostic-form { background: var(--surface); border: 1px solid var(--border); padding: 4rem; margin: 0 auto 8rem; max-width: 800px; position: relative; }
         .diagnostic-form::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--accent); }
         
+        .section-break { margin: 3rem 0 2rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem; color: var(--text-mid); font-family: var(--mono); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; }
+        
         .form-group { margin-bottom: 2.5rem; }
         label.field-label { display: block; font-family: var(--mono); color: #ffffff; font-size: 0.8rem; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1.5px; border-left: 3px solid var(--accent); padding-left: 12px; }
-        
+        .field-desc { display: block; font-size: 0.85rem; color: var(--text-mid); margin: -0.5rem 0 1rem 0; line-height: 1.4; }
+
         input[type="text"], input[type="email"], select, textarea { width: 100%; background: #000000; border: 1px solid var(--border); padding: 1.2rem; color: white; font-family: 'Inter', sans-serif; font-size: 1rem; border-radius: 0; appearance: none; box-sizing: border-box; transition: border-color 0.3s ease; }
         input:focus, select:focus, textarea:focus { border-color: var(--accent); outline: none; background: #050505; }
         
-        .checkbox-group { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 0.5rem; }
-        .checkbox-item { display: flex; align-items: center; gap: 12px; color: var(--text-mid); font-size: 0.9rem; cursor: pointer; transition: 0.2s; }
-        .checkbox-item:hover { color: #fff; }
+        .checkbox-group { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-top: 0.5rem; }
+        .checkbox-item { display: flex; align-items: center; gap: 12px; color: var(--text-mid); font-size: 0.95rem; cursor: pointer; transition: 0.2s; background: #000; padding: 1rem; border: 1px solid var(--border); }
+        .checkbox-item:hover { color: #fff; border-color: var(--accent); }
         .checkbox-item input { accent-color: var(--accent); width: 18px; height: 18px; cursor: pointer; }
 
         /* --- FOOTER (FROM HOME PAGE) --- */
@@ -58,6 +62,7 @@
         <div class="audit-header">
             <span class="mono-head">// Infrastructure Diagnostic Console</span>
             <h1>Operational Audit</h1>
+            <p>We isolate systemic friction in high-stakes environments. Identify leaks in your administrative assembly line.</p>
         </div>
 
         <div class="diagnostic-form">
@@ -66,8 +71,11 @@
             
             <form action="https://docs.google.com/forms/d/e/1FAIpQLSeYORu0sT_EQeYXGxizn_umuLRNONKEQRuWwGcOcKLASQCrEA/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;">
                 
+                <div class="section-break">// 01. Quantify Systemic Friction</div>
+
                 <div class="form-group">
                     <label class="field-label">Weekly Manual Data Latency</label>
+                    <span class="field-desc">Hours per week spent manually processing data, inputting logs, or normalizing formats.</span>
                     <select name="entry.2069660095" required>
                         <option value="" disabled selected>Select estimated hours...</option>
                         <option value="O-5 Hours (Manageable)">0-5 Hours (Manageable)</option>
@@ -79,6 +87,7 @@
 
                 <div class="form-group">
                     <label class="field-label">Primary Friction Point</label>
+                    <span class="field-desc">Where is the bottleneck costing you the most in operational margin?</span>
                     <select name="entry.360325844" required>
                         <option value="" disabled selected>Identify primary bottleneck...</option>
                         <option value='Settlement Lag: Time delta between "Job Complete" and "Capital Realized"'>Settlement Lag (Job to Cash)</option>
@@ -90,9 +99,89 @@
                 </div>
 
                 <div class="form-group">
+                    <label class="field-label">Estimated Annual Financial Leakage</label>
+                    <span class="field-desc">Consider labor costs, fines, lost revenue opportunities, and capital interest.</span>
+                    <select name="entry.1480765121" required>
+                        <option value="" disabled selected>Select estimated loss...</option>
+                        <option value="Under $25k">Under $25k</option>
+                        <option value="$25k - $75k">$25k - $75k</option>
+                        <option value="$75k - $250k">$75k - $250k</option>
+                        <option value="$250k+ (Immediate Intervention Required)">$250k+ (Immediate Intervention Required)</option>
+                    </select>
+                </div>
+
+                <div class="section-break">// 02. Technical Infrastructure</div>
+
+                <div class="form-group">
                     <label class="field-label">Core Management Infrastructure</label>
+                    <span class="field-desc">Check all that apply.</span>
                     <div class="checkbox-group">
-                        <label class="checkbox-item"><input type="checkbox" name="entry.850091313" value="Legacy ERP/TMS (On-premise / Server-based)"> Legacy ERP</label>
-                        <label class="checkbox-item"><input type="checkbox" name="entry.850091313" value="Cloud-Native Management Suites (SaaS / Web-based)"> Cloud SaaS</label>
-                        <label class="checkbox-item"><input type="checkbox" name="entry.850091313" value="Field Asset Telematics (Samsara, Motive, Procore, etc.)"> Field Telematics</label>
-                        <label class="checkbox-item"><input type="checkbox" name="entry.85009
+                        <label class="checkbox-item"><input type="checkbox" name="entry.850091313" value="Legacy ERP/TMS (On-premise / Server-based)"> Legacy ERP/TMS (On-premise / Server-based)</label>
+                        <label class="checkbox-item"><input type="checkbox" name="entry.850091313" value="Cloud-Native Management Suites (SaaS / Web-based)"> Cloud-Native Management Suites (SaaS / Web-based)</label>
+                        <label class="checkbox-item"><input type="checkbox" name="entry.850091313" value="Field Asset Telematics (Samsara, Motive, Procore, etc.)"> Field Asset Telematics (Samsara, Motive, Procore, etc.)</label>
+                        <label class="checkbox-item"><input type="checkbox" name="entry.850091313" value="Manual Systems (Excel / Google Sheets / Physical Paper)"> Manual Systems (Excel / Google Sheets / Physical Paper)</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="field-label">Primary Data Ingestion Method</label>
+                    <span class="field-desc">How does raw field data currently enter your back office?</span>
+                    <select name="entry.99889003" required>
+                        <option value="" disabled selected>Select input method...</option>
+                        <option value="Digital Attachments (PDFs / Invoices via Email)">Digital Attachments (PDFs / Invoices via Email)</option>
+                        <option value="Mobile Capture (Field operators scanning via mobile apps)">Mobile Capture (Field operators scanning via mobile apps)</option>
+                        <option value="Unstructured Media (Raw photos via Text/SMS)">Unstructured Media (Raw photos via Text/SMS)</option>
+                        <option value="External Portals (Downloading data from third-party sources)">External Portals</option>
+                    </select>
+                </div>
+
+                <div class="section-break">// 03. Strategic Alignment</div>
+
+                <div class="form-group">
+                    <label class="field-label">The Single Point of Failure</label>
+                    <span class="field-desc">If we could automate ONE task tomorrow, what would it be?</span>
+                    <textarea name="entry.2001113340" rows="4" placeholder="Be specific (e.g. 'I want unstructured field logs to automatically update my financial ledger')" required></textarea>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <div class="form-group">
+                        <label class="field-label">Full Name</label>
+                        <input type="text" name="entry.1469877125" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="field-label">Business Email</label>
+                        <input type="email" name="entry.376015793" required>
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 3.5rem;">
+                    <label class="field-label">Company Name</label>
+                    <input type="text" name="entry.1264214439" required>
+                </div>
+
+                <button type="submit" class="btn btn-full">Execute Diagnostic →</button>
+            
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container footer-grid">
+            <div>
+                <span style="color: #fff; font-weight: 800; margin-bottom: 1.5rem; display: block;">CARRILLO DYNAMICS</span>
+                <p style="font-size: 0.8rem; line-height: 1.6;">Industrial Engineering.<br>Chicago, IL.</p>
+            </div>
+            <div>
+                <span class="mono-head" style="margin-bottom: 1.5rem; color: #fff; font-size: 0.7rem;">Navigation</span>
+                <p style="font-size: 0.8rem; margin-bottom: 0.8rem;"><a href="/cases/" style="color: inherit; text-decoration: none;">Case Studies</a></p>
+                <p style="font-size: 0.8rem; margin-bottom: 0.8rem;"><a href="/audit/" style="color: inherit; text-decoration: none;">Initiate Audit</a></p>
+            </div>
+            <div>
+                <span class="mono-head" style="margin-bottom: 1.5rem; color: #fff; font-size: 0.7rem;">Legal</span>
+                <p style="font-size: 0.7rem; line-height: 1.6;">© 2026 Engineering Flow. All data encrypted. Reply STOP to opt-out.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
