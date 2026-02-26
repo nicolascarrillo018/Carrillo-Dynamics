@@ -96,7 +96,7 @@
                 </div>
 
                 <button type="submit" id="submitBtn" class="submit-btn">Run Diagnostic Sequence →</button>
-                <div id="successMsg">// TRANSMISSION SUCCESSFUL. ANALYSIS IN PROGRESS.</div>
+                <div id="successMsg">// TRANSMISSION SUCCESSFUL. REDIRECTING...</div>
             </form>
         </div>
     </div>
@@ -144,6 +144,7 @@
             btn.innerText = "PROCESSING DATA...";
             btn.style.background = "var(--accent)";
             btn.style.color = "white";
+            btn.disabled = true;
 
             var formData = new FormData(this);
             var object = {};
@@ -158,11 +159,14 @@
             .then(response => {
                 success.style.display = "block";
                 btn.innerText = "SEQUENCE COMPLETE";
-                btn.disabled = true;
+                // Redirect to the thank you page after data is sent
+                window.location.href = "/thank-you/";
             })
             .catch(error => {
                 console.error('Error:', error);
                 btn.innerText = "TRANSMISSION FAILED";
+                btn.disabled = false;
+                btn.style.background = "red";
             });
         });
 
