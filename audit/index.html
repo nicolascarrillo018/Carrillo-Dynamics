@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="icon" type="image/x-icon" href="/favicon.ico?v=1">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=1">
     <link rel="apple-touch-icon" href="/CD-logo.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,6 +30,7 @@
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
         .submit-btn { width: 100%; padding: 2rem; background: #ffffff; color: #000; border: none; font-weight: 800; text-transform: uppercase; letter-spacing: 3px; cursor: pointer; transition: 0.3s; font-family: var(--mono); font-size: 1.2rem; }
         .submit-btn:hover { background: var(--accent); color: white; }
+        #successMsg { display:none; color: var(--accent); font-family: var(--mono); margin-top: 2rem; text-align: center; font-weight: 700; }
 
         footer { padding: 6rem 0; background: #000; color: var(--text-mid); border-top: 1px solid var(--border); }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; }
@@ -55,103 +56,50 @@
             <span class="mono-head">// Infrastructure Diagnostic Console</span>
             <h1>Operational Audit</h1>
             <p style="color: var(--text-mid); margin-top: 1rem; font-size: 1rem; font-style: italic;">
-                Input your current operational parameters below to generate a friction profile.
+                Input your current operational parameters below to trigger a live systemic analysis.
             </p>
         </div>
         <div class="diagnostic-form">
-            <script type="text/javascript">var submitted=false;</script>
-            <form action="https://docs.google.com/forms/d/e/1FAIpQLSeYORu0sT_EQeYXGxizn_umuLRNONKEQRuWwGcOcKLASQCrEA/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;">
+            <form id="auditForm" action="https://YOUR_COOLIFY_N8N_URL/webhook-test/ID" method="POST">
                 
-                <div class="section-break">// 01. Friction Quant</div>
+                <div class="section-break">// 01. Operational Identity</div>
                 
-                <div class="form-group">
-                    <label class="field-label">Weekly Manual Data Latency</label>
-                    <span class="field-desc">The estimated total hours per week your team spends manually entering data, reconciling spreadsheets, or chasing missing documentation.</span>
-                    <select name="entry.2069660095" required>
-                        <option value="O-5 Hours (Manageable)">0-5 Hours (Manageable)</option>
-                        <option value="6-15 Hours (Inefficient)">6-15 Hours (Inefficient)</option>
-                        <option value="16-40 Hours (One Full-Time Resource Lost)">16-40 Hours (One Full-Time Resource Lost)</option>
-                        <option value="40+ Hours (Critical Systemic Failure)">40+ Hours (Critical Systemic Failure)</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label class="field-label">Primary Friction Point</label>
-                    <span class="field-desc">Identify the core bottleneck currently preventing your infrastructure from reaching maximum yield.</span>
-                    <select name="entry.360325844" required>
-                        <option value='Settlement Lag: Time delta between "Job Complete" and "Capital Realized"'>Settlement Lag (Job to Cash)</option>
-                        <option value="Data Ingestion: Manually extracting data from field documents/emails into core systems">Data Ingestion (Manual Entry)</option>
-                        <option value="Compliance Turbulence: Manually monitoring licenses, certifications, and risk-mitigation logs">Compliance Turbulence</option>
-                        <option value="Communication Silos: Lost revenue due to missed inquiries or slow response times">Communication Silos</option>
-                        <option value="Asset Utilization: Administrative friction preventing assets from being deployed at capacity.">Asset Utilization</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label class="field-label">Estimated Annual Financial Leakage</label>
-                    <span class="field-desc">Aggregate loss resulting from administrative errors, billing delays, overhead, and underutilized field assets.</span>
-                    <select name="entry.1480765121" required>
-                        <option value="Under $25k">Under $25k</option>
-                        <option value="$25k - $75k">$25k - $75k</option>
-                        <option value="$75k - $250k">$75k - $250k</option>
-                        <option value="$250k+ (Immediate Intervention Required)">$250k+</option>
-                    </select>
-                </div>
-
-                <div class="section-break">// 02. Infrastructure</div>
-
-                <div class="form-group">
-                    <label class="field-label">Core Management System</label>
-                    <span class="field-desc">The primary software environment or method used to log and track your daily operational data.</span>
-                    <select name="entry.850091313" required>
-                        <option value="Legacy ERP/TMS (On-premise / Server-based)">Legacy ERP/TMS</option>
-                        <option value="Cloud-Native Management Suites (SaaS / Web-based)">Cloud SaaS</option>
-                        <option value="Field Asset Telematics (Samsara, Motive, Procore, etc.)">Field Telematics</option>
-                        <option value="Manual Systems (Excel / Google Sheets / Physical Paper)">Manual Systems</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label class="field-label">Primary Data Ingestion Method</label>
-                    <span class="field-desc">How information from field operations, vendors, or partners currently enters your primary management system.</span>
-                    <select name="entry.99889003" required>
-                        <option value="Digital Attachments (PDFs / Invoices via Email)">Email / PDFs</option>
-                        <option value="Mobile Capture (Field operators scanning via mobile apps)">Mobile Apps</option>
-                        <option value="Unstructured Media (Raw photos via Text/SMS)">SMS / Photos</option>
-                        <option value="External Portals (Downloading data from third-party sources)">External Portals</option>
-                    </select>
-                </div>
-
-                <div class="section-break">// 03. Context</div>
-
-                <div class="form-group">
-                    <label class="field-label">The Single Point of Failure</label>
-                    <span class="field-desc">If one administrative process could be fully automated by tomorrow, which one would yield the highest ROI?</span>
-                    <textarea name="entry.2001113340" rows="4" placeholder="Briefly describe the bottleneck..." required></textarea>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="field-label">Full Name</label>
+                        <input type="text" name="fullName" placeholder="Nicolás Carrillo" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="field-label">Company Name</label>
+                        <input type="text" name="companyName" placeholder="Ivan's Roofing" required>
+                    </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label class="field-label">Full Name</label>
-                        <input type="text" name="entry.1469877125" required>
+                        <label class="field-label">Business Email</label>
+                        <input type="email" name="email" placeholder="ivan@roofing.com" required>
                     </div>
                     <div class="form-group">
-                        <label class="field-label">Business Email</label>
-                        <input type="email" name="entry.376015793" required>
+                        <label class="field-label">Direct Phone (Cell)</label>
+                        <span class="field-desc" style="margin-bottom: 0.5rem;">Required for diagnostic confirmation via SMS.</span>
+                        <input type="tel" name="phone" placeholder="(219) 555-5555" required>
                     </div>
                 </div>
 
-                <div class="form-group" style="margin-bottom: 3.5rem;">
-                    <label class="field-label">Company Name</label>
-                    <input type="text" name="entry.1264214439" required>
+                <div class="section-break">// 02. Friction Analysis (AI Ingestion)</div>
+
+                <div class="form-group">
+                    <label class="field-label">Systemic Bottleneck Description</label>
+                    <span class="field-desc">Describe your primary operational leak. (Accepts English or Spanish). AI will categorize and translate the friction profile.</span>
+                    <textarea name="problemDescription" rows="5" placeholder="Example: We are losing leads because my field team can't answer calls while on a roof..." required></textarea>
                 </div>
 
-                <button type="submit" class="submit-btn">Submit Diagnostic →</button>
+                <button type="submit" id="submitBtn" class="submit-btn">Run Diagnostic Sequence →</button>
+                <div id="successMsg">// TRANSMISSION SUCCESSFUL. ANALYSIS IN PROGRESS.</div>
             </form>
         </div>
     </div>
-    
-    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {window.location='/thank-you/';}"></iframe>
 
     <footer>
         <div class="container">
@@ -186,21 +134,51 @@
         </div>
     </footer>
 
-    <script type="text/javascript">
-  (function(d, t) {
-      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-      v.onload = function() {
-        window.voiceflow.chat.load({
-          verify: { projectID: '698bb70da7709993f962868d' },
-          url: 'https://general-runtime.voiceflow.com',
-          versionID: 'production',
-          voice: {
-            url: "https://runtime-api.voiceflow.com"
-          }
+    <script>
+        document.getElementById('auditForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            var btn = document.getElementById('submitBtn');
+            var success = document.getElementById('successMsg');
+            
+            btn.innerText = "PROCESSING DATA...";
+            btn.style.background = "var(--accent)";
+            btn.style.color = "white";
+
+            var formData = new FormData(this);
+            var object = {};
+            formData.forEach((value, key) => object[key] = value);
+            var json = JSON.stringify(object);
+
+            fetch(this.action, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: json
+            })
+            .then(response => {
+                success.style.display = "block";
+                btn.innerText = "SEQUENCE COMPLETE";
+                btn.disabled = true;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                btn.innerText = "TRANSMISSION FAILED";
+            });
         });
-      }
-      v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
-  })(document, 'script');
-</script>
+
+        // Voiceflow Widget Script
+        (function(d, t) {
+            var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+            v.onload = function() {
+                window.voiceflow.chat.load({
+                    verify: { projectID: '698bb70da7709993f962868d' },
+                    url: 'https://general-runtime.voiceflow.com',
+                    versionID: 'production',
+                    voice: { url: "https://runtime-api.voiceflow.com" }
+                });
+            }
+            v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+        })(document, 'script');
+    </script>
 </body>
 </html>
